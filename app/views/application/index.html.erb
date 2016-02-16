@@ -17,9 +17,10 @@
     
     -->
     <!-- stylesheets-->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700" rel="stylesheet">
-    <link href="styles/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <%=  stylesheet_link_tag ('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700') %>
+    <%=  stylesheet_link_tag 'font-awesome.min' %>
+    <%=  stylesheet_link_tag 'main' %>
+
   </head>
   <body>
     <header class="header navbar navbar-default navbar-fixed-top">
@@ -43,7 +44,7 @@
     <div class="main-content">
       <div id="banner" class="banner">
         <div class="container">
-          <h2>Responsive, Multi-Layout, Web App</h2><a href="javascript:;" target="_blank" class="btn btn-download btn-lg">Download</a><br><img src="assets/images/preview-simple.png" alt="preview" class="preview-img">
+          <h2>Responsive, Multi-Layout, Web App</h2><a href="javascript:;" target="_blank" class="btn btn-download btn-lg">Download</a><br><img src="<%= asset_path('preview-simple.png') %>" alt="preview" class="preview-img">
         </div>
       </div>
       <div id="features" class="features">
@@ -82,7 +83,7 @@
                   <h2>Responsive Design</h2>
                   <p>Auto adjust layout according to screen size. <br>Looks good on desktop, tablet and phone.</p>
                 </div>
-                <div class="detail-img"><img src="assets/images/preview-responsive.png" alt="img"></div>
+                <div class="detail-img"><img src="<%= asset_path('preview-responsive.png') %>" alt="img"></div>
               </div>
             </div>
           </li>
@@ -93,7 +94,7 @@
                   <h2>Multiple Layouts</h2>
                   <p>Wide and boxed layout.<br>vertical and horizaon navigation，<br>toggle for fixed top header and sidebar menu.</p>
                 </div>
-                <div class="detail-img"><img src="assets/images/preview-layouts.png" alt="img"></div>
+                <div class="detail-img"><img src="<%= asset_path('preview-layouts.png') %>" alt="img"></div>
               </div>
             </div>
           </li>
@@ -104,7 +105,7 @@
                   <h2>Web App</h2>
                   <p>Single Page Application Built with AngularJS. <br>Fully AJAX powered, never refresh the entire page again.<br>Faster, smoother.</p>
                 </div>
-                <div class="detail-img"><img src="assets/images/preview-app.png" alt="img"></div>
+                <div class="detail-img"><img src="<%= asset_path('preview-app.png') %>" alt="img"></div>
               </div>
             </div>
           </li>
@@ -147,10 +148,10 @@
     
     -->
     <!-- Scripts-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="scripts/jquery.min.js"><\/script>')</script>
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/jquery.smooth-scroll.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <%= javascript_include_tag ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') %>
+    <%= javascript_include_tag 'bootstrap.min' %>
+    <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
+    <%= javascript_include_tag 'main' %>
+    <%= javascript_include_tag 'jquery.min' %>
   </body>
 </html>
