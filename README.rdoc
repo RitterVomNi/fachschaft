@@ -1,0 +1,38 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Einige interessante Infos:
+
+* Nutzt Devise (https://github.com/plataformatec/devise) und Rolify (https://github.com/RolifyCommunity/rolify)
+wie mit Myles besprochen.  Weitere Informationen zu
+diesen Gems gibt's in den Slides von Michael.
+
+* Ich habe auch Bootstrap schon mal ins Gemfile geschoben, da wir mit Myles abgemacht hatten darin das Admininterface zu
+realisieren. Nur so zur Info: Ich habe mich für die Sass-Version entschieden, da Rails von Hause aus, sowieso Sass nutzt.
+Ich habe auch ein Styling für Devise mit Bootstrap gefunden. Das steht auch im Gemfile.
+
+
+
+* Es empfiehlt sich ein bundle update durchzuführen. Bcyrpt (das nutzt Devise um Passwörter zur verschlüsseln) arbeitet
+wohl nicht immer gut mit der vorinstallierten Version von Nokogiri zusammen.
+
+* Ich habe einiges an Gems in die Development Kategorie gepackt: FactoryGirl, BetterErrors usw.
+
+* Normalerweise werden alle Stylesheets im Ordner Stylesheets in application.css zu einem Style zusammengefasst. Dieses
+Verhalten habe ich ausgestellt, denn wir wollen nicht das Bootstrap für das Admin Interface auf der normalen
+Seite haben. Habe ein Layout hinzugefügt, das für Devise automatisch die Admin.css Datei lädt (und diese lädt mittels
+Sass automatisch Bootstrap und Co). Dummerweise musste ich Rails dazu anregen, die Datei vorzukompilieren
+siehe config/initializers/assets.rb
+
+* Ich habe einen DummyController geschrieben dessen index action als root path geroutet ist. Devise braucht einen Root
+und da es bisher keinen Controller gibt, habe ich einen geschrieben
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
