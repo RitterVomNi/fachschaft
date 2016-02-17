@@ -31,13 +31,13 @@
           </div>
           <div id="navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#home">Startseite</a></li>
+              <li><a href="#">Startseite</a></li>
               <li><a href="#banner">Über uns</a></li>
-              <li><a href="#features">Auslandsberichte</a></li>
-              <li><a href="#details">Events</a></li>
-              <li><a href="#testimonials">Hochschulpolitik</a></li>
-              <li><a href="#testimonials">Kalender</a></li>
-              <li><a href="#testimonials">Nachzügler</a></li>
+              <li><a href="#">Auslandsberichte</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Hochschulpolitik</a></li>
+              <li><a href="#">Kalender</a></li>
+              <li><a href="#">Nachzügler</a></li>
             </ul>
           </div>
         </div>
@@ -45,6 +45,7 @@
     </header>
     <div class="main-content">
       <div id="banner" class="banner">
+        <div class="logo"> </div>
       </div>
     <div class="ugc">
       <br>
@@ -63,7 +64,6 @@
     <!-- Scripts-->
     <%= javascript_include_tag ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') %>
     <script>window.jQuery || document.write('<script src="<%= asset_path('jquery.min.js') %>"><\/script>')</script>
-    <%= javascript_include_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
     <%= javascript_include_tag 'main' %>
 
