@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 #Bootstrap
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 #Devise
 gem 'devise'
 gem 'devise-bootstrap-views'
