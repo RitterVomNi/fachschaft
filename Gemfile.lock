@@ -54,6 +54,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.1)
     capybara (2.5.0)
@@ -253,6 +254,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bower-rails
   byebug
   capybara
   coffee-rails (~> 4.1.0)

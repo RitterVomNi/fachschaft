@@ -7,23 +7,29 @@
 <head>
   <meta charset="utf-8">
   <!-- if IEmeta(http-equiv='X-UA-Compatible', about='IE=edge,chrome=1')
-  -->
+-->
   <title>Fachschaft</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- if lt IE 9
+
   script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
   script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
 
   -->
+
+
+
   <!-- stylesheets-->
   <%=  stylesheet_link_tag ('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700') %>
   <%=  stylesheet_link_tag 'font-awesome.min' %>
   <%=  stylesheet_link_tag 'main' %>
-  <%=  stylesheet_link_tag 'themify-icons' %>
+  <%=  stylesheet_link_tag 'themify-icons' %>-->
+
 
 </head>
 <body>
@@ -57,17 +63,15 @@
   <footer class="footer text-center">© Copyright Fachschaft Wirtschaft der FH Münster</footer>
   <!--if lt IE 8
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-
-
-
-  -->
-  <!-- Scripts-->
-  <%= javascript_include_tag 'ui' %>
+-->
+<!-- Scripts
   <%= javascript_include_tag ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') %>
   <script>window.jQuery || document.write('<script src="<%= asset_path('jquery.min.js') %>"><\/script>')</script>
   <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
   <%= javascript_include_tag 'main' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'ui' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+
 
 </body>
 </html>

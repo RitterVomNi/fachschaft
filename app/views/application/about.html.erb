@@ -1,54 +1,83 @@
 <div class="panel panel-default" style="margin:0 5px 0 5px">
   <div class="panel-heading"><strong><span class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
   <div class="panel-body">
-    <div class="grid-structure">
-      <div class="row">
-        <% @users.each do |f| %>
-        <div class="col-md-6">
-          <div class="widget-container" style="border: solid 1px; margin-bottom:5px">
-            <div class="panel panel-profile">
-              <div class="panel-heading bg-danger clearfix">
-                  <img src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80" style="float:left">
-                <h3 class="ng-binding" style="float:left; margin-left: 30px"><%= f.firstName %> <%=f.lastName%></h3>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <i class="ti-user"></i>
-                  Team
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-comments"></i>
-                  Mitglied seit
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-book"></i>
-                  Studiengang
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-announcement"></i>
-                  Ämter
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-facebook"></i>
-                  <%= f.facebook %>
-                </li>
-              </ul>
-            </div>
+    <ul class="nav nav-pills" id="#">
+      <li class="active"><a data-toggle="pill" href="#home">Alle</a></li>
+      <li><a data-toggle="pill" href="#menu1">Erstsemestereinführung</a></li>
+      <li><a data-toggle="pill" href="#menu2">Erstifahrt</a></li>
+      <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
+      <li><a data-toggle="pill" href="#menu4">Party</a></li>
+      <li><a data-toggle="pill" href="#menu5">Nachzügler</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.order(:firstName).each do |f| %>
+                <div class="col-md-6">
+                  <div class="widget-container" style="border: solid 1px; margin:5px 0 10px">
+                    <div class="panel panel-profile">
+                      <div class="panel-heading bg-danger clearfix">
+                            <img src="<%= asset_path('Gruppenfoto.png') %> " class="img-circle img80_80 pull-left profile" >
+                        <h3 class="ng-binding"><%= f.firstName %></h3>
+                        <p><h3><%= f.lastName %></h3></p>
+                      </div>
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          <i class="ti-user"></i>
+                          Team
+                        </li>
+                        <li class="list-group-item">
+                          <i class="ti-comments"></i>
+                          Mitglied seit
+                        </li>
+                        <li class="list-group-item">
+                          <i class="ti-book"></i>
+                          Studiengang
+                        </li>
+                        <li class="list-group-item">
+                          <i class="ti-announcement"></i>
+                          Ämter
+                        </li>
+                        <li class="list-group-item">
+                          <i class="ti-facebook"></i>
+                          <%= f.facebook %>
+                        </li>
+                        <li class="list-group-item" style="float:right">
+                          <a href="#" class="btn btn-primary btn-xs">Nach oben</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
           </div>
         </div>
-        <% end %>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <h3>Erstsemesterbetreuung</h3>
+        <p>Some content in menu 1.</p>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <h3>Klausuren</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+      <div id="menu3" class="tab-pane fade">
+        <h3>Party</h3>
+        <p>Some content in menu 3.</p>
+      </div>
+      <div id="menu4" class="tab-pane fade">
+        <h3>Nachzügler</h3>
+        <p>Some content in menu 4.</p>
+      </div>
+      <div id="menu5" class="tab-pane fade">
+        <h3>Nasdasder</h3>
+        <p>Some content in menu 4.</p>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 
