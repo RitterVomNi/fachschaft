@@ -10,7 +10,7 @@
   -->
   <title>Fachschaft</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,12 +62,13 @@
 
   -->
   <!-- Scripts-->
+  <%= javascript_include_tag 'ui' %>
+  <%= javascript_include_tag 'vendor' %>
   <%= javascript_include_tag ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') %>
   <script>window.jQuery || document.write('<script src="<%= asset_path('jquery.min.js') %>"><\/script>')</script>
   <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
   <%= javascript_include_tag 'main' %>
-  <%= javascript_include_tag 'ui' %>
-  <%= javascript_include_tag 'vendor' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
 </html>
