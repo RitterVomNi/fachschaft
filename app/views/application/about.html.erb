@@ -3,12 +3,13 @@
   <div class="panel-body">
     <div class="grid-structure">
       <div class="row">
+        <% @users.each do |f| %>
         <div class="col-md-6">
-          <div class="widget-container" style="border: solid 1px">
+          <div class="widget-container" style="border: solid 1px; margin-bottom:5px">
             <div class="panel panel-profile">
               <div class="panel-heading bg-danger clearfix">
                   <img src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80" style="float:left">
-                <h3 class="ng-binding">Name</h3>
+                <h3 class="ng-binding" style="float:left; margin-left: 30px"><%= f.firstName %> <%=f.lastName%></h3>
               </div>
               <ul class="list-group">
                 <li class="list-group-item">
@@ -29,76 +30,13 @@
                 </li>
                 <li class="list-group-item">
                   <i class="ti-facebook"></i>
-                  Facebook
+                  <%= f.facebook %>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="widget-container" style="border: solid 1px; margin-bottom: 5px">
-            <div class="panel panel-profile">
-              <div class="panel-heading bg-danger clearfix">
-                  <img src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80" style="float:left">
-                <h3 class="ng-binding">Name</h3>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <i class="ti-user"></i>
-                  Team
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-comments"></i>
-                  Mitglied seit
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-book"></i>
-                  Studiengang
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-announcement"></i>
-                  Ämter
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-facebook"></i>
-                  Facebook
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="widget-container" style="border: solid 1px">
-            <div class="panel panel-profile">
-              <div class="panel-heading bg-danger clearfix">
-                <img src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80" style="float:left">
-                <h3 class="ng-binding">Name</h3>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <i class="ti-user"></i>
-                  Team
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-comments"></i>
-                  Mitglied seit
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-book"></i>
-                  Studiengang
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-announcement"></i>
-                  Ämter
-                </li>
-                <li class="list-group-item">
-                  <i class="ti-facebook"></i>
-                  Facebook
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

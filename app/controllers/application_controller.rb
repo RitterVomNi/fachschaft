@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def about
-
+    @users = Usr.all
   end
 end
