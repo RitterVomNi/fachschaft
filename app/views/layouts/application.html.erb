@@ -23,6 +23,7 @@
   <%=  stylesheet_link_tag ('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700') %>
   <%=  stylesheet_link_tag 'font-awesome.min' %>
   <%=  stylesheet_link_tag 'main' %>
+  <%=  stylesheet_link_tag 'themify-icons' %>
 
 </head>
 <body>
@@ -46,7 +47,7 @@
     </div>
   </div>
 </header>
-<div class="main-content">
+<div class="container">
   <div id="banner" class="banner">
     <div class="logo"> </div>
   </div>
@@ -65,6 +66,8 @@
   <script>window.jQuery || document.write('<script src="<%= asset_path('jquery.min.js') %>"><\/script>')</script>
   <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
   <%= javascript_include_tag 'main' %>
+  <%= javascript_include_tag 'ui' %>
+  <%= javascript_include_tag 'vendor' %>
 
 </body>
 </html>
