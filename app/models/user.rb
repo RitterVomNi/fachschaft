@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  before_save{self.email=email.downcase}
+
+
   enum role: [:user, :fs,:manager,:admin]
   after_initialize :set_default_role, :if => :new_record?
   # Include default devise modules. Others available are:

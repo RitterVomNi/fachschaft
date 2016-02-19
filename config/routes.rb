@@ -9,6 +9,16 @@ Rails.application.routes.draw do
 root "application#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
+  get 'sign_up' => "devise/registrations/#new"
+ get 'sign_in' => "devise/sessions#new"
+  post 'sign_in' =>  "devise/sessions#create"
+  delete 'log_out' => "devise/sessions#destroy"
+  #get 'devise' => "layouts#devise"
+  #get 'login' => "devise#registration/log_in"
+
+resources :sessions
+  #match 'users/login' =>'sessions#new', as: login
+  #match 'users/logout' =>'sessions#destroy', as: logout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

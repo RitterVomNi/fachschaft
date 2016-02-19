@@ -1,0 +1,19 @@
+class UsersSessionController < ApplicationController
+
+
+  def create
+     if @user=login(params[:email], params[:password])
+
+render 'new'
+redirect_to index_path
+  else
+    flash.now[:alert]
+end
+end
+
+def destroy
+  log_out
+  redirect_to(:user, message: "logout")
+end
+
+end
