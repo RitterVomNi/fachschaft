@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def about
     @users = Usr.all
   end
+
+  def late
+
+  end
 end

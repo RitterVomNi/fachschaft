@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 root "application#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
+  get 'late' => "application#late"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

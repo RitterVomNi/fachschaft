@@ -14,7 +14,6 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- if lt IE 9
 
   script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
@@ -47,7 +46,7 @@
           <li><a href="#">Events</a></li>
           <li><a href="#">Hochschulpolitik</a></li>
           <li><a href="#">Kalender</a></li>
-          <li><a href="#">Nachzügler</a></li>
+          <li><a href="late">Nachzügler</a></li>
         </ul>
       </div>
     </div>
@@ -57,7 +56,7 @@
   <div id="banner" class="banner">
     <div class="logo"> </div>
   </div>
-  <div class="pages">
+  <div class="pages" ng-app="">
     <%= yield %>
   </div>
   <footer class="footer text-center">© Copyright Fachschaft Wirtschaft der FH Münster</footer>
@@ -71,6 +70,7 @@
   <%= javascript_include_tag 'main' %>
   <%= javascript_include_tag 'ui' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 
 </body>
