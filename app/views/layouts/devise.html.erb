@@ -10,13 +10,7 @@
 <div class="container">
 <%= yield %>
 
-  #<% if current_user.present? %>
-    #  <li> Welcome, <%=current_user.email%> </li>
-       # <%else%>
-         <li><%=link_to 'Sign up', sign_up_path%> </li>
-      <li><a href="users/sign_in">Login</a></li>
 
-    #<%end%>
 
 
 </div>
