@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def late
 
   end
+
+  def politics
+
+  end
 end

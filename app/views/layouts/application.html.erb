@@ -31,7 +31,7 @@
 
 
 </head>
-<body>
+<body data-ng-app="app" id="app" class="app" data-custom-page data-off-canvas-nav data-ng-controller="AppCtrl" data-ng-class=" {'layout-boxed': admin.layout === 'boxed'}" >
 <header class="header navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="row">
@@ -44,7 +44,7 @@
           <li><a href="about">Über uns</a></li>
           <li><a href="#">Auslandsberichte</a></li>
           <li><a href="#">Events</a></li>
-          <li><a href="#">Hochschulpolitik</a></li>
+          <li><a href="politics">Hochschulpolitik</a></li>
           <li><a href="#">Kalender</a></li>
           <li><a href="late">Nachzügler</a></li>
         </ul>
@@ -56,6 +56,7 @@
   <div id="banner" class="banner">
     <div class="logo"> </div>
   </div>
+  <img id="logo" class="img-responsive" src="<%= asset_path('fachschaftkleiner.png') %>">
   <div class="pages" ng-app="">
     <%= yield %>
   </div>

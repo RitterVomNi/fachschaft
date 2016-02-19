@@ -10,6 +10,7 @@ root "application#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
   get 'late' => "application#late"
+  get 'politics' => "application#politics"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

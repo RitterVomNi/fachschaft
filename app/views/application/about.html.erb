@@ -1,5 +1,5 @@
 <div class="panel panel-default" style="margin:0 5px 0 5px">
-  <div class="panel-heading"><strong><span class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
+  <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
   <div class="panel-body">
     <ul class="nav nav-pills" id="#">
       <li class="active"><a data-toggle="pill" href="#home">Alle</a></li>
@@ -16,12 +16,12 @@
           <div class="row">
             <% @users.order(:firstName).each do |f| %>
                 <div class="col-md-6">
-                  <div class="widget-container" style="border: solid 1px; margin:5px 0 10px">
+                  <div id="member" class="widget-container" style="border: solid 1px; margin:5px 0 10px">
                     <div class="panel panel-profile">
                       <div class="panel-heading bg-danger clearfix">
                             <img src="<%= asset_path('Gruppenfoto.png') %> " class="img-circle img80_80 pull-left profile" >
                         <h3 class="ng-binding"><%= f.firstName %></h3>
-                        <p><h3><%= f.lastName %></h3></p>
+                        <p><%= f.lastName %></p>
                       </div>
                       <ul class="list-group">
                         <li class="list-group-item">
@@ -44,8 +44,8 @@
                           <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
                           <%= f.facebook %>
                         </li>
-                        <li class="list-group-item" style="float:right">
-                          <a href="#" class="btn btn-primary btn-xs">Nach oben</a>
+                        <li class="list-group-item">
+                          <a href="#" class="btn btn-primary btn-xs" style="float:right">Nach oben</a>
                         </li>
                       </ul>
                     </div>

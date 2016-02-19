@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require vendor
-//= require ui
 //= require app
 //= require bootstrap.min
 //= require jquery.smooth-scroll.min
 //= require jquery.min
 //= require main
+//= require ui
 
