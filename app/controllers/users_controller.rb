@@ -23,7 +23,8 @@ end
 
   def create
     @user=user.new(user.params)
-    if(@user.save)
+    if @user.save
+      log_in @user
       flash[:success] = "Willkommen"
       redirect_to index_path
     else
