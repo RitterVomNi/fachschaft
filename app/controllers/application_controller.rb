@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def about
-    @users = Usr.all
+    @usrs = Usr.all
   end
 
   def late

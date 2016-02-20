@@ -17,43 +17,8 @@
       <div id="home" class="tab-pane fade in active">
         <div class="grid-structure">
           <div class="row">
-            <% @users.order(:firstName).each do |f| %>
-                <div class="col-md-6">
-                  <div id="member" class="widget-container" style="border: solid 1px; margin:5px 0 10px">
-                    <div class="panel panel-profile">
-                      <div class="panel-heading bg-danger clearfix">
-                            <img src="<%= asset_path('Gruppenfoto.png') %> " class="img-circle img80_80 pull-left profile" >
-                        <h3 class="ng-binding"><%= f.firstName %></h3>
-                        <p><%= f.lastName %></p>
-                      </div>
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          <i class="ti-user" data-toggle="tooltip" title="Hauptaufgabe"></i>
-                          Team
-                        </li>
-                        <li class="list-group-item">
-                          <i class="ti-comments" data-toggle="tooltip" title="In der Fachschaft seit"></i>
-                          Mitglied seit
-                        </li>
-                        <li class="list-group-item">
-                          <i class="ti-book" data-toggle="tooltip" title="Studiengang"></i>
-                          Studiengang
-                        </li>
-                        <li class="list-group-item">
-                          <i class="ti-announcement" data-toggle="tooltip" title="Ämter"></i>
-                          Ämter
-                        </li>
-                        <li class="list-group-item">
-                          <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-                          <%= f.facebook %>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#" class="btn btn-primary btn-xs" style="float:right">Nach oben</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+            <% @usrs.order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
         </div>
