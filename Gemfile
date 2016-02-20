@@ -39,6 +39,9 @@ gem 'bower-rails'
 #Rolify
 gem 'rolify'
 
+#file management
+gem 'carrierwave'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

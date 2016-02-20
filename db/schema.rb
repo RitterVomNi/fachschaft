@@ -20,8 +20,22 @@ ActiveRecord::Schema.define(version: 20160220113049) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dateis", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "links", force: :cascade do |t|
     t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

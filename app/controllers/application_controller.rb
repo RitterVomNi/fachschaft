@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
   def politics
 
   end
+
+ def upload_download
+
+ end
+
 end
