@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require_tree .
+//= require vendor
+//= require app
+//= require bootstrap.min
+//= require jquery.smooth-scroll.min
+//= require jquery.min
+//= require main
+//= require ui
+

@@ -12,6 +12,9 @@ Rails.application.config.assets.precompile += %w( Gruppenfoto.png )
 Rails.application.config.assets.precompile += %w( themify-icons.css )
 Rails.application.config.assets.precompile += %w( ui.js )
 Rails.application.config.assets.precompile += %w( vendor.js )
+Rails.application.config.assets.precompile += %w( jquery.smooth-scroll.min.js )
+Rails.application.config.assets.precompile += %w( politics.png )
+Rails.application.config.assets.precompile += %w( fachschaftkleiner.png )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '0cca7cb85b9e3ded7d082e234ebb868eb33ba82bb758d909edad8a3252fb24f41410ebd3096b53795248d3752bbad04d3890d2b3aa22b4e9a48494eba96f754e'
+  # config.secret_key = 'e562abf3a0095c451f887a5dd94b6c5c2bc636ccb8580fb337477c9dea4c72eaad2f9e3af72c50d452d750e5cdc5b20fc694648790d5c8befa439a0218828d1c'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -92,14 +92,14 @@ Devise.setup do |config|
   # using other encryptors, it sets how many times you want the password re-encrypted.
   #
   # Limiting the stretches to just one in testing will increase the performance of
-  # your dummy suite dramatically. However, it is STRONGLY RECOMMENDED to not use
+  # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # encryptor), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '5e17c7167ac4a8d5cc655215186bccbb59f1b79bc02942dc910a71341a74958797e27fede457ac3af23e08310ee723b7e086a71a3f50e528d9b0ecf78f3312a7'
+  # config.pepper = 'd5f0f698de85b725e6698037b78121106f84ed7840f0f9a21a7b117e856074d2f692feff830e6651348c9d0330c87acbece4ceba35bb824adbc21de4c9504a95'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false

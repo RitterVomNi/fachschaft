@@ -31,8 +31,16 @@ gem 'devise-bootstrap-views'
 # Use ActiveModel has_secure_password
 gem 'bcrypt',:git => 'https://github.com/codahale/bcrypt-ruby.git'
 
+# Bow for AngularJS
+gem 'bower-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+#Rolify
+gem 'rolify'
+
+#file management
+gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
