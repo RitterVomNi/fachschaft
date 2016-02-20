@@ -1,4 +1,3 @@
-
 <div class="col-md-6">
   <div id="member" class="widget-container" style="border: solid 1px; margin:5px 0 10px">
     <div class="panel panel-profile">
@@ -10,7 +9,11 @@
       <ul class="list-group">
         <li class="list-group-item">
           <i class="ti-user" data-toggle="tooltip" title="Hauptaufgabe"></i>
-          Team
+          <% if about.is_admin %>
+            <%= about.current_role %>
+           <% else %>
+            Team
+          <% end %>
         </li>
         <li class="list-group-item">
           <i class="ti-comments" data-toggle="tooltip" title="In der Fachschaft seit"></i>
@@ -26,7 +29,7 @@
         </li>
         <li class="list-group-item">
           <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-          <%= about.facebook %>
+          <a href="<%= about.facebook %>">Link zu Facebook</a>
         </li>
         <li class="list-group-item">
           <a href="#" class="btn btn-primary btn-xs" style="float:right">Nach oben</a>

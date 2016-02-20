@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Usr.create(facebook: "bla", firstName: "Matthias", lastName: "Heinen")
-Usr.create(facebook: "bla2", firstName: "Malte", lastName: "Lange")
-Usr.create(facebook: "bla3", firstName: "Myles", lastName: "Sutholt")
+User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen")
+User.create(facebook: "https://www.facebook.com/malte.la.7?fref=ts", firstName: "Malte", lastName: "Lange")
+User.create(facebook: "https://www.facebook.com/myles.sutholt?fref=ts", firstName: "Myles", lastName: "Sutholt")

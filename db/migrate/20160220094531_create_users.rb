@@ -1,9 +1,9 @@
-class CreateUsrs < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :usrs do |t|
+    create_table :users do |t|
       t.string :firstName
       t.string :lastName
-      t.string :facebook
+      t.string :img
 
       t.timestamps null: false
     end

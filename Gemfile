@@ -36,6 +36,9 @@ gem 'bower-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#Rolify
+gem 'rolify'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
