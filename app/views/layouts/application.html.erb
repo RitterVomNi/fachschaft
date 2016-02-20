@@ -45,7 +45,14 @@
           <li><a href="#" id="link3">Auslandsberichte</a></li>
           <li><a href="#" id="link4">Events</a></li>
           <li><a href="politics" id="link5">Hochschulpolitik</a></li>
-          <li><a href="#" id="link6">Kalender</a></li>
+          <% if current_user.present? %>
+              <li> Welcome, <%=current_user.email%> </li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+
+          <%else%>
+              <li><a href="users/sign_in">Log in</a></li>
+              <li><a href="users/sign_up">Sign_up</a></li>
+          <%end%>
           <li><a href="late" id="link7">Nachzügler</a></li>
         </ul>
       </div>
@@ -58,6 +65,8 @@
   </div>
   <img id="logo" class="img-responsive" src="<%= asset_path('fachschaftkleiner.png') %>">
   <div class="pages" ng-app="">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
   <footer class="footer text-center">© Copyright Fachschaft Wirtschaft der FH Münster</footer>
