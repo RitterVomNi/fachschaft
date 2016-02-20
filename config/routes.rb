@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
   get 'sessions/new'
 
   devise_for :users
@@ -11,16 +27,18 @@ Rails.application.routes.draw do
 root "application#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
+  get 'upload_download' => "application#upload_download"
   get 'sign_up' => "devise/registrations/#new"
- get 'sign_in' => "devise/sessions#new"
+  get 'sign_in' => "devise/sessions#new"
   post 'sign_in' =>  "devise/sessions/#create"
   delete 'log_out' => "devise/user_session#destroy"
   #get 'devise' => "layouts#devise"
   #get 'login' => "devise#registration/log_in"
 
-#resources :sessions
-  #match 'users/login' =>'user_session#new', as: login
-  #match 'users/logout' =>'user_session#destroy', as: logout
+resources :sessions
+  resources :resumes, only: [:index, :new, :create, :destroy]
+  #match 'users/sign_in' =>'"devise/sessions#new', as: login
+  #match 'users/log_out' =>'devise/user_session#destroy', as: logout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

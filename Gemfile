@@ -47,7 +47,10 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "capybara"
-end
+  end
+
+#file management
+gem 'carrierwave'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
