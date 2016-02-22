@@ -13,7 +13,8 @@
         </li>
         <li class="list-group-item">
           <i class="ti-user" data-toggle="tooltip" title="Aktuelle Rolle"></i>
-          Aktuelle Teams: <= user.teams.pluck(:team).join(", ") %>
+          Aktuelles Team:<% if user.team_id != nil %>
+          <%= @teams.find_by(id: user.team_id).teamName %><% end %>
         </li>
         <li class="list-group-item">
           <i class="ti-wand" data-toggle="tooltip" title="Rolle ändern"></i>

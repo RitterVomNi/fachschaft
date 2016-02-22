@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, :if => :new_record?
   has_many :contents
+  has_one :team
 
   #sets the Role of the user. Works only if roleName is part of Role.POSSIBLE_ROLES
   def set_role(role_name)
@@ -32,7 +33,6 @@ class User < ActiveRecord::Base
   def current_role
     self.roles[0].to_string
   end
-
   def self.search(search)
     where("firstName LIKE ?", "%#{search}%")
   end

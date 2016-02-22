@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221223957) do
+ActiveRecord::Schema.define(version: 20160222184900) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "contents", ["user_id"], name: "index_contents_on_user_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "content_id"
   end
+
+  add_index "links", ["content_id"], name: "index_links_on_content_id"
 
   create_table "resumes", force: :cascade do |t|
     t.string   "name"
@@ -66,10 +72,12 @@ ActiveRecord::Schema.define(version: 20160221223957) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["team_id"], name: "index_users_on_team_id"
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"

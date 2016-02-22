@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
   def about
     @users = User.all
+    @teams = Team.all
   end
   def admin
     if params[:search]
@@ -16,6 +17,7 @@ class ApplicationController < ActionController::Base
     else
       @users = User.all.order("firstName ASC")
     end
+    @teams = Team.all
   end
 
   def role_user

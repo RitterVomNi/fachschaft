@@ -9,11 +9,9 @@
       <ul class="list-group">
         <li class="list-group-item">
           <i class="ti-user" data-toggle="tooltip" title="Hauptaufgabe"></i>
-          <% if about.is_admin %>
-            <%= about.current_role %>
-           <% else %>
-            Team
-          <% end %>
+              <% if about.team_id != nil %>
+                  <%= @teams.find_by(id: about.team_id).teamName %>
+              <% end %>
         </li>
         <li class="list-group-item">
           <i class="ti-comments" data-toggle="tooltip" title="In der Fachschaft seit"></i>
