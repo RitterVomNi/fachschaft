@@ -5,69 +5,52 @@
         <ul class="nav nav-pills" id="#">
           <li class="active"><a data-toggle="pill" href="#home">Allgemein</a></li>
           <li><a data-toggle="pill" href="#menu1">Rollenverwaltung</a></li>
-          <li><a data-toggle="pill" href="#menu1">Teams zuweisen</a></li>
+          <li><a data-toggle="pill" href="#menu2">Teams zuweisen</a></li>
+          <li><p data-toggle="pill"><%= form_tag(admin_path, :method => 'get') do %>
+                <p>
+                  <%= text_field_tag :search, params[:search], placeholder:"Vorname", class:"form-control ng-pristine ng-valid ng-touched" %>
+                  <%= submit_tag "Search", :name => nil %>
+                </p>
+        <% end %></li>
         </ul>
 
         <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            <div class="grid-structure">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="table-filters">
-                    <div class="row">
-                      <div class="col-sm-4 col-xs-6">
-                        <%= form_tag admin_path, :method => 'get' do %>
-                            <p>
-                              <%= text_field_tag :search, params[:search], placeholder:"Vorname", class:"form-control ng-pristine ng-valid ng-touched" %>
-                            </p>
-                            </div>
-                            <%= submit_tag "Search", :name => nil %>
-                        <% end %>
-                        </div>
-                    <table class="table table-bordered table-striped table-responsive">
-                      <thead>
-                      <tr id="admintr">
-                        <th>Vorname</th>
-                        <th>Nachname</th>
-                        <th>E-Mail</th>
-                        <th>Facebook</th>
-                        <th>Team</th>
-                        <th>Rolle</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <% @users.each do |f| %>
-                          <tr data-ng-repeat="store in currentPageStores" class="ng-scope">
-                            <td class="ng-binding"><%= f.firstName %></td>
-                            <td class="ng-binding"><%= f.lastName %></td>
-                            <td class="ng-binding"><%= f.email %></td>
-                            <td class="ng-binding"><a href="<%= f.facebook %>">Facebook</a></td>
-                            <td class="ng-binding">Team</td>
-                            <td class="ng-binding"><%= f.current_role %></td>
-                            <td class="ng-binding"><%= link_to 'Show', f %></td>
-                            <td class="ng-binding"><%= link_to 'Edit', edit_user_path(f) %></td>
-                            <td class="ng-binding"><%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <div id="home" class="tab-pane fade in active">
+              <div class="grid-structure">
+                <div class="row">
+                  <p>
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-striped table-responsive">
+                          <thead>
+                          <tr id="admintr">
+                            <th>Vorname</th>
+                            <th>Nachname</th>
+                            <th>E-Mail</th>
+                            <th>Facebook</th>
+                            <th>Team</th>
+                            <th>Rolle</th>
                           </tr>
-                      <% end %>
-                      </tbody>
-                    </table>
-                  </div>
+                          </thead>
+                          <tbody>
+                          <% if @users.present? %>
+                              <% @users.each do |user| %>
+                                  <%= render partial: "users", locals: { user: user} %>
+                              <% end %>
+                          <% else %>
+                              <p>Keinen User zum Suchbegriff "<%= params[:search] %>" gefunden .</p>
+                          <% end %>
+                          </tbody>
+                        </table>
+                      </div>
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
           <div id="menu1" class="tab-pane fade">
             <div class="grid-structure">
               <div class="row">
                 <p>
-                <%= form_tag admin_path, :method => 'get' do %>
-                    <p>
-                      <%= text_field_tag :search, params[:search], placeholder:"Vorname" %>
-                      <%= submit_tag "Search" %>
-                    </p>
-                <% end %>
 
                 <% if @users.present? %>
                     <% @users.each do |user| %>
@@ -80,16 +63,11 @@
               </div>
             </div>
           </div>
+
           <div id="menu2" class="tab-pane fade">
             <div class="grid-structure">
               <div class="row">
                 <p>
-                  <%= form_tag admin_path, :method => 'get' do %>
-                    <p>
-                      <%= text_field_tag :search, params[:search], placeholder:"Vorname" %>
-                      <%= submit_tag "Search", :name => nil %>
-                    </p>
-                <% end %>
 
                 <% if @users.present? %>
                     <% @users.each do |user| %>
@@ -111,45 +89,3 @@
       <strong>The cake is a lie!</strong> You naughty boy tried to access our fancy admin stuff
     </div>
 <% end %>
-
-
-    <div class="table-filters">
-      <div class="row">
-        <div class="col-sm-4 col-xs-6">
-          <%= form_tag admin_path, :method => 'get' do %>
-              <p>
-                <%= text_field_tag :search, params[:search], placeholder:"Vorname", class:"form-control ng-pristine ng-valid ng-touched" %>
-              </p>
-              </div>
-              <%= submit_tag "Search", :name => nil %>
-          <% end %>
-          </div>
-      <table class="table table-bordered table-striped table-responsive">
-        <thead>
-        <tr id="admintr">
-          <th>Vorname</th>
-          <th>Nachname</th>
-          <th>E-Mail</th>
-          <th>Facebook</th>
-          <th>Team</th>
-          <th>Rolle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @users.each do |f| %>
-            <tr data-ng-repeat="store in currentPageStores" class="ng-scope">
-          <td class="ng-binding"><%= f.firstName %></td>
-          <td class="ng-binding"><%= f.lastName %></td>
-          <td class="ng-binding"><%= f.email %></td>
-          <td class="ng-binding"><a href="<%= f.facebook %>">Facebook</a></td>
-          <td class="ng-binding">Team</td>
-          <td class="ng-binding"><%= f.current_role %></td>
-          <td class="ng-binding"><%= link_to 'Show', f %></td>
-          <td class="ng-binding"><%= link_to 'Edit', edit_user_path(f) %></td>
-          <td class="ng-binding"><%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-

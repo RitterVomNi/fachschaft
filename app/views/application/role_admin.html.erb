@@ -1,7 +1,9 @@
+<% if current_user.present? && current_user.is_admin %>
 <% @user.set_role("Admin") %>
 <script type="text/javascript">
-    window.location.href="/admin"
+    location.replace("/admin#menu1")
 </script>
 Switched to Role Admin
 
 <%=link_to 'Zurück', admin_path %>
+<% end %>

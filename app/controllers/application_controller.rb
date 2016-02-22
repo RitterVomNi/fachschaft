@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
     @users = User.all
   end
   def admin
-    @users = User.all
     if params[:search]
       @users = User.search(params[:search]).order("firstName ASC")
     else
       @users = User.all.order("firstName ASC")
     end
   end
+
   def role_user
     @user = User.find(params[:id])
   end
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     @user = User.find(params[:id])
   end
 
-  protected
+  private
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:username, :email, :firstName, :lastName, :facebook, :img]
     devise_parameter_sanitizer.for(:account_update) << [:username, :email, :firstName, :lastName, :facebook, :img]

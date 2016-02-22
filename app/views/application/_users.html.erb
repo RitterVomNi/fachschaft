@@ -1,0 +1,12 @@
+
+        <tr>
+          <td class="ng-binding"><%= user.firstName %></td>
+          <td class="ng-binding"><%= user.lastName %></td>
+          <td class="ng-binding"><%= user.email %></td>
+          <td class="ng-binding"><a href="<%= user.facebook %>">Facebook</a></td>
+          <td class="ng-binding">Team</td>
+          <td class="ng-binding"><%= user.current_role %></td>
+          <td class="ng-binding"><%= link_to 'Show', user %></td>
+          <td class="ng-binding"><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td class="ng-binding"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
