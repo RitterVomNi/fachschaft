@@ -1,32 +1,85 @@
 <style type="text/css">
     #link7 {color:blue;}
 </style>
-<h2>Sign up</h2>
+<div id="sign-content">
+  <div class="page-signin ng-scope">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="signin-header" style="margin:auto">
+      <section class="logo text-center">
+        <h1 style="padding-top:50px">Anmelden</h1>
+      </section>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <div class="signin-body">
+      <div class="container">
+        <label class="form-container">
+
+          <fieldset>
+            <%= form_for(resource, as: resource_name, :html => {class:"form-horizontal ng-pristine ng-valid"}, url: registration_path(resource_name)) do |f| %>
+
+                <div class="form-group">
+                  <div class="input-group input-group-first">
+                    <span class="input-group-addon">
+                        <span class="ti-email"></span>
+                    </span>
+                    <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"E-Mail Adresse" %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-lock"></span>
+                    </span>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"Passwort, min 8 Zeichen"  %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-lock"></span>
+                    </span>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control input-lg", placeholder:"Passwort wiederholen"   %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-user"></span>
+                    </span>
+                    <%= f.text_field :firstName, autocomplete: "off", class:"form-control input-lg", placeholder:"Vorname"   %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-user"></span>
+                    </span>
+                    <%= f.text_field :lastName, autocomplete: "off", class:"form-control input-lg", placeholder:"Nachname"   %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-facebook"></span>
+                    </span>
+                    <%= f.text_field :facebook, autocomplete: "off", class:"form-control input-lg", placeholder:"URL Facebook Account"   %>
+                  </div>
+                  <em>(optional)</em>
+                </div>
+                <br><br>
+                <div class="form-group">
+                  <%= f.submit "Anmelden", class:"btn btn-primary btn-lg btn-block text-center" %>
+                </div>
+            <% end %>
+            <br>
+            <div>
+              <%= render "devise/shared/links" %>
+            </div>
+          </fieldset>
+        </label>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+    </div>

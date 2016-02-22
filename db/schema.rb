@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220113049) do
+ActiveRecord::Schema.define(version: 20160221223957) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "content"
-    t.string   "img"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dateis", force: :cascade do |t|
-    t.string   "name"
-    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,7 +44,8 @@ ActiveRecord::Schema.define(version: 20160220113049) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "teams", force: :cascade do |t|
-    t.string   "team"
+    t.string   "teamName"
+    t.string   "leader"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,10 +53,9 @@ ActiveRecord::Schema.define(version: 20160220113049) do
   create_table "users", force: :cascade do |t|
     t.string   "firstName"
     t.string   "lastName"
-    t.string   "img"
+    t.string   "facebook"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "facebook"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -85,13 +77,5 @@ ActiveRecord::Schema.define(version: 20160220113049) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
-
-  create_table "users_teams", force: :cascade do |t|
-    t.integer  "User_id"
-    t.integer  "Team_id"
-    t.integer  "teamLeader"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

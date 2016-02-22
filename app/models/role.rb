@@ -5,30 +5,31 @@ class Role < ActiveRecord::Base
   validates :resource_type,
             :inclusion => { :in => Rolify.resource_types },
             :allow_nil => true
+
   scopify
-  def self.User
-    self.POSSIBLE_ROLES[0]
+  def self.user
+    self.possible_roles[0]
   end
-  def self.Fachschaft
-    self.POSSIBLE_ROLES[1]
+  def self.fachschaft
+    self.possible_roles[1]
   end
-  def self.Manager
-    self.POSSIBLE_ROLES[2]
+  def self.manager
+    self.possible_roles[2]
   end
-  def self.Admin
-    self.POSSIBLE_ROLES[3]
+  def self.admin
+    self.possible_roles[3]
   end
 
   #Our possible roles array
-  def self.POSSIBLE_ROLES
+  def self.possible_roles
     ["User", "Fachschaft","Manager","Admin"]
   end
   #Gets the role models
-  def self.getRoles
+  def self.get_roles
     Role.all.limit(6)
   end
   #Gets the name of the role. A bit of Java love :)
-  def toString
+  def to_string
     self.name
   end
 end

@@ -1,34 +1,26 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :resumes, only: [:index, :new, :create, :destroy]
+  resources :contents
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-  get 'resumes/index'
-
-  get 'resumes/new'
-
-  get 'resumes/create'
-
-  get 'resumes/destroy'
-
-  get 'resumes/index'
-
-  get 'resumes/new'
-
-  get 'resumes/create'
-
-  get 'resumes/destroy'
-
-root "application#index"
+root "users#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
   get 'late' => "application#late"
-  get 'resume' => "resumes#index"
   get 'politics' => "application#politics"
-  get 'upload_download' => "application#upload_download"
+  get 'admin' => "application#admin"
+  devise_scope :user do
+    get "sign_in" => "devise/sessions#new"
+  end
+  get 'role_user' => "application#role_user"
+  get 'role_fachschaft' => "application#role_fachschaft"
+  get 'role_manager' => "application#role_manager"
+  get 'role_admin' => "application#role_admin"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -37,11 +29,6 @@ root "application#index"
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
-  #resources :sessions
-  resources :resumes, only: [:index, :new, :create, :destroy]
-  #match 'users/sign_in' =>'"devise/sessions#new', as: login
-  #match 'users/log_out' =>'devise/user_session#destroy', as: logout
 
   # Example resource route with options:
   #   resources :products do

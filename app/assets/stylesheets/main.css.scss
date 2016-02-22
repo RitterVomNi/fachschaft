@@ -5497,3 +5497,25 @@ ul li i {float:left;}
 .nav.navbar-nav.navbar-right a:hover {
   color: lightblue;
 }
+
+#sign-content  {
+  background-image: url("background/1.jpg");
+  color: white;
+  margin-top: -50px;
+}
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url("uparrow.png");
+}
+
+.pretty th .desc {
+  background-image: url("downarrow.png");
+}
+#admintr th {
+  text-align: center;
+}
