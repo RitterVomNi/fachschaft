@@ -4,70 +4,71 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <!-- if IEmeta(http-equiv='X-UA-Compatible', about='IE=edge,chrome=1')
-  -->
-  <title>Fachschaft</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- if lt IE 9
-  script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
-  script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
+    <head>
+      <!-- if IEmeta(http-equiv='X-UA-Compatible', about='IE=edge,chrome=1')
+    -->
+      <title>Fachschaft</title>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag ('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700') %>
+      <%= stylesheet_link_tag 'main' %>
 
-  -->
-  <!-- stylesheets-->
-  <%=  stylesheet_link_tag ('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300,700') %>
-  <%=  stylesheet_link_tag 'font-awesome.min' %>
-  <%=  stylesheet_link_tag 'main' %>
-  <%=  stylesheet_link_tag 'themify-icons' %>
+      <%= csrf_meta_tags %>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body data-ng-app="app" id="app" class="app" data-custom-page data-off-canvas-nav data-ng-controller="AppCtrl" data-ng-class=" {'layout-boxed': admin.layout === 'boxed'}" >
+        <header class="header navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="row">
 
-</head>
-<body>
-<header class="header navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="row">
-      <div class="navbar-header">
-        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><p class="navbar-brand">Fachschaft Wirtschaft</p>
-      </div>
-      <div id="navbar-collapse-1" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="index">Startseite</a></li>
-          <li><a href="about">Über uns</a></li>
-          <li><a href="#">Auslandsberichte</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Hochschulpolitik</a></li>
-          <li><a href="#">Kalender</a></li>
-          <li><a href="#">Nachzügler</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="container">
-  <div id="banner" class="banner">
-    <div class="logo"> </div>
-  </div>
-  <div class="pages">
-    <%= yield %>
-  </div>
-  <footer class="footer text-center">© Copyright Fachschaft Wirtschaft der FH Münster</footer>
-  <!--if lt IE 8
-  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+              <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><p class="navbar-brand">Fachschaft Wirtschaft</p>
+              </div>
 
+              <div id="navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Startseite", index_path, id: "link1" %></li>
+                  <li><%= link_to "Über uns", about_path, id: "link2" %></li>
+                  <li><%= link_to "Auslandsberichte", resumes_path, id: "link3" %></li>
+                  <li><%= link_to "Events", "#", id: "link4" %></li>
+                  <li><%= link_to "Politik", politics_path, id: "link5" %></li>
+                  <li><%= link_to "Nachzügler", late_path, id: "link8" %></li>
 
+                  <% if current_user.present? %>
+                  <li><a href="#">Account</a></li>
+                  <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>
+                  <%else%>
+                  <li><%= link_to "Einloggen", new_user_session_path, id: "link6" %></li>
+                  <li><%= link_to "Anmelden", new_user_registration_path, id: "link7" %></li>
+                  <%end%>
 
-  -->
-  <!-- Scripts-->
-  <%= javascript_include_tag ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') %>
-  <script>window.jQuery || document.write('<script src="<%= asset_path('jquery.min.js') %>"><\/script>')</script>
-  <%= javascript_include_tag 'jquery.smooth-scroll.min' %>
-  <%= javascript_include_tag 'main' %>
-  <%= javascript_include_tag 'ui' %>
-  <%= javascript_include_tag 'vendor' %>
+                  <% if current_user.present? && current_user.is_admin %>
+                  <li><%= link_to "Administration", admin_path, style:"color:red" %></li>
+                  <% end %>
 
-</body>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </header>
+
+        <div class="container">
+          <div id="banner" class="banner">
+            <div class="logo"> </div>
+          </div>
+          <img id="logo" class="img-responsive" src="<%= asset_path('fachschaftkleiner.png') %>">
+          <div class="pages" ng-app="">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+          </div>
+          <footer class="footer text-center">© Copyright Fachschaft Wirtschaft der FH Münster</footer>
+          <!--if lt IE 8
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        -->
+
+        </div>
+    </body>
 </html>

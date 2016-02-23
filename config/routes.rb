@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :resumes, only: [:index, :new, :create, :destroy]
+  resources :contents
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +11,14 @@ Rails.application.routes.draw do
 root "application#index"
   get 'about' => "application#about"
   get 'index' => "application#index"
+  get 'late' => "application#late"
+  get 'politics' => "application#politics"
+  get 'admin' => "application#admin"
+  devise_scope :user do
+    get "sign_in" => "devise/sessions#new"
+  end
+  get 'change_role' => "application#change_role"
+  get 'change_team' => "application#change_team"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

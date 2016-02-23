@@ -1,82 +1,76 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><strong><span class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
+<style type="text/css">
+    #link2 {color:blue;}
+</style>
+<div class="panel panel-default" style="margin:0 5px 0 5px">
+  <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
   <div class="panel-body">
-    <div class="grid-structure">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="widget-container">
-            <div class="panel panel-profile">
-              <div class="panel-heading bg-danger clearfix">
-                <a href="" class="pull-left profile">
-                  <img alt="" src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80">
-                </a>
-                <h3 class="ng-binding">Lisa</h3>
-                <p>Project Manager</p>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <span class="badge">14</span>
-                  <i class="ti-email"></i>
-                  Cras justo odio
-                </li>
-                <li class="list-group-item">
-                  <span class="badge badge-warning">2</span>
-                  <i class="ti-comments"></i>
-                  Dapibus ac facilisis in
-                </li>
-                <li class="list-group-item">
-                  <span class="badge badge-info">1</span>
-                  <i class="ti-heart"></i>
-                  Morbi leo risus
-                </li>
-                <li class="list-group-item">
-                  <span class="badge badge-success">3</span>
-                  <i class="ti-folder"></i>
-                  Vestibulum at eros
-                </li>
-              </ul>
-            </div>
+    <ul class="nav nav-pills" id="#">
+      <li class="active"><a data-toggle="pill" href="#home">Alle</a></li>
+      <li><a data-toggle="pill" href="#menu1">Erstsemestereinführung</a></li>
+      <li><a data-toggle="pill" href="#menu2">Erstifahrt</a></li>
+      <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
+      <li><a data-toggle="pill" href="#menu4">Party</a></li>
+      <li><a data-toggle="pill" href="#menu5">Nachzügler</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(:team_id => [1,2,3,4,5,6]).order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="widget-container">
-            <div class="panel panel-profile">
-              <div class="panel-heading text-center bg-info">
-                <img alt="" src="<%= asset_path('Gruppenfoto.png') %>" class="img-circle img80_80">
-                <h3 class="ng-binding">Lisa</h3>
-                <p>Project Manager</p>
-              </div>
-              <div class="list-justified-container">
-                <ul class="list-justified text-center">
-                  <li>
-                    <p class="size-h3">679</p>
-                    <p class="text-muted">Tweets</p>
-                  </li>
-                  <li>
-                    <p class="size-h3">575</p>
-                    <p class="text-muted">Followers</p>
-                  </li>
-                  <li>
-                    <p class="size-h3">23</p>
-                    <p class="text-muted">Following</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "1").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "2").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu3" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "3").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu4" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "4").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu5" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "5").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 
