@@ -6,10 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(facebook: "https://www.facebook.com/groups/649018005179998/?fref=ts", firstName: "Amayda", lastName: "Dominguez", email: "amaydad@hotmail.es" ,password: "12345678", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen", email: "heinen.m@web.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/malte.la.7?fref=ts", firstName: "Malte", lastName: "Lange", email: "malte@lange.de" ,password: "12345678", team_id: "6", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/myles.sutholt?fref=ts", firstName: "Myles", lastName: "Sutholt", email: "myles@sutholt.de" ,password: "12345678", team_id: "6", studiengang: "BA-Wirtschaftsinformatik")
-User.create(facebook: "https://www.facebook.com/groups/649018005179998/?fref=ts", firstName: "Günther", lastName: "Netzer", email: "mh152235@fh-muenster.de" ,password: "12345678", studiengang: "BWL")
+
 User.create(facebook: "https://www.facebook.com/adventuretime/?fref=ts", firstName: "Fin", lastName: "the Human", email: "fin@adventure.ti" ,password: "12345678", studiengang: "CALA")
 User.create(facebook: "https://www.facebook.com/adventuretime/?fref=ts", firstName: "Jake", lastName: "the Dog", email: "jake@adventure.ti" ,password: "12345678", studiengang: "EBP")
 

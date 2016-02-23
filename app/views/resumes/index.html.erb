@@ -7,7 +7,7 @@
     </div>
 <% end %>
 <br />
-<%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
+<%= link_to "Upload", new_resume_path, class: "btn btn-primary" %>
 <br />
 <br />
 <table class="table table-bordered table-striped">
@@ -22,8 +22,9 @@
   <% @resumes.each do |resume1| %>
       <tr>
         <td><%= resume1.name %></td>
-        <td><%= link_to "Download Resume", resume1.attachment_url %></td>
-       <td><!--%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %>--> </td>
+        <td><%= link_to "Download", resume1.attachment_url %></td>
+       <td><%= button_to "Löschen",  resume1, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume1.name}?" %></td>
+
       </tr>
   <% end %>
   </tbody>
