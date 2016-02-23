@@ -28,13 +28,26 @@
       <%= f.password_field :password %>
     </div>
     <div class="field">
-      <%= f.label :facebook %><br>
+      <%= f.label :password %><br>
       <%= f.password_field :password_confirmation %>
     </div>
     <div class="field">
       <%= f.label :email %><br>
       <%= f.email_field :email %>
     </div>
+
+    <% if current_user.present? && current_user.is_admin %>
+    <div class="field">
+      <% Role.all.each do |role| %>
+          <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+          <%= role.name %><br />
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :team %><br>
+      <%= f.text_field :team_id %>
+    </div>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

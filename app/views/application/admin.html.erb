@@ -7,10 +7,10 @@
           <li><a data-toggle="pill" href="#menu1">Rollenverwaltung</a></li>
           <li><a data-toggle="pill" href="#menu2">Teams zuweisen</a></li>
           <li><p data-toggle="pill"><%= form_tag(admin_path, :method => 'get') do %>
-                <p>
-                  <%= text_field_tag :search, params[:search], placeholder:"Vorname", class:"form-control ng-pristine ng-valid ng-touched" %>
+                <li>
+                  <%= text_field_tag :search, params[:search], placeholder:"Suche...", class:"form-control ng-pristine ng-valid ng-touched" %>
                   <%= submit_tag "Search", :name => nil %>
-                </p>
+                </li>
         <% end %></li>
         </ul>
 
@@ -28,6 +28,7 @@
                             <th>E-Mail</th>
                             <th>Facebook</th>
                             <th>Team</th>
+                            <th></th>
                             <th>Rolle</th>
                           </tr>
                           </thead>
@@ -52,13 +53,7 @@
               <div class="row">
                 <p>
 
-                <% if @users.present? %>
-                    <% @users.each do |user| %>
-                        <%= render partial: "user", locals: { user: user} %>
-                    <% end %>
-                <% else %>
-                    <p>Keinen User zum Suchbegriff "<%= params[:search] %>" gefunden .</p>
-                <% end %>
+
                 </p>
               </div>
             </div>
@@ -69,13 +64,7 @@
               <div class="row">
                 <p>
 
-                <% if @users.present? %>
-                    <% @users.each do |user| %>
-                        <%= render partial: "team", locals: { user: user} %>
-                    <% end %>
-                <% else %>
-                    <p>Keinen User zum Suchbegriff "<%= params[:search] %>" gefunden .</p>
-                <% end %>
+
                 </p>
               </div>
             </div>

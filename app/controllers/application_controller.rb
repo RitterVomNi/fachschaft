@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @teams = Team.all
   end
+
   def admin
     if params[:search]
       @users = User.search(params[:search]).order("firstName ASC")
@@ -20,17 +21,18 @@ class ApplicationController < ActionController::Base
     @teams = Team.all
   end
 
-  def role_user
+  def change_role
     @user = User.find(params[:id])
+    @role = params[:name]
   end
-  def role_fachschaft
+
+  def change_team
     @user = User.find(params[:id])
-  end
-  def role_manager
-    @user = User.find(params[:id])
-  end
-  def role_admin
-    @user = User.find(params[:id])
+    if params[:tname] == nil
+      @team_id = nil
+    else
+      @team_id = Team.find_by(teamName: params[:tname] ).id
+    end
   end
 
   private
@@ -38,4 +40,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:username, :email, :firstName, :lastName, :facebook, :img]
     devise_parameter_sanitizer.for(:account_update) << [:username, :email, :firstName, :lastName, :facebook, :img]
   end
+
+
 end

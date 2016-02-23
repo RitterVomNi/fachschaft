@@ -4,8 +4,37 @@
           <td class="ng-binding"><%= user.lastName %></td>
           <td class="ng-binding"><%= user.email %></td>
           <td class="ng-binding"><a href="<%= user.facebook %>">Facebook</a></td>
-          <td class="ng-binding">Team</td>
+          <td class="ng-binding"><% if user.team_id != nil %><%= @teams.find_by(id: user.team_id).teamName %><% end %></td>
+          <td class="ng-binding">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle btn-xs" type="button" data-toggle="dropdown">Team ändern
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Erstitage", change_team_path(:id => user.id, :tname => "Erstitage") %></li>
+                <li><%= link_to "Erstifahrt", change_team_path(:id => user.id, :tname => "Erstifahrt") %></li>
+                <li><%= link_to "Klausuren", change_team_path(:id => user.id, :tname => "Klausuren") %></li>
+                <li><%= link_to "Party", change_team_path(:id => user.id, :tname => "Party") %></li>
+                <li><%= link_to "Nachzügler", change_team_path(:id => user.id, :tname => "Nachzügler") %></li>
+                <li><%= link_to "Allgemein", change_team_path(:id => user.id, :tname => "Allgemein") %></li>
+                <li><%= link_to "Kein Team", change_team_path(:id => user.id, :tname => nil) %></li>
+              </ul>
+            </div>
+          </td>
           <td class="ng-binding"><%= user.current_role %></td>
+          <td class="ng-binding">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btn-xs" type="button" data-toggle="dropdown">Rolle ändern
+                    <span class="caret"></span>
+                </button>
+                    <ul class="dropdown-menu">
+                         <li><%= link_to "User", change_role_path(:id => user.id, :name => "User") %></li>
+                         <li><%= link_to "Fachschaft", change_role_path(:id => user.id, :name => "Fachschaft") %></li>
+                         <li><%= link_to "Manager", change_role_path(:id => user.id, :name => "Manager") %></li>
+                         <li><%= link_to "Admin", change_role_path(:id => user.id, :name => "Admin") %></li>
+                    </ul>
+            </div>
+          </td>
           <td class="ng-binding"><%= link_to 'Show', user %></td>
           <td class="ng-binding"><%= link_to 'Edit', edit_user_path(user) %></td>
           <td class="ng-binding"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

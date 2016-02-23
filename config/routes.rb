@@ -17,10 +17,8 @@ root "application#index"
   devise_scope :user do
     get "sign_in" => "devise/sessions#new"
   end
-  get 'role_user' => "application#role_user"
-  get 'role_fachschaft' => "application#role_fachschaft"
-  get 'role_manager' => "application#role_manager"
-  get 'role_admin' => "application#role_admin"
+  get 'change_role' => "application#change_role"
+  get 'change_team' => "application#change_team"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
