@@ -6,6 +6,14 @@
       <%= flash[:notice] %>
     </div>
 <% end %>
+
+<div class="callout callout-info">
+
+  <p>
+    Erfahrungsberichte über Auslandssemester von Studenten der FH Münster. Wir freuen uns über jeden neuen Erfahrungsbericht, den wir hier vorstellen dürfen.
+  </p>
+</div>
+
 <br />
 <%= link_to "Upload", new_resume_path, class: "btn btn-primary" %>
 <br />
@@ -22,7 +30,7 @@
   <% @resumes.each do |resume1| %>
       <tr>
         <td><%= resume1.name %></td>
-        <td><%= link_to "Download", resume1.attachment_url %></td>
+        <td><%= link_to "Download",  resume1.attachment_url,  class: "btn btn-w-md btn-gap-v btn-success" %></td>
        <td><%= button_to "Löschen",  resume1, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume1.name}?" %></td>
 
       </tr>
