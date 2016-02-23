@@ -1,0 +1,56 @@
+<style type="text/css">
+    #link6 {color:blue;}
+</style>
+<div id="sign-content">
+  <div class="page-signin ng-scope">
+
+    <div class="signin-header" style="margin:auto">
+      <section class="logo text-center">
+        <h1 style="padding-top:50px">Einloggen</h1>
+      </section>
+    </div>
+
+    <div class="signin-body">
+      <div class="container">
+        <label class="form-container">
+
+          <fieldset>
+            <%= form_for(resource, as: resource_name, :html => {class:"form-horizontal ng-pristine ng-valid"}, url: session_path(resource_name)) do |f| %>
+                <div class="form-group">
+                  <div class="input-group input-group-first">
+                                <span class="input-group-addon">
+                                    <span class="ti-email"></span>
+                                </span>
+                    <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"E-Mail Adresse" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="ti-lock"></span>
+                                </span>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"Passwort" %>
+                  </div>
+                </div>
+                <br>
+                <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <%= f.submit "Einloggen", class:"btn btn-primary btn-lg btn-block text-center" %>
+                    </div>
+                <% end -%>
+
+
+
+            <% end %>
+            <br>
+            <div>
+              <%= render "devise/shared/links" %>
+            </div>
+            </fieldset>
+            </label>
+      </div></div></div></div>
