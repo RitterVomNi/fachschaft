@@ -2,23 +2,13 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( font-awesome.min.css )
-Rails.application.config.assets.precompile += %w( main.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.js )
-Rails.application.config.assets.precompile += %w( jquery.smooth-scroll.min.js )
-Rails.application.config.assets.precompile += %w( main.js )
-Rails.application.config.assets.precompile += %w( jquery.min.js )
-Rails.application.config.assets.precompile += %w( Gruppenfoto.png )
-Rails.application.config.assets.precompile += %w( themify-icons.css )
-Rails.application.config.assets.precompile += %w( ui.js )
-Rails.application.config.assets.precompile += %w( vendor.js )
-Rails.application.config.assets.precompile += %w( jquery.smooth-scroll.min.js )
 Rails.application.config.assets.precompile += %w( politics.png )
-Rails.application.config.assets.precompile += %w( fachschaftkleiner.png )
+Rails.application.config.assets.precompile += %w( main.css )
+Rails.application.config.assets.precompile += %w( timeline.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
 # Precompile additional assets.
-# application.js, application.css.scss, and all non-JS/CSS in app/assets folder are already added.
+# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

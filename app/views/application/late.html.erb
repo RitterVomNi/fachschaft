@@ -22,8 +22,12 @@
           <ul class="list-group">
             <li class="list-group-item">
               <i class="ti-email" data-toggle="tooltip" title="E-Mail Adresse"></i>
-              <a href="mailto:info@fachschaft-wirtschaft.ms?subject=Nachzüglerbetreuung">E-Mail Nachzüglerbetreuung</a>
+                 <% if current_user.present? %>
+                  <a href="mailto:info@fachschaft-wirtschaft.ms?subject=Nachzüglerbetreuung">E-Mail Nachzüglerbetreuung</a>
             </li>
+                <% else %>
+                    <%= link_to "Einloggen um Inhalt zusehen", sign_in_path, class:"btn btn-info" %>
+                 <% end %>
             <li class="list-group-item">
               <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
               facebook

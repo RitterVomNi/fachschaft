@@ -1,0 +1,80 @@
+<% if current_user.present? && current_user.is_admin %>
+    <div class="panel panel-default" style="margin:0 5px 0 5px">
+      <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-hdd"></span> Administration</strong></div>
+      <div class="panel-body">
+        <ul class="nav nav-pills" id="#">
+          <li class="active"><a data-toggle="pill" href="#home">Allgemein</a></li>
+          <li><a data-toggle="pill" href="#menu1">Rollenverwaltung</a></li>
+          <li><a data-toggle="pill" href="#menu2">Teams zuweisen</a></li>
+          <li><p data-toggle="pill"><%= form_tag(admin_path, :method => 'get') do %>
+                <li>
+                  <%= text_field_tag :search, params[:search], placeholder:"Suche...", class:"form-control ng-pristine ng-valid ng-touched" %>
+                  <%= submit_tag "Search", :name => nil %>
+                </li>
+        <% end %>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <div class="grid-structure">
+                <div class="row">
+                  <p>
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-striped table-responsive">
+                          <thead>
+                          <tr id="admintr">
+                            <th>Vorname</th>
+                            <th>Nachname</th>
+                            <th>E-Mail</th>
+                            <th>Facebook</th>
+                            <th>Team</th>
+                            <th></th>
+                            <th>Rolle</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <% if @users.present? %>
+                              <% @users.each do |user| %>
+                                  <%= render partial: "users", locals: { user: user} %>
+                              <% end %>
+                          <% else %>
+                              <p>Keinen User zum Suchbegriff "<%= params[:search] %>" gefunden .</p>
+                          <% end %>
+                          </tbody>
+                        </table>
+                      </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <div id="menu1" class="tab-pane fade">
+            <div class="grid-structure">
+              <div class="row">
+                <p>
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="menu2" class="tab-pane fade">
+            <div class="grid-structure">
+              <div class="row">
+                <p>
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <% else %>
+    <div class="alert alert-danger">
+      <strong>The cake is a lie!</strong> You naughty boy tried to access our fancy admin stuff
+    </div>
+<% end %>
