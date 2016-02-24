@@ -37,32 +37,13 @@
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                 <!-- Bild Breite 900 Höhe 675 -->
-                <img src="<%= asset_path('slideshow/fach1.jpg') %>" data-toggle="modal" data-target="#myModal0">
+                <img src="/images/fach.jpg" class="img-responsive" data-toggle="modal" data-target="#myModal">
               </div>
-
-              <div class="item" id="slide_image">
-                <img src="<%= asset_path('slideshow/fach2.jpg') %>" data-toggle="modal" data-target="#myModal1">
-              </div>
-
+                <% 7.times do |e| %>
               <div class="item">
-                <img src="<%= asset_path('slideshow/fach3.jpg') %>" data-toggle="modal" data-target="#myModal2">
+                <img src="/images/fach<%=e%>.jpg" class="img-responsive"  data-toggle="modal" data-target="#myModal<%=e%>">
               </div>
-
-              <div class="item">
-                <img src="<%= asset_path('slideshow/fach4.jpg') %>" data-toggle="modal" data-target="#myModal3">
-              </div>
-              <div class="item">
-                <img src="<%= asset_path('slideshow/fach5.jpg') %>" data-toggle="modal" data-target="#myModal4">
-              </div>
-              <div class="item">
-                <img src="<%= asset_path('slideshow/fach6.jpg') %>" data-toggle="modal" data-target="#myModal5">
-              </div>
-              <div class="item">
-                <img src="<%= asset_path('slideshow/fach7.jpg') %>" data-toggle="modal" data-target="#myModal6">
-              </div>
-              <div class="item">
-                <img src="<%= asset_path('slideshow/fach8.jpg') %>" data-toggle="modal" data-target="#myModal7">
-              </div>
+                  <% end %>
             </div>
 
             <!-- Left and right controls -->
@@ -74,10 +55,28 @@
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-            <% 8.times do |i| %>
 
-                <%= render partial: 'helper', locals:{ i: i } %>
-
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="/images/fach.jpg" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% 7.times do |i| %>
+                <div class="modal fade" id="myModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <img src="/images/fach<%=i%>.jpg" class="img-responsive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
             <%end%>
           </div>
 

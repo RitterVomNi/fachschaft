@@ -15,9 +15,10 @@
       <div id="member" class="widget-container">
         <div class="panel panel-profile">
           <div class="panel-heading bg-danger clearfix">
+
             <img src="<%= asset_path('Gruppenfoto.png') %> " class="img-circle img80_80 pull-left profile" >
-            <h3 class="ng-binding">Eva</h3>
-            <p>Johnen</p>
+            <h3 class="ng-binding"><%= @user.firstName %></h3>
+            <p><%= @user.lastName %></p>
           </div>
           <ul class="list-group">
             <li class="list-group-item">
@@ -30,7 +31,7 @@
                  <% end %>
             <li class="list-group-item">
               <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-              facebook
+              <a href="<%= @user.facebook %>">Facebook</a>
             </li>
           </ul>
         </div>

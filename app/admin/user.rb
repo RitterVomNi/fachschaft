@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id,  role_ids: []
+  permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
 
 
@@ -9,6 +9,7 @@ ActiveAdmin.register User do
     column "Vorname", :firstName
     column "Nachname", :lastName
     column :email
+    column :studiengang
     column "Letzter Login", :last_sign_in_at
     column "Anzahl Anmeldungen", :sign_in_count
     column "Erstellt am", :created_at
@@ -29,6 +30,7 @@ ActiveAdmin.register User do
   filter :roles, label: "Rolle"
   filter :team, collection: proc { Team.all.pluck(:teamName, :id) }
   filter :email
+  filter :studiengang
   filter :last_sign_in_at, label: "Letzter Login"
   filter :created_at, label: "Erstellt am"
 
