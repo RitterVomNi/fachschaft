@@ -15,15 +15,20 @@
 </div>
 
 <br />
+<% if current_user.present? && current_user.is_admin%>
 <%= link_to "Upload", new_resume_path, class: "btn btn-primary" %>
-<br />
+<% end %>
+    <br />
+
 <br />
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
     <th>Name</th>
     <th>Download Link</th>
+    <% if current_user.present? && current_user.is_admin%>
     <th>&nbsp;</th>
+    <% end %>
   </tr>
   </thead>
   <tbody>
@@ -31,8 +36,9 @@
       <tr>
         <td><%= resume1.name %></td>
         <td><%= link_to "Download",  resume1.attachment_url,  class: "btn btn-w-md btn-gap-v btn-success" %></td>
-       <td><%= button_to "Löschen",  resume1, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume1.name}?" %></td>
-
+        <% if current_user.present? && current_user.is_admin %>
+       <td><%= button_to "Löschen",  resume1, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume1.name}?" %>
+          </td>   <% end %>
       </tr>
   <% end %>
   </tbody>
