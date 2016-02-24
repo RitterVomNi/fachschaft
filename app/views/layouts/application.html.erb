@@ -40,8 +40,13 @@
                   <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>
                   <%else%>
                   <li><%= link_to "Einloggen", new_user_session_path, id: "link6" %></li>
+
+
                   <li><%= link_to "Anmelden", new_user_registration_path, id: "link7" %></li>
+                    <!--  <li> <%#=#image_tag(current_user.avatar.url(:thumb)) %></li>-->
                   <%end%>
+
+
 
                   <% if current_user.present? && current_user.is_admin %>
                   <li><%= link_to "Administration", admin_path, style:"color:red" %></li>
