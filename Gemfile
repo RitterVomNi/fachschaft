@@ -45,6 +45,9 @@ gem 'rolify'
 #file management
 gem 'carrierwave'
 
+gem 'activeadmin', github: 'activeadmin'
+gem 'cancan'
+
 
 
 # Use Capistrano for deployment

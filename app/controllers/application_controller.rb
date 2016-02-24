@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @teams = Team.all
   end
+  def late
+    if User.find_by(team_id: "7") != nil
+    @user = User.find_by(team_id: "7")
+    else
+      @user = User.find(1)
+    end
+  end
 
   def admin
     if params[:search]
