@@ -33,7 +33,7 @@
                     <span class="input-group-addon">
                         <span class="ti-lock"></span>
                     </span>
-                  <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"Passwort, min 8 Zeichen"  %>
+                  <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort, min 8 Zeichen"  %>
                 </div>
               </div>
 
@@ -42,7 +42,7 @@
                     <span class="input-group-addon">
                         <span class="ti-lock"></span>
                     </span>
-                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control input-lg", placeholder:"Passwort wiederholen"   %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort wiederholen"   %>
                 </div>
               </div>
               <div class="form-group">
@@ -95,9 +95,8 @@
                 </div>
 <% end %>
 </div>
-<h3>Account löschen</h3>
-
-          <div class="form-group"><p>Unhappy?
+          <br><br><br><br><br>
+          <div class="form-group"><p>Unzufrieden?
   <%= button_to "Account löschen", registration_path(resource_name), data: { confirm: "Bist du sicher?" }, method: :delete, class:"btn btn-primary btn-lg btn-block text-center"  %></p></div>
 
 <%= link_to "Zurück", :back %>

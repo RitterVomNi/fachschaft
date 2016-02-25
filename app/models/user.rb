@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false, message: "ist bereits vergeben." }
   validates :facebook,
             format: { with: /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/, message: "Link nicht gültig." }
-
+  validates :firstName, presence: true
+  validates :lastName, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
   has_many :contents
