@@ -17,6 +17,7 @@ root "application#index"
   get 'admin' => "application#admin"
   get 'contact' => "application#contact"
   devise_scope :user do
+    get 'account' => "devise/registrations#edit"
     get "sign_in" => "devise/sessions#new"
   end
   get 'change_role' => "application#change_role"

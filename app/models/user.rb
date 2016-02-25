@@ -6,6 +6,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   rolify
 
+  validates :email,
+            format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden." },
+            uniqueness: { case_sensitive: false, message: "Email ist bereits vergeben." }
+  validates :facebook,
+            format: { with: /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/, message: "Facebook-Link nicht gültig." }
+  validates :firstName, presence: true
+  validates :lastName, presence: true
+  validates :studiengang, presence: true
+
   after_initialize :set_default_role, :if => :new_record?
   has_many :contents
   has_one :team
@@ -23,6 +32,11 @@ class User < ActiveRecord::Base
 
       false
     end
+  end
+
+  def is_valid
+
+    false
   end
 
   #Checks if the current user is an admin
