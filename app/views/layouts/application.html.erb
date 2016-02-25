@@ -36,7 +36,7 @@
                   <li><%= link_to "Nachzügler", late_path, id: "link8" %></li>
 
                   <% if current_user.present? %>
-                  <li><a href="#">Account</a></li>
+                  <li><%= link_to "Account", account_path(current_user), id: "link9" %></li>
                   <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>
                   <%else%>
                   <li><%= link_to "Einloggen", new_user_session_path, id: "link6" %></li>

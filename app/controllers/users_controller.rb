@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def editUser
+    @user = current_user
+  end
+  # temprorary code. delete later
+  def edit
+    @user = current_user
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
