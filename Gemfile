@@ -49,7 +49,6 @@ gem 'rmagick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
 
-gem 'rmagick'
 
 
 
