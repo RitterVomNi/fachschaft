@@ -5502,7 +5502,6 @@ ul li i {float:left;}
 #sign-content  {
   background-image: url("background/1.jpg");
   color: white;
-  margin-top: -50px;
 }
 
 #admintr th {
@@ -5511,4 +5510,9 @@ ul li i {float:left;}
 
 #user_studiengang option {
   color:black;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
 }

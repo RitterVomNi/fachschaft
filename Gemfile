@@ -44,6 +44,10 @@ gem 'rolify'
 
 #file management
 gem 'carrierwave'
+gem 'rmagick'
+
+gem 'activeadmin', github: 'activeadmin'
+gem 'cancan'
 
 gem 'rmagick'
 

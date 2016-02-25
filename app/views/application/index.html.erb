@@ -6,125 +6,131 @@
   <li class="active"><a data-toggle="tab" href="#news">News</a></li>
   <li><a data-toggle="tab" href="#erstis">Erstemester</a></li>
   <li><a data-toggle="tab" href="#klausuren">Klasusuren</a></li>
-  <li><a data-toggle="tab" href="#party">Party</a></li>
+  <li><a data-toggle="tab" href="#sponsoring">Sponsoring</a></li>
+  <li><a data-toggle="tab" href="#gremien">Gremienarbeit</a></li>
+  <li><a data-toggle="tab" href="#veranstaltungen">Veranstaltungen</a></li>
+  <li><a data-toggle="tab" href="#partys">Partys</a></li>
 </ul>
 
 <div class="tab-content">
   <div id="news" class="tab-pane fade in active">
-    <h3>Alle News</h3>
     <div class="container">
       <ul class="timeline">
+
+
+        <% @contents.order(created_at: :desc).limit(5).each do |content| %>
+            <% if (content.id%2) == 0 %>
+
         <li>
-          <div class="timeline-badge"><i class="glyphicon glyphicon-calendar"></i></div>
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Kalender für Events oder so</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 22.02.2016</small></p>
+              <h4 class="timeline-title"><%= content.title %></h4>
+              <p><small class="text-muted">Erstellt: <%= content.created_at %> </small></p>
             </div>
             <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-book"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Buch Icon für Klausuren</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere
-                pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge danger"><i class="glyphicon glyphicon-star"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Drink gabs nich(Party)</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-calendar"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-user"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Für Erstis oder so</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <p><%= content.content %></p>
+            <div class="timeline-footer">
+              <br>
               <hr>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
+              <br>
+              <p><% user = content.user_id %>
+                <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
+              </p>
+            </div>
             </div>
           </div>
         </li>
+
+        <% else %>
+        <li class="timeline-inverted">
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-book"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= content.title %></h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Erstellt: <%= content.created_at %></small></p>
+            </div>
+            <div class="timeline-body">
+              <p><%= content.content %>.</p>
+            </div>
+          </div>
+        </li>
+        <% end %>
+
+       <% end %>
+
+        <!--li>
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-glass"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= @contents.find(3).title %></h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
+            </div>
+            <div class="timeline-body">
+              <p><%= @contents.find(3).content %></p>
+            </div>
+          </div>
+        </li>
+
+        <li class="timeline-inverted">
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= @contents.find(4).title %></h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
+            </div>
+            <div class="timeline-body">
+              <p><%= @contents.find(4).content %>.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-user"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= @contents.find(1).title %></h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
+            </div>
+            <div class="timeline-body">
+              <p><%= @contents.find(1).content %></p>
+              <hr>
+            </div>
+          </div>
+        </li>
+
         <li>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+              <h4 class="timeline-title"><%= @contents.find(2).title %></h4>
             </div>
             <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <p><%= @contents.find(2).content %></p>
             </div>
           </div>
         </li>
+
         <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+          <div class="timeline-badge primary"><i class="glyphicon glyphicon-thumbs-up"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+              <h4 class="timeline-title"><%= @contents.find(3).title %></h4>
             </div>
             <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-                Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <p><%= @contents.find(3).content %></p>
             </div>
           </div>
         </li>
+
+    </div-->
       </ul>
+  </div>
     </div>
 
-  </div>
+
+
   <div id="erstis" class="tab-pane fade">
-    <!--h3>ErstiBla</h3>
-    <p>Lorem ipsum dolor sit amet...</p-->
+    <br><br><br>
     <div class="panel panel-info">
       <div class="panel-heading">
         Erstis
@@ -136,21 +142,111 @@
         User oder Datum
       </div>
     </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Titel 2
+    </div>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </div>
+    <div class="panel-footer">
+      User || 22.02.1016
+    </div>
   </div>
+  </div>
+
   <div id="klausuren" class="tab-pane fade">
-    <h3>Klausuren</h3>
-    <p>Lorem ipsum dolor sit amet...</p>
+    <br><br><br>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Klausuren
+      </div>
+      <div class="panel-body">
+        body content here
+      </div>
+      <div class="panel-footer">
+        User oder Datum
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Titel 580
+      </div>
+      <div class="panel-body">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </div>
+      <div class="panel-footer">
+        User || 22.02.1016
+      </div>
+    </div>
   </div>
-  <div id="party" class="tab-pane fade">
-    <h3>PartyParty</h3>
-    <p>Lorem ipsum dolor sit amet...</p>
+
+    <div id="sponsoring" class="tab-pane fade">
+      <br><br><br>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          SPONSORING
+        </div>
+        <div class="panel-body">
+          body content here
+        </div>
+        <div class="panel-footer">
+          User oder Datum
+        </div>
+      </div>
+      </div>
+
+      <div id="gremien" class="tab-pane fade">
+        <br><br><br>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            GREMIEN
+          </div>
+          <div class="panel-body">
+            body content here
+          </div>
+          <div class="panel-footer">
+            User oder Datum
+          </div>
+        </div>
+        </div>
+
+        <div id="veranstaltungen" class="tab-pane fade">
+          <br><br><br>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              Veranstaltungen
+            </div>
+            <div class="panel-body">
+              body content here
+            </div>
+            <div class="panel-footer">
+              User oder Datum
+            </div>
+          </div>
+          </div>
+
+
+<div id="partys" class="tab-pane fade">
+  <br><br><br>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      PartyParty
+    </div>
+    <div class="panel-body">
+      body content here
+    </div>
+    <div class="panel-footer">
+      User oder Datum
+    </div>
   </div>
+  </div>
+
+
 </div>
-<!-- <ul class="nav nav-pills" id="#">
-  <li class="active"><a data-toggle="pill" href="#home">Alle</a></li>
-  <li><a data-toggle="pill" href="#menu1">Erstsemestereinführung</a></li>
-  <li><a data-toggle="pill" href="#menu2">Erstifahrt</a></li>
-  <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
-  <li><a data-toggle="pill" href="#menu4">Party</a></li>
-  <li><a data-toggle="pill" href="#menu5">Nachzügler</a></li>
-</ul> -->
+
+<!--/div>
+
+
+
+
