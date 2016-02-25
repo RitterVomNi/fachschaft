@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
-
   # POST /users
   # POST /users.json
   def create
@@ -74,7 +73,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      if params[:id] != "sign_out"
       @user = User.find(params[:id])
+      else
+        render :'application/index'
+        end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

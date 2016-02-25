@@ -13,15 +13,22 @@ User.create(facebook: "https://www.facebook.com/groups/649018005179998/?fref=ts"
 User.create(facebook: "https://www.facebook.com/adventuretime/?fref=ts", firstName: "Fin", lastName: "the Human", email: "fin@fh-muenster.ti" ,password: "12345678", studiengang: "CALA")
 User.create(facebook: "https://www.facebook.com/adventuretime/?fref=ts", firstName: "Jake", lastName: "the Dog", email: "jake@fh-muenster.ti" ,password: "12345678", studiengang: "EBP")
 
+Role.create(name: "Admin")
+Role.create(name: "Manager")
+Role.create(name: "Fachschaft")
+Role.create(name: "User")
+
 Resume.create(name: "Kapstadt", attachment: File.open(File.join(Rails.root, 'kapstadt.pdf')))
 Resume.create(name: "Portsmouth", attachment: File.open(File.join(Rails.root, 'portsmouth.pdf')))
 Resume.create(name: "Santiago de Chile", attachment: File.open(File.join(Rails.root, 'santiago_de_chile.pdf')))
 Resume.create(name: "Universidad de Sevilla", attachment: File.open(File.join(Rails.root, 'universidad_de_sevilla.pdf')))
 Resume.create(name: "Universität von Sevillia", attachment: File.open(File.join(Rails.root, 'universität_von_sevilla.pdf')))
 
-Team.create(teamName: "Erstitage")
-Team.create(teamName: "Erstifahrt")
-Team.create(teamName: "Klausuren")
+Team.create(teamName: "Erstsemester")
 Team.create(teamName: "Party")
+Team.create(teamName: "Sponsoring")
+Team.create(teamName: "Veranstaltungen")
+Team.create(teamName: "Klausuren")
+Team.create(teamName: "Gremienarbeit")
 Team.create(teamName: "Nachzügler")
-Team.create(teamName: "Allgemein")
+

@@ -66,8 +66,8 @@
                     <span class="input-group-addon">
                         <span class="ti-book"></span>
                     </span>Studiengang
-                    <span class="ui-select">
-                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik])%>
+                    <span class="ui-select" uib-dropdown-toggle="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= f.select :studiengang,  options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik]) %>
                         </span>
                   </div>
                 </div>
@@ -77,8 +77,9 @@
                         <span class="ti-facebook"></span>
                     </span>
                     <%= f.text_field :facebook, autocomplete: "off", class:"form-control input-lg", placeholder:"URL Facebook Account"   %>
+
                   </div>
-                  <em>(optional)</em>
+                  <span class="help-block">(optional)</span>
                 </div>
                 <br><br>
                 <div class="form-group">
