@@ -1,31 +1,92 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<style type="text/css">
+  #link9 {color:blue;}
+</style>
+<div id="sign-content">
+  <div class="page-signin ng-scope">
+
+    <div class="signin-header" style="margin:auto">
+      <section class="logo text-center">
+        <h1 style="padding-top:50px">Account bearbeiten</h1>
+      </section>
+    </div>
+
+    <div class="signin-body">
+      <div class="container">
+        <label class="form-container">
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <p class="notice"><%= notice %></p>
+              <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <div class="form-group">
+                <div class="input-group input-group-first">
+                    <span class="input-group-addon">
+                        <span class="ti-email"></span>
+                    </span>
+                  <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"E-Mail Adresse" %>
+                </div>
+              </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-lock"></span>
+                    </span>
+                  <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort, min 8 Zeichen"  %>
+                </div>
+              </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-lock"></span>
+                    </span>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort wiederholen"   %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-user"></span>
+                    </span>
+                  <%= f.text_field :firstName, autocomplete: "off", class:"form-control input-lg", placeholder:"Vorname"   %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-user"></span>
+                    </span>
+                  <%= f.text_field :lastName, autocomplete: "off", class:"form-control input-lg", placeholder:"Nachname"   %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-book"></span>
+                    </span>Studiengang
+                    <span class="ui-select">
+                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik])%>
+                        </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-facebook"></span>
+                    </span>
+                  <%= f.text_field :facebook, autocomplete: "off", class:"form-control input-lg", placeholder:"URL Facebook Account"   %>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="ti-lock"></span>
+                    </span>
+                  <%= f.label 'erforderlich:' %>
+                    <%= f.password_field :current_password, autocomplete: "off", class:"form-control input-lg", placeholder:"aktuelles Passwort"   %>
 
     <div>
       <%- if current_user.avatar.url.present? %>
@@ -35,13 +96,22 @@
       <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %> <% end %>
     </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.submit "Update", class:"btn btn-primary btn-lg btn-block text-center" %>
+                </div>
 <% end %>
+</div>
+          <br><br><br><br><br>
+          <div class="form-group"><p>Unzufrieden?
+  <%= button_to "Account löschen", registration_path(resource_name), data: { confirm: "Bist du sicher?" }, method: :delete, class:"btn btn-primary btn-lg btn-block text-center"  %></p></div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to "Zurück", :back %>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
