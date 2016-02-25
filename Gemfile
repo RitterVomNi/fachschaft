@@ -44,7 +44,8 @@ gem 'rolify'
 
 #file management
 gem 'carrierwave'
-gem 'paperclip'
+
+gem 'rmagick'
 
 
 

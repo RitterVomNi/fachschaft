@@ -38,12 +38,13 @@
                   <% if current_user.present? %>
                   <li><a href="#">Account</a></li>
                   <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>
+                      <li> <%=image_tag current_user.avatar.url(:thumb) , class: "img-circle img60_60"  if current_user.avatar? rescue true  %></li>
                   <%else%>
                   <li><%= link_to "Einloggen", new_user_session_path, id: "link6" %></li>
 
 
                   <li><%= link_to "Anmelden", new_user_registration_path, id: "link7" %></li>
-                    <!--  <li> <%#=#image_tag(current_user.avatar.url(:thumb)) %></li>-->
+
                   <%end%>
 
 
