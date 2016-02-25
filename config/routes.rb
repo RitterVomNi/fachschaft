@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  ActiveAdmin.routes(self)
   resources :resumes, only: [:index, :new, :create, :destroy]
   resources :contents
   resources :users
@@ -14,7 +15,9 @@ root "application#index"
   get 'late' => "application#late"
   get 'politics' => "application#politics"
   get 'admin' => "application#admin"
+  get 'contact' => "application#contact"
   devise_scope :user do
+    get 'account' => "devise/registrations#edit"
     get "sign_in" => "devise/sessions#new"
   end
   get 'change_role' => "application#change_role"

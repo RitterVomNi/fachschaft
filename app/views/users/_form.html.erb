@@ -36,18 +36,11 @@
       <%= f.email_field :email %>
     </div>
 
-    <% if current_user.present? && current_user.is_admin %>
-    <div class="field">
-      <% Role.all.each do |role| %>
-          <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
-          <%= role.name %><br />
-      <% end %>
-    </div>
-    <div class="field">
-      <%= f.label :team %><br>
-      <%= f.text_field :team_id %>
-    </div>
-    <% end %>
+    <span class="ti-book"></span>
+    Studiengang
+    <span class="ui-select">
+                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik])%>
+                        </span>
   <div class="actions">
     <%= f.submit %>
   </div>
