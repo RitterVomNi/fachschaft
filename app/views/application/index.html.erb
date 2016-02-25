@@ -6,7 +6,10 @@
   <li class="active"><a data-toggle="tab" href="#news">News</a></li>
   <li><a data-toggle="tab" href="#erstis">Erstemester</a></li>
   <li><a data-toggle="tab" href="#klausuren">Klasusuren</a></li>
-  <li><a data-toggle="tab" href="#party">Party</a></li>
+  <li><a data-toggle="tab" href="#sponsoring">Sponsoring</a></li>
+  <li><a data-toggle="tab" href="#gremien">Gremienarbeit</a></li>
+  <li><a data-toggle="tab" href="#veranstaltungen">Veranstaltungen</a></li>
+  <li><a data-toggle="tab" href="#partys">Partys</a></li>
 </ul>
 
 <div class="tab-content">
@@ -15,8 +18,7 @@
       <ul class="timeline">
 
 
-        <% @contents.order(:created_at).limit(5).each do |content| %>
-
+        <% @contents.order(created_at: :desc).limit(5).each do |content| %>
             <% if (content.id%2) == 0 %>
 
         <li>
@@ -53,9 +55,9 @@
             </div>
           </div>
         </li>
-                <% end %>
+        <% end %>
 
-            <% end %>
+       <% end %>
 
         <!--li>
           <div class="timeline-badge primary"><i class="glyphicon glyphicon-glass"></i></div>
@@ -123,6 +125,7 @@
     </div-->
       </ul>
   </div>
+    </div>
 
 
 
@@ -139,8 +142,6 @@
         User oder Datum
       </div>
     </div>
-
-
   <div class="panel panel-info">
     <div class="panel-heading">
       Titel 2
@@ -167,8 +168,6 @@
         User oder Datum
       </div>
     </div>
-
-
     <div class="panel panel-info">
       <div class="panel-heading">
         Titel 580
@@ -182,8 +181,53 @@
     </div>
   </div>
 
+    <div id="sponsoring" class="tab-pane fade">
+      <br><br><br>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          SPONSORING
+        </div>
+        <div class="panel-body">
+          body content here
+        </div>
+        <div class="panel-footer">
+          User oder Datum
+        </div>
+      </div>
+      </div>
 
-<div id="party" class="tab-pane fade">
+      <div id="gremien" class="tab-pane fade">
+        <br><br><br>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            GREMIEN
+          </div>
+          <div class="panel-body">
+            body content here
+          </div>
+          <div class="panel-footer">
+            User oder Datum
+          </div>
+        </div>
+        </div>
+
+        <div id="veranstaltungen" class="tab-pane fade">
+          <br><br><br>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              Veranstaltungen
+            </div>
+            <div class="panel-body">
+              body content here
+            </div>
+            <div class="panel-footer">
+              User oder Datum
+            </div>
+          </div>
+          </div>
+
+
+<div id="partys" class="tab-pane fade">
   <br><br><br>
   <div class="panel panel-info">
     <div class="panel-heading">
@@ -196,13 +240,12 @@
       User oder Datum
     </div>
   </div>
+  </div>
 
 
 </div>
 
-</div>
-
-</div>
+<!--/div>
 
 
 
