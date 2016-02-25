@@ -29,6 +29,19 @@ class User < ActiveRecord::Base
   def is_admin
     self.has_role? Role.admin
   end
+
+  #checks if current user is a manager
+  def is_manager
+    self.has_role? Role.manager
+  end
+
+  #checks if current user is fachschaft
+  def is_fs
+    self.has_role? Role.fs
+  end
+
+
+
   #Returns the name of the current role
   def current_role
     self.roles[0].to_string

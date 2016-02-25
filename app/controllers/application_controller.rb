@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @users = User.all
+    @contents = Content.all
   end
   def about
     @users = User.all
