@@ -49,6 +49,8 @@ gem 'rmagick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
 
+gem 'rmagick'
+
 
 
 # Use Capistrano for deployment

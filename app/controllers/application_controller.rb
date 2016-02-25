@@ -45,8 +45,10 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
+
     devise_parameter_sanitizer.for(:sign_up) << [:studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
     devise_parameter_sanitizer.for(:account_update) << [:password, :password_confirmation, :studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
+
   end
 
 
