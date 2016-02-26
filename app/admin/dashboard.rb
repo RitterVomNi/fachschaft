@@ -1,4 +1,4 @@
-ActiveAdmin.register_page "Dashboard", namespace: :manager do
+ActiveAdmin.register_page "Dashboard" do
 
   menu false
  # menu priority: 3, label: proc{ I18n.t("active_admin.dashboard") }
