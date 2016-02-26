@@ -13,7 +13,7 @@
   <li><a data-toggle="tab" href="#veranstaltungen">Veranstaltungen</a></li>
   <li><a data-toggle="tab" href="#partys">Partys</a></li>
   <% if current_user.present? && (current_user.is_admin or current_user.is_manager or current_user.is_fs) %>
-  <li><a data-toggle="tab" href="#content">Content Erstellen</a></li>
+  <li><%= link_to "Content Erstellen", new_content_path %></li>
       <% end %>
 </ul>
 
@@ -224,46 +224,6 @@
       </div>
   <% end %>
   <% end %>
-
-
-<!-- Tab for editing and making Content -->
-  <div id="content" class="tab-pane fade">
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <form class="ng-pristine ng-valid" role="form">
-            <div class="form-group">
-
-              <label for="" class="col-sm-2">Titel</label>
-              <div class="col-sm-10">
-                <input aria-invalid="true" aria-required="true" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-ng-model="form.required" type="text">
-              </div>
-            </div>
-            <br><br>
-
-            <div class="panel-body">
-              <div aria-invalid="false" text-angular="" ng-model="mailContent" class="ui-editor ng-pristine ng-untouched ng-valid ng-isolate-scope ta-root">
-                <div class="ng-scope ng-isolate-scope ta-toolbar btn-toolbar" text-angular-toolbar="" name="textAngularToolbar2690117130780300" >
-                </div>
-                <div aria-hidden="false" ng-hide="showHtml" class="ta-scroll-window ng-scope ta-text ta-editor form-control">
-                  <div class="popover fade bottom" style="max-width: none; width: 305px;">
-                  <div class="popover-content"></div>
-                  </div>
-
-                  <div aria-invalid="false" class="ng-pristine ng-untouched ng-valid ta-bind" ng-model="html" ta-bind="ta-bind" id="taTextElement2690117130780300" contenteditable="true"><p><br></p></div>
-                </div>
-                <textarea aria-invalid="false" aria-hidden="true" aria-multiline="true" class="ng-pristine ng-untouched ng-valid ng-scope ta-bind ta-html ta-editor form-control ng-hide" ng-model="html" ta-bind="ta-bind" ng-show="showHtml" id="taHtmlElement2690117130780300">
-                </textarea>
-                <input value="" name="textAngularEditor2690117130780300" tabindex="-1" style="display: none;" type="hidden">
-              </div>
-              </div>
-            <button type="submit" class="btn btn-primary btn-w-md">Submit</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 </div>
