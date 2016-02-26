@@ -15,8 +15,8 @@
 </div>
 
 <br />
-<% if current_user.present? && current_user.is_admin%>
-<%= link_to "Upload", new_resume_path, class: "btn btn-primary" %>
+<% if current_user.present? && current_user.is_admin %>
+<%= link_to " Upload", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
 <% end %>
     <br />
 
@@ -24,20 +24,22 @@
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Download Link</th>
+    <th></th>
+    <th style="text-align: center">Name</th>
+    <th style="text-align: center">Download</th>
     <% if current_user.present? && current_user.is_admin%>
-    <th>&nbsp;</th>
+    <th style="text-align: center">Löschen</th>
     <% end %>
   </tr>
   </thead>
   <tbody>
   <% @resumes.each do |resume1| %>
       <tr>
+        <td><i class="fa fa-file-pdf-o fa-2x"></i></td>
         <td><%= resume1.name %></td>
-        <td><%= link_to "Download",  resume1.attachment_url,  class: "btn btn-w-md btn-gap-v btn-success" %></td>
+        <td><%= link_to "",  resume1.attachment_url,  class: "fa fa-download fa-2x faa-float animated-hover", style: "color:#20549f" %></td>
         <% if current_user.present? && current_user.is_admin %>
-       <td><%= button_to "Löschen",  resume1, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume1.name}?" %>
+       <td><%= link_to "",  resume1, method: :delete, confirm: "Are you sure that you wish to delete #{resume1.name}?",  class: "fa fa-times fa-2x", style:"color:red"  %>
           </td>   <% end %>
       </tr>
   <% end %>

@@ -69,13 +69,6 @@ class User < ActiveRecord::Base
   #has_attached_file :avatar, :styles => { :medium => "400x400>", :thumb => "400x400#" }, :default_url => "/images/:style/missing.png"
  #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   #######################
-
-
-
-  def self.search(search)
-    where("firstName LIKE ? OR lastName LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%" )
-  end
-
   private
 
   ##
