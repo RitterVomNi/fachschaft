@@ -31,20 +31,23 @@ class ApplicationController < ActionController::Base
     @teams = Team.all
   end
 
-  def change_role
-    @user = User.find(params[:id])
-    @role = params[:name]
-  end
-
-  def change_team
-    @user = User.find(params[:id])
-    if params[:tname] == nil
-      @team_id = nil
+  def authenticate_manager!
+    if current_user.present? && (current_user.is_admin || current_user.is_manager)
+      true
     else
-      @team_id = Team.find_by(teamName: params[:tname] ).id
+      flash[:alert] = "Du musst Administrator sein, um diese Seite auf zu rufen!"
+      redirect_to new_user_session_path
     end
   end
 
+  def authenticate_admin!
+    if current_user.present? && current_user.is_admin
+      true
+    else
+      flash[:alert] = "Du musst Administrator sein, um diese Seite auf zu rufen!"
+      redirect_to new_user_session_path
+    end
+  end
   private
   def configure_permitted_parameters
 
