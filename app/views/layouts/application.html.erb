@@ -45,7 +45,7 @@
                         <% end %>
                       <% if current_user.present? && current_user.is_admin %>
                           <li>
-                            <%= link_to "Administration", admin_path, style:"color:red" %>
+                            <%= link_to "Administration", admin_root_path, style:"color:red" %>
                           </li>
                       <% end %>
                       <% if current_user.present? && current_user.is_manager %>
