@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
 
   #checks if current user is fachschaft
   def is_fs
-    self.has_role? Role.fs
+    self.has_role? Role.fachschaft
   end
 
 
