@@ -1,4 +1,4 @@
-ActiveAdmin.register Appointment, as: "Termine", namespace: :admin do
+ActiveAdmin.register Appointment, as: "Termine" do
   actions :all, :except => [:destroy]
   permit_params :content
 

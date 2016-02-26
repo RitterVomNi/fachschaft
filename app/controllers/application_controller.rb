@@ -31,8 +31,17 @@ class ApplicationController < ActionController::Base
     @teams = Team.all
   end
 
-  def authenticate_admin_user!
+  def authenticate_manager!
     if current_user.present? && (current_user.is_admin || current_user.is_manager)
+      true
+    else
+      flash[:alert] = "Du musst Administrator sein, um diese Seite auf zu rufen!"
+      redirect_to new_user_session_path
+    end
+  end
+
+  def authenticate_admin!
+    if current_user.present? && current_user.is_admin
       true
     else
       flash[:alert] = "Du musst Administrator sein, um diese Seite auf zu rufen!"
