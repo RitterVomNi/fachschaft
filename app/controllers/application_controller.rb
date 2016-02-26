@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def about
     @users = User.all
     @teams = Team.all
+    @appointments = Appointment.all
   end
   def late
     if User.find_by(team_id: "7") != nil
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
     else
       @user = User.find(1)
     end
+    @appointments = Appointment.all
   end
 
   def admin
@@ -47,7 +49,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
 
     devise_parameter_sanitizer.for(:sign_up) << [:studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
-    devise_parameter_sanitizer.for(:account_update) << [:password, :password_confirmation, :studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
+    devise_parameter_sanitizer.for(:account_update) << [:password, :password_confirmation, :studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache, :remove_avatar]
 
   end
 

@@ -45,3 +45,9 @@ Content.create(title: "No 5", content: "Praise the Lord", created_at: '05.05.201
 Content.create(title: "No 6", content: "Wer hat die Kokosnuss", created_at: '06.06.2010', updated_at: 'nil', user_id: "6" )
 Content.create(title: "No 7", content: "Et tu, Brute?", created_at: '07.07.2010', updated_at: 'nil', user_id: "1" )
 Content.create(title: "No 8", content: "Asinus stupidus est", created_at: '08.08.2010', updated_at: 'nil', user_id: "2" )
+
+
+Appointment.create(content: "Freitag den 11.03.2016, &nbsp;&nbsp; Uhrzeit: 15:00", title: "1. Termin Nachzüglerbetreuung")
+Appointment.create(content: "Montag den 14.03.2016, &nbsp;&nbsp; Uhrzeit: 18:00", title: "2. Termin Nachzüglerbetreuung")
+Appointment.create(content: "Montags um 18:15", title: "Sitzungszeit Fachschaft")
+
