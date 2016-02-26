@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
   menu priority: 2
-
+  
 
 
   index do
@@ -35,7 +35,6 @@ ActiveAdmin.register User do
   filter :studiengang
   filter :last_sign_in_at, label: "Letzter Login"
   filter :created_at, label: "Erstellt am"
-
 
  # form partial: "aaform"
   form do |f|

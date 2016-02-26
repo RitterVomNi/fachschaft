@@ -42,6 +42,15 @@ ActiveAdmin.setup do |config|
   #     admin.site_title = "Custom Admin Title"
   #   end
   #
+
+  config.namespace :manager do |namespaced|
+    namespaced.authentication_method = :authenticate_manager!
+  end
+  config.namespace :admin do |namespaced|
+    namespaced.authentication_method = :authenticate_admin!
+  end
+
+  config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/manager', Rails.root)]
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
 
@@ -53,7 +62,6 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_user!
 
   # == User Authorization
   #
@@ -111,7 +119,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'dashboard#index'
+  config.root_to = 'contents#index'
 
   # == Admin Comments
   #
