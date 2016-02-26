@@ -27,49 +27,15 @@
             <!-- Left side of the timeline -->
             <% if (content.id%2) == 0 %>
               <li>
-              <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title"><%= content.title %></h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></p>
-                </div>
-                <div class="timeline-body">
-                  <p><%= content.content %></p>
-                <div class="timeline-footer">
-                  <br>
-                  <hr>
-                  <p><% user = content.user_id %>
-                    <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), user_path(user) %>
-                  </p>
-                </div>
-                </div>
-              </div>
+                <%= render partial: "index_timeline", locals: { content: content} %>
             </li>
-
             <% else %>
               <!-- Right side of the Timeline -->
                 <li class="timeline-inverted">
-                  <div class="timeline-badge primary"><i class="glyphicon glyphicon-book"></i></div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4 class="timeline-title"><%= content.title %></h4>
-                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %></small></p>
-                    </div>
-                    <div class="timeline-body">
-                      <p><%= content.content %>.</p>
-                      <div class="timeline-footer">
-                        <br>
-                        <hr>
-                        <p><% user = content.user_id %>
-                          <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), user_path(user) %>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  <%= render partial: "index_timeline", locals: { content: content} %>
                 </li>
             <% end %>
         <% end %>
-
       </ul>
     </div>
   </div>
