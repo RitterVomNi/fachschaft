@@ -1458,3 +1458,4 @@
 
     angular.module("app.ui").factory("logger", a)
 }();
+
