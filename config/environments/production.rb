@@ -78,6 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Active Admin
-  #config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
-  #config.serve_static_assets = true
+  config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
+  config.serve_static_assets = true
 end
