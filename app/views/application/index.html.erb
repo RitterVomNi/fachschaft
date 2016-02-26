@@ -12,6 +12,9 @@
   <li><a data-toggle="tab" href="#gremien">Gremienarbeit</a></li>
   <li><a data-toggle="tab" href="#veranstaltungen">Veranstaltungen</a></li>
   <li><a data-toggle="tab" href="#partys">Partys</a></li>
+  <% if current_user.present? && current_user.is_admin %>
+  <li><a data-toggle="tab" href="#content">Content Erstellen</a></li>
+      <% end %>
 </ul>
 
 
@@ -28,16 +31,15 @@
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h4 class="timeline-title"><%= content.title %></h4>
-                  <p><small class="text-muted">Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></p>
+                  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></p>
                 </div>
                 <div class="timeline-body">
                   <p><%= content.content %></p>
                 <div class="timeline-footer">
                   <br>
                   <hr>
-                  <br>
                   <p><% user = content.user_id %>
-                    <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
+                    <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), about_path %>
                   </p>
                 </div>
                 </div>
@@ -58,9 +60,8 @@
                       <div class="timeline-footer">
                         <br>
                         <hr>
-                        <br>
                         <p><% user = content.user_id %>
-                          <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
+                          <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), about_path %>
                         </p>
                       </div>
                     </div>
@@ -90,7 +91,7 @@
             <p>Erstellt am: </p>
             <%= content.created_at.strftime("%d.%m.%Y") %>
             <p> von </p>
-            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
           </div>
         </div>
     </div>
@@ -113,7 +114,7 @@
         <p>Erstellt am: </p>
         <%= content.created_at.strftime("%d.%m.%Y") %>
         <p> von </p>
-        <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+        <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
       </div>
     </div>
   </div>
@@ -136,7 +137,7 @@
           <p>Erstellt am: </p>
           <%= content.created_at.strftime("%d.%m.%Y") %>
           <p> von </p>
-          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
         </div>
       </div>
     </div>
@@ -159,7 +160,7 @@
             <p>Erstellt am: </p>
             <%= content.created_at.strftime("%d.%m.%Y") %>
             <p> von </p>
-            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
           </div>
         </div>
         </div>
@@ -182,7 +183,7 @@
               <p>Erstellt am: </p>
               <%= content.created_at.strftime("%d.%m.%Y") %>
               <p> von </p>
-              <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+              <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
             </div>
           </div>
           </div>
@@ -205,12 +206,14 @@
           <p>Erstellt am: </p>
           <%= content.created_at.strftime("%d.%m.%Y") %>
           <p> von </p>
-          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
         </div>
       </div>
       </div>
   <% end %>
   <% end %>
+
+  
 
 
 </div>
