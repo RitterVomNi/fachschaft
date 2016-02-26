@@ -88,10 +88,11 @@
             <%= content.content %>
           </div>
           <div class="panel-footer">
-            <p>Erstellt am: </p>
+            <p>Erstellt am:
             <%= content.created_at.strftime("%d.%m.%Y") %>
-            <p> von </p>
+            von
             <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+            </p>
           </div>
         </div>
     </div>
@@ -111,10 +112,11 @@
         <%= content.content %>
       </div>
       <div class="panel-footer">
-        <p>Erstellt am: </p>
+        <p>Erstellt am:
         <%= content.created_at.strftime("%d.%m.%Y") %>
-        <p> von </p>
+         von
         <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+        </p>
       </div>
     </div>
   </div>
@@ -134,10 +136,11 @@
           <%= content.content %>
         </div>
         <div class="panel-footer">
-          <p>Erstellt am: </p>
+          <p>Erstellt am:
           <%= content.created_at.strftime("%d.%m.%Y") %>
-          <p> von </p>
+           von
           <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+          </p>
         </div>
       </div>
     </div>
@@ -157,10 +160,11 @@
             <%= content.content %>
           </div>
           <div class="panel-footer">
-            <p>Erstellt am: </p>
+            <p>Erstellt am:
             <%= content.created_at.strftime("%d.%m.%Y") %>
-            <p> von </p>
+             von
             <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+            </p>
           </div>
         </div>
         </div>
@@ -180,10 +184,11 @@
               <%= content.content %>
             </div>
             <div class="panel-footer">
-              <p>Erstellt am: </p>
+              <p>Erstellt am:
               <%= content.created_at.strftime("%d.%m.%Y") %>
-              <p> von </p>
+              von
               <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+              </p>
             </div>
           </div>
           </div>
@@ -203,17 +208,65 @@
           <%= content.content %>
         </div>
         <div class="panel-footer">
-          <p>Erstellt am: </p>
+          <p>Erstellt am:
           <%= content.created_at.strftime("%d.%m.%Y") %>
-          <p> von </p>
+          von
           <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName), about_path %>
+          </p>
         </div>
       </div>
       </div>
   <% end %>
   <% end %>
 
-  
+  <div id="content" class="tab-pane fade">
+
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+          <form class="ng-pristine ng-valid" role="form">
+
+            <div class="form-group">
+
+
+              <label for="" class="col-sm-2">Titel</label>
+              <div class="col-sm-10">
+                <input aria-invalid="true" aria-required="true" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-ng-model="form.required" type="text">
+              </div>
+            </div>
+            <br><br>
+
+            <div class="panel-body">
+              <div aria-invalid="false" text-angular="" ng-model="mailContent" class="ui-editor ng-pristine ng-untouched ng-valid ng-isolate-scope ta-root">
+                <div class="ng-scope ng-isolate-scope ta-toolbar btn-toolbar" text-angular-toolbar="" name="textAngularToolbar2690117130780300">
+                  <div class="btn-group">
+                    <button disabled="disabled" aria-disabled="true" unselectable="on" title="Heading 1" ng-class="displayActiveToolClass(active)" ng-click="executeAction()" tabindex="-1" ng-disabled="isDisabled()" ta-button="ta-button" name="h1" class="btn btn-default ng-scope" type="button">H1</button>
+                    <button disabled="disabled" aria-disabled="true" unselectable="on" title="Heading 2" ng-class="displayActiveToolClass(active)" ng-click="executeAction()" tabindex="-1" ng-disabled="isDisabled()" ta-button="ta-button" name="h2" class="btn btn-default ng-scope" type="button">H2</button>
+
+                  </div>
+                </div>
+                <div aria-hidden="false" ng-hide="showHtml" class="ta-scroll-window ng-scope ta-text ta-editor form-control">
+                  <div class="popover fade bottom" style="max-width: none; width: 305px;">
+                    <!--div class="arrow">
+                    </div-->
+                  <div class="popover-content"></div>
+                  </div>
+
+                  <div aria-invalid="false" class="ng-pristine ng-untouched ng-valid ta-bind" ng-model="html" ta-bind="ta-bind" id="taTextElement2690117130780300" contenteditable="true"><p><br></p></div>
+                </div>
+                <textarea aria-invalid="false" aria-hidden="true" aria-multiline="true" class="ng-pristine ng-untouched ng-valid ng-scope ta-bind ta-html ta-editor form-control ng-hide" ng-model="html" ta-bind="ta-bind" ng-show="showHtml" id="taHtmlElement2690117130780300">
+                </textarea>
+                <input value="" name="textAngularEditor2690117130780300" tabindex="-1" style="display: none;" type="hidden">
+              </div>
+              </div>
+            <button type="submit" class="btn btn-primary btn-w-md">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>
