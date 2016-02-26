@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,8 +43,8 @@ gem 'bcrypt',:git => 'https://github.com/codahale/bcrypt-ruby.git'
 gem 'rolify'
 
 #file management
-gem 'carrierwave'
-gem 'rmagick'
+gem 'carrierwave', :github => 'satoruk/carrierwave' , :ref => '43179f94d6a4e62f69e812f5082d6447c9138480'
+gem 'rmagick', require: false
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
@@ -59,6 +59,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'faker'
@@ -70,8 +71,15 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'sqlite3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+  group :production do
+    gem 'pg'
+    gem 'rails_12factor'
+  end
+
 
