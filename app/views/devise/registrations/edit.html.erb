@@ -93,7 +93,7 @@
                     <%= f.check_box(:remove_avatar, class: 'ui-checkbox') %>
                     <span><%= f.label :Avatar_löschen, class: "ui-checkbox" %></span>
                     <p>
-                    <%= f.file_field(:avatar, class: "btn btn-primary btn-lg btn-block text-center") %>
+                    <%= f.file_field(:avatar) %>
                     <%= f.hidden_field :avatar_cache %>
                     </p>
                   </div>
