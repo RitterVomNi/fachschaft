@@ -43,12 +43,23 @@ ActiveAdmin.register User do
     end
   end
 
+  action_item only: :show do
+    link_to 'Zurück', admin_users_path
+  end
+
+
   show do
     attributes_table do
-      # other rows
+      default_attribute_table_rows.each do |field|
+        if field != :team_id
+        row field
+      end
+      end
       row :roles do |r|
         r.roles.map { |role| role.name }.join(", ")
       end
+      active_admin_comments
     end
-  end
+
+end
 end

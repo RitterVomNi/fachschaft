@@ -7,9 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
-User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Malte", lastName: "Evers", email: "a@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
-User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen", email: "heinen.m@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
+User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen", email: "admin@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
+User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Malte", lastName: "Evers", email: "malte@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/malte.la.7?fref=ts", firstName: "Malte", lastName: "Lange", email: "malte@fh-muenster.de" ,password: "12345678", team_id: "6", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/myles.sutholt?fref=ts", firstName: "Myles", lastName: "Sutholt", email: "myles@fh-muenster.de" ,password: "12345678", team_id: "6", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/groups/649018005179998/?fref=ts", firstName: "Günther", lastName: "Netzer", email: "mh152235@fh-muenster.de" ,password: "12345678", studiengang: "BWL")
@@ -46,3 +45,9 @@ Content.create(title: "No 5", content: "Praise the Lord", created_at: '05.05.201
 Content.create(title: "No 6", content: "Wer hat die Kokosnuss", created_at: '06.06.2010', updated_at: 'nil', user_id: "6" )
 Content.create(title: "No 7", content: "Et tu, Brute?", created_at: '07.07.2010', updated_at: 'nil', user_id: "1" )
 Content.create(title: "No 8", content: "Asinus stupidus est", created_at: '08.08.2010', updated_at: 'nil', user_id: "2" )
+
+
+Appointment.create(content: "Freitag den 11.03.2016, &nbsp;&nbsp; Uhrzeit: 15:00", title: "1. Termin Nachzüglerbetreuung")
+Appointment.create(content: "Montag den 14.03.2016, &nbsp;&nbsp; Uhrzeit: 18:00", title: "2. Termin Nachzüglerbetreuung")
+Appointment.create(content: "Montags um 18:15", title: "Sitzungszeit Fachschaft")
+

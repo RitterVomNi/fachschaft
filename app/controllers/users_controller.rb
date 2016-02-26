@@ -27,8 +27,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+
   # POST /users
   # POST /users.json
   def create
@@ -44,7 +43,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -76,7 +74,7 @@ class UsersController < ApplicationController
       if params[:id] != "sign_out"
       @user = User.find(params[:id])
       else
-        render :'application/index'
+        redirect_to index_path
         end
     end
 
