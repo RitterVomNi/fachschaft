@@ -2,6 +2,8 @@
 <style type="text/css">
     #link1 {color:blue;}
 </style>
+
+<!-- Tabs for the categories -->
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#news">News</a></li>
   <li><a data-toggle="tab" href="#erstis">Erstemester</a></li>
@@ -12,241 +14,203 @@
   <li><a data-toggle="tab" href="#partys">Partys</a></li>
 </ul>
 
+
 <div class="tab-content">
   <div id="news" class="tab-pane fade in active">
     <div class="container">
+      <!-- Timeline for the newest content (all categories) -->
       <ul class="timeline">
-
-
         <% @contents.order(created_at: :desc).limit(5).each do |content| %>
+            <!-- Left side of the timeline -->
             <% if (content.id%2) == 0 %>
+              <li>
+              <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title"><%= content.title %></h4>
+                  <p><small class="text-muted">Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></p>
+                </div>
+                <div class="timeline-body">
+                  <p><%= content.content %></p>
+                <div class="timeline-footer">
+                  <br>
+                  <hr>
+                  <br>
+                  <p><% user = content.user_id %>
+                    <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
+                  </p>
+                </div>
+                </div>
+              </div>
+            </li>
 
-        <li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= content.title %></h4>
-              <p><small class="text-muted">Erstellt: <%= content.created_at %> </small></p>
-            </div>
-            <div class="timeline-body">
-              <p><%= content.content %></p>
-            <div class="timeline-footer">
-              <br>
-              <hr>
-              <br>
-              <p><% user = content.user_id %>
-                <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
-              </p>
-            </div>
-            </div>
-          </div>
-        </li>
-
-        <% else %>
-        <li class="timeline-inverted">
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-book"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= content.title %></h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Erstellt: <%= content.created_at %></small></p>
-            </div>
-            <div class="timeline-body">
-              <p><%= content.content %>.</p>
-            </div>
-          </div>
-        </li>
+            <% else %>
+              <!-- Right side of the Timeline -->
+                <li class="timeline-inverted">
+                  <div class="timeline-badge primary"><i class="glyphicon glyphicon-book"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title"><%= content.title %></h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %></small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p><%= content.content %>.</p>
+                      <div class="timeline-footer">
+                        <br>
+                        <hr>
+                        <br>
+                        <p><% user = content.user_id %>
+                          <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName) %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+            <% end %>
         <% end %>
 
-       <% end %>
-
-        <!--li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-glass"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= @contents.find(3).title %></h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p><%= @contents.find(3).content %></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="timeline-inverted">
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-calendar"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= @contents.find(4).title %></h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p><%= @contents.find(4).content %>.</p>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-user"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= @contents.find(1).title %></h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19.02.2016</small></p>
-            </div>
-            <div class="timeline-body">
-              <p><%= @contents.find(1).content %></p>
-              <hr>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= @contents.find(2).title %></h4>
-            </div>
-            <div class="timeline-body">
-              <p><%= @contents.find(2).content %></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="timeline-inverted">
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"><%= @contents.find(3).title %></h4>
-            </div>
-            <div class="timeline-body">
-              <p><%= @contents.find(3).content %></p>
-            </div>
-          </div>
-        </li>
-
-    </div-->
       </ul>
-  </div>
-    </div>
-
-
-
-  <div id="erstis" class="tab-pane fade">
-    <br><br><br>
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        Erstis
-      </div>
-      <div class="panel-body">
-        body content here
-      </div>
-      <div class="panel-footer">
-        User oder Datum
-      </div>
-    </div>
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      Titel 2
-    </div>
-    <div class="panel-body">
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </div>
-    <div class="panel-footer">
-      User || 22.02.1016
     </div>
   </div>
-  </div>
 
+
+<!-- Content for Erstsemester -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 1%>
+    <div id="erstis" class="tab-pane fade">
+      <br><br><br>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <%= content.title %>
+          </div>
+          <div class="panel-body">
+            <%= content.content %>
+          </div>
+          <div class="panel-footer">
+            <p>Erstellt am: </p>
+            <%= content.created_at.strftime("%d.%m.%Y") %>
+            <p> von </p>
+            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  <% end %>
+
+  <!-- Content für Klausuren -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 5 %>
   <div id="klausuren" class="tab-pane fade">
     <br><br><br>
     <div class="panel panel-info">
       <div class="panel-heading">
-        Klausuren
+        <%= content.title %>
       </div>
       <div class="panel-body">
-        body content here
+        <%= content.content %>
       </div>
       <div class="panel-footer">
-        User oder Datum
-      </div>
-    </div>
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        Titel 580
-      </div>
-      <div class="panel-body">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </div>
-      <div class="panel-footer">
-        User || 22.02.1016
+        <p>Erstellt am: </p>
+        <%= content.created_at.strftime("%d.%m.%Y") %>
+        <p> von </p>
+        <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
       </div>
     </div>
   </div>
+      <% end %>
+  <% end %>
 
+  <!-- Content for Sponsoring -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 3 %>
     <div id="sponsoring" class="tab-pane fade">
       <br><br><br>
       <div class="panel panel-info">
         <div class="panel-heading">
-          SPONSORING
+          <%= content.title %>
         </div>
         <div class="panel-body">
-          body content here
+          <%= content.content %>
         </div>
         <div class="panel-footer">
-          User oder Datum
+          <p>Erstellt am: </p>
+          <%= content.created_at.strftime("%d.%m.%Y") %>
+          <p> von </p>
+          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
         </div>
       </div>
-      </div>
+    </div>
+      <% end %>
+  <% end %>
 
+<!-- Content for Gremienarbeit -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 6 %>
       <div id="gremien" class="tab-pane fade">
         <br><br><br>
         <div class="panel panel-info">
           <div class="panel-heading">
-            GREMIEN
+            <%= content.title %>
           </div>
           <div class="panel-body">
-            body content here
+            <%= content.content %>
           </div>
           <div class="panel-footer">
-            User oder Datum
+            <p>Erstellt am: </p>
+            <%= content.created_at.strftime("%d.%m.%Y") %>
+            <p> von </p>
+            <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
           </div>
         </div>
         </div>
+      <% end %>
+  <% end %>
 
+  <!-- Content for Veranstalstungen -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 4 %>
         <div id="veranstaltungen" class="tab-pane fade">
           <br><br><br>
           <div class="panel panel-info">
             <div class="panel-heading">
-              Veranstaltungen
+              <%= content.title %>
             </div>
             <div class="panel-body">
-              body content here
+              <%= content.content %>
             </div>
             <div class="panel-footer">
-              User oder Datum
+              <p>Erstellt am: </p>
+              <%= content.created_at.strftime("%d.%m.%Y") %>
+              <p> von </p>
+              <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
             </div>
           </div>
           </div>
+      <% end %>
+  <% end %>
 
-
-<div id="partys" class="tab-pane fade">
-  <br><br><br>
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      PartyParty
-    </div>
-    <div class="panel-body">
-      body content here
-    </div>
-    <div class="panel-footer">
-      User oder Datum
-    </div>
-  </div>
-  </div>
+<!-- Content for Partys -->
+  <% @contents.order(created_at: :desc).each do |content| %>
+      <%if (content.team_id) == 2 %>
+    <div id="partys" class="tab-pane fade">
+      <br><br><br>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= content.title %>
+        </div>
+        <div class="panel-body">
+          <%= content.content %>
+        </div>
+        <div class="panel-footer">
+          <p>Erstellt am: </p>
+          <%= content.created_at.strftime("%d.%m.%Y") %>
+          <p> von </p>
+          <%= link_to (@users.find(content.user_id).firstName + " " + @users.find(content.user_id).lastName) %>
+        </div>
+      </div>
+      </div>
+  <% end %>
+  <% end %>
 
 
 </div>
-
-<!--/div>
-
-
-
-

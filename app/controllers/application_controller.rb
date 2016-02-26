@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @contents = Content.all
   end
+
   def about
     @users = User.all
     @teams = Team.all
