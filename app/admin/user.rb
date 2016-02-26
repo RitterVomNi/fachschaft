@@ -1,6 +1,8 @@
 ActiveAdmin.register User do
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
+  menu priority: 2
+
 
 
   index do

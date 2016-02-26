@@ -48,6 +48,11 @@
                             <%= link_to "Administration", admin_path, style:"color:red" %>
                           </li>
                       <% end %>
+                      <% if current_user.present? && current_user.is_manager %>
+                          <li>
+                            <%= link_to "Administration", admin_path, style:"color:red" %>
+                          </li>
+                      <% end %>
                   <%else%>
                       <li><%= link_to "Einloggen", new_user_session_path, id: "link6" %></li>
                       <li><%= link_to "Anmelden", new_user_registration_path, id: "link7" %></li>
