@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
             format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden." },
             uniqueness: { case_sensitive: false, message: "Email ist bereits vergeben." }
   validates :facebook,
-            format: { with: /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/, message: "Facebook-Link nicht gültig." }
+            format: { with: /(\A\z|(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?)/, message: "Facebook-Link nicht gültig." }
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :studiengang, presence: true
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
 
   #checks if current user is fachschaft
   def is_fs
-    self.has_role? Role.fs
+    self.has_role? Role.fachschaft
   end
 
 
