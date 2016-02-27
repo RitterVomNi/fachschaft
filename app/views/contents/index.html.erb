@@ -1,6 +1,8 @@
+<% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) then %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contents</h1>
+<h1>Liste der Contents</h1>
+
 
 <table>
   <thead>
@@ -12,16 +14,20 @@
 
   <tbody>
     <% @contents.each do |content| %>
+  <% if current_user.id == content.user_id %>
       <tr>
         <td><%= content.title %></td>
-        <td><%= link_to 'Anzeigen', content %></td>
-        <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
+        <td><%= link_to 'Anzeigen', content %> |</td>
+        <td><%= link_to 'Bearbeiten', edit_content_path(content) %> |</td>
         <td><%= link_to 'Löschen', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+      <% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Content', new_content_path %>
+
+<% end %>

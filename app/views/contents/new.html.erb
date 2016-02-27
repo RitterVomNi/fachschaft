@@ -1,5 +1,38 @@
+<% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) then %>
 <h1>New Content</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Back', contents_path %>
+<style type="text/css">
+  #link3 {color:blue;}
+</style>
+<% if !@content.errors.empty? %>
+    <div class="alert alert-error">
+      <ul>
+        <% @content.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+  <%= form_for @content, url: contents_path, html: { multipart: true } do |f| %>
+      <%= f.label :title %>
+    <br>
+      <%= f.text_field :title %>
+      <br><br>
+      <%= f.label :content %>
+    <br>
+      <%= f.text_area :content, class: "form-control" %>
+    <br><br>
+      <%= f.submit "Speichern", class: "btn btn-primary" %>
+  <% end %>
+
+<p>
+  <br>
+<%= link_to 'Übersicht', contents_path %>
+</p>
+
+    <% else %>
+
+<% end %>
