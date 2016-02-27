@@ -6,18 +6,33 @@
       <%= flash[:notice] %>
     </div>
 <% end %>
-<br />
+
+<div class="callout callout-info" id="shadow">
+
+  <p>
+    Erfahrungsberichte über Auslandssemester von Studenten der FH Münster. Wir freuen uns über jeden neuen Erfahrungsbericht, den wir hier vorstellen dürfen.
+  </p>
+</div>
+
+<div class="panel panel-primary" id="shadow">
+  <div class="panel-heading">
+    <h3 class="panel-title">Eine Liste der Partnerhochschulen der FH findest du hier :</h3>
+  </div>
+  <div class="panel-body">
+    <a href="https://www.fh-muenster.de/internationaloffice/int_kontakte/index.php" target="_blank">FH Münster</a>
+  </div>
+</div>
 <% if current_user.present? && current_user.is_admin %>
-<%= link_to " Upload", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
+<%= link_to " neue Datei hochladen", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
 <% end %>
     <br />
 
 <br />
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped" id="shadow">
   <thead>
   <tr>
     <th></th>
-    <th style="text-align: center">Name</th>
+    <th style="text-align: center">Ort</th>
     <th style="text-align: center">Download</th>
     <% if current_user.present? && current_user.is_admin%>
     <th style="text-align: center">Löschen</th>
@@ -27,9 +42,9 @@
   <tbody>
   <% @resumes.each do |resume1| %>
       <tr>
-        <td><i class="fa fa-file-pdf-o fa-2x"></i></td>
-        <td><%= resume1.name %>
-        <td><%= link_to "",  resume1.attachment_url,  class: "fa fa-download fa-2x faa-float animated-hover", style: "color:#20549f" %></td>
+        <td><i class="fa fa-file-pdf-o fa-2x" id="pdf"></i></td>
+        <td><strong><%= resume1.name %></strong></td>
+        <td><%= link_to "",  resume1.attachment_url,  class: "fa fa-download fa-2x faa-float animated-hover", style: "color:#20549f", target:"_blank" %></td>
         <% if current_user.present? && current_user.is_admin %>
        <td><%= link_to "",  resume1, method: :delete, confirm: "Are you sure that you wish to delete #{resume1.name}?",  class: "fa fa-times fa-2x", style:"color:red"  %>
           </td>   <% end %>
