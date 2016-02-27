@@ -5,6 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Team.create(teamName: "Erstsemester")
+Team.create(teamName: "Party")
+Team.create(teamName: "Sponsoring")
+Team.create(teamName: "Veranstaltungen")
+Team.create(teamName: "Klausuren")
+Team.create(teamName: "Gremienarbeit")
+Team.create(teamName: "Nachzügler")
+
 User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Malte", lastName: "Evers", email: "a@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen", email: "heinen.m@fh-muenster.de", password: "12345678", team_id: "2", studiengang: "BA-Wirtschaftsinformatik")
 User.create(facebook: "https://www.facebook.com/malte.la.7?fref=ts", firstName: "Malte", lastName: "Lange", email: "malte@fh-muenster.de" ,password: "12345678", team_id: "3", studiengang: "BA-Wirtschaftsinformatik")
@@ -26,13 +35,7 @@ Resume.create(name: "Universidad de Sevilla", attachment: File.open(File.join(Ra
 Resume.create(name: "Universität von Sevillia", attachment: File.open(File.join(Rails.root, 'universität_von_sevilla.pdf')))
 
 
-Team.create(teamName: "Erstsemester")
-Team.create(teamName: "Party")
-Team.create(teamName: "Sponsoring")
-Team.create(teamName: "Veranstaltungen")
-Team.create(teamName: "Klausuren")
-Team.create(teamName: "Gremienarbeit")
-Team.create(teamName: "Nachzügler")
+
 
 
 Content.create(title: "No 1", content: "Lorem Ipsum Blablabla", user_id: "1", team_id: "1" )
