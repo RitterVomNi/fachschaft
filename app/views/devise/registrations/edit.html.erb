@@ -3,6 +3,20 @@
     color: blue;
   }
 </style>
+<script>$(document).ready(function(){
+    var preview = $(".upload-preview img");
+
+    $(".file").change(function(event){
+        var input = $(event.currentTarget);
+        var file = input[0].files[0];
+        var reader = new FileReader();
+        reader.onload = function(e){
+            image_base64 = e.target.result;
+            preview.attr("src", image_base64);
+        };
+        reader.readAsDataURL(file);
+    });
+});</script>
 <div id="sign-content">
   <div class="page-signin ng-scope">
 
@@ -16,9 +30,7 @@
       <div class="container">
         <label class="form-container">
 
-
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
-
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
               <p class="notice"><%= notice %></p>
               <%= devise_error_messages! %>
 
@@ -104,11 +116,31 @@
                     <span class="input-group-addon">
                         <span class="ti-lock"></span>
                     </span>
-                    <%= f.label 'erforderlich:' %>
-                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control input-lg", placeholder: "aktuelles Passwort" %>
+                  <%= f.label 'erforderlich:' %>
+                    <%= f.password_field :current_password, autocomplete: "off", class:"form-control input-lg", placeholder:"aktuelles Passwort"   %>
+                  </div>
+                </div>
 
+                <div>
+                  <%= image_tag(@user.avatar_url) if @user.avatar? %>
+                  <p>
+                    <label>
+                      <%= f.check_box :remove_avatar %>
+                      Remove avatar
+                    </label>
+                  </p>
+                  <p>
+                  <div class="upload-preview">
+                    <img style="max-width:100%" />
 
                   </div>
+                  </p>
+                  <%= f.file_field :avatar, class: "file" %>
+                  <%= f.hidden_field :avatar_cache %>
+
+
+
+
                 </div>
 
 
