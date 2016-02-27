@@ -1,4 +1,4 @@
-ActiveAdmin.register Content, namespace: :manager  do
+ActiveAdmin.register Content  do
 
     menu priority: 1, label: "Inhalte"
 end
