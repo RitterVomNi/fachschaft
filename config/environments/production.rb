@@ -29,7 +29,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -78,6 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Active Admin
-  #config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
-  #config.serve_static_assets = true
+  config.serve_static_files = true
 end
