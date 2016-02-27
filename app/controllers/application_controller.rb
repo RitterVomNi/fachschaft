@@ -49,6 +49,7 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     end
   end
+
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
