@@ -1,6 +1,8 @@
 ActiveAdmin.register User do
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
+  menu priority: 2
+  
 
 
   index do
@@ -34,7 +36,6 @@ ActiveAdmin.register User do
   filter :last_sign_in_at, label: "Letzter Login"
   filter :created_at, label: "Erstellt am"
 
-
  # form partial: "aaform"
   form do |f|
     f.inputs "Admin Details" do
@@ -43,12 +44,23 @@ ActiveAdmin.register User do
     end
   end
 
+  action_item only: :show do
+    link_to 'Zurück', admin_users_path
+  end
+
+
   show do
     attributes_table do
-      # other rows
+      default_attribute_table_rows.each do |field|
+        if field != :team_id
+        row field
+      end
+      end
       row :roles do |r|
         r.roles.map { |role| role.name }.join(", ")
       end
+      active_admin_comments
     end
-  end
+
+end
 end

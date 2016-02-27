@@ -18,12 +18,12 @@
             <br>
           Wir sind immer auf der Suche nach neuen, engagierten Mitgliedern. Komm einfach bei uns vorbei oder sprich uns an.
           <br><br>
-          <strong>Unsere Fachschaftssitzung findet während des Semesters Montags um 18:15 im Fachschaftsbüro A417 statt.</strong><br></div>
+          <strong>Unsere Fachschaftssitzung findet während des Semesters <%= @appointments.find_by(title: "Sitzungszeit Fachschaft").content.html_safe %> im Fachschaftsbüro A417 statt.</strong><br></div>
             <br><br><br>
           <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 2% 0 2% ; border: groove">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="0"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
               <li data-target="#myCarousel" data-slide-to="3"></li>
