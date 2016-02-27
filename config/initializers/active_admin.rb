@@ -119,7 +119,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'admin/contents#index'
+  config.root_to = 'contents#index'
 
   # == Admin Comments
   #
