@@ -2,7 +2,7 @@ ActiveAdmin.register Appointment, as: "Termine" do
   actions :all, :except => [:destroy]
   permit_params :content
 
-  menu priority: 2, label: "Termine"
+  menu priority: 3, label: "Termine"
 
   action_item only: :show do
     link_to 'Zurück', admin_appointments_path

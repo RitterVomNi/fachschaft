@@ -16,9 +16,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :thumb do
-    process :resize_to_limit => [200, 200]
-  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -37,7 +34,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   process resize_to_fit: [400, 400]
    version :thumb do
-    process :resize_to_fit => [50, 50]
+    process :resize_to_fill => [50, 50]
    end
   version :mid do
     process :resize_to_fill => [80, 80]
