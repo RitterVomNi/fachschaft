@@ -20,8 +20,8 @@ root "application#index"
     get 'account' => "devise/registrations#edit"
     get "sign_in" => "devise/sessions#new"
   end
-  get 'change_role' => "application#change_role"
-  get 'change_team' => "application#change_team"
+  get 'admin' => "admin/contents#"
+  get 'manager' => "manager/contents#"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
