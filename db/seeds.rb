@@ -62,4 +62,6 @@ Appointment.create(content: "Montag den 14.03.2016, &nbsp;&nbsp; Uhrzeit: 18:00"
 Appointment.create(content: "Montags um 18:15", title: "Sitzungszeit Fachschaft")
 Appointment.create(content: "09.03.16 - 11.03.16", title: "Termin O-Woche")
 Appointment.create(content: "18.03.16 - 20.03.16", title: "Termin Erstifahrt")
+Appointment.create(content: "Gewählt wird der Senat, der Fachbereichsrat und die Gleichstellungsbeauftragte", title: "Was für Wahlen?")
+Appointment.create(content: "Wird noch festgelegt", title: "Termin Wahlen")
 

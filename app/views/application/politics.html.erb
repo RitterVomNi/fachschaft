@@ -1,20 +1,34 @@
 <style type="text/css">
     #link5 {color:blue;}
 </style>
-<div class="callout callout-info">
+
+<div class="panel panel-default" style="max-width:450px; margin:auto" id="shadow">
+  <div class="panel-heading">
+    <i class="fa fa-university fa-4x"  style="float:left;color:#20549f"></i>
+    <h3>Die Nächsten Wahlen</h3>
+  </div>
+  <div class="panel-body">
+    <i class="fa fa-briefcase" data-toggle="tooltip" title="Was wird gewählt?" style="float:left;color:#20549f"></i>
+    <strong> <%= @appointments.find_by(title: "Was für Wahlen?").content %></strong></a>
+  </div>
+  <div class="panel-body">
+    <i class="fa fa-calendar" data-toggle="tooltip" title="Wann wird gewählt?" style="float:left;color:#20549f"></i>
+    <strong><%= @appointments.find_by(title: "Termin Wahlen").content %></strong>
+  </div>
+
+</div>
+
+<div class="callout callout-info" id="shadow">
   <h4>Studentische Mitbestimmung</h4>
-  <p>Viele Studierende sehen in der FH Münster nicht nur einen Ort, an dem sie eine akademische Ausbildung erhalten können.
+  <p>Viele Studierende sehen in der FH Münster nicht nur einen Ort, an dem sie eine akademische Ausbildung erhalten können.<br>
     Vielmehr wollen sie sich in unterschiedlichen Gremien engagieren und die Hochschulpolitik mitgestalten.
     <br>Die Studierendenschaft kann ihre studentischen Vertreter in offiziellen Wahlen selber wählen.<br>
-    <br>Der Fachschaftsrat repräsentiert die Interessen der Studierenden gegenüber der Professoren.
-    Das Studierendenparlament ist das oberste, beschlussfassende Organ der Studierendenschaft.
-    Der ASTA das ausführende Organ der studentischen Selbstverwaltung.
+    <br>Der Fachschaftsrat repräsentiert die Interessen der Studierenden gegenüber der Professoren.<br>
+    Das Studierendenparlament ist das oberste, beschlussfassende Organ der Studierendenschaft.<br>
+    Der ASTA das ausführende Organ der studentischen Selbstverwaltung.<br>
     Der Fachbereichsrat beschließt über alle Belange des Fachbereichs und der Senat beschäftigt sich unter anderem mit Empfehlungen und Stellungnahmen
     bezüglich Forschung, Kunst, Lehre und Studium.
   </p>
 </div>
 
-<img src="<%= asset_path('politics.png') %>" data-toggle="modal" data-target="#myModal" alt="Bild" style="width:520;max-width:100%">
-
-<h3 style="text-align:center;"><strong>Termine Wahlen SoSe 2016</strong></h3>
-<div style="text-align:center;">Termine sind noch nicht beschlossen.<br><br></div>
+<img src="<%= asset_path('politics.png') %>" data-toggle="modal" data-target="#myModal" id="shadow" alt="Bild" style="width:520;max-width:100%">
