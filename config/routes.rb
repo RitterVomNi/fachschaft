@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  ActiveAdmin.routes(self)
   resources :resumes, only: [:index, :new, :create, :destroy]
   resources :contents
   resources :users
@@ -22,6 +21,7 @@ root "application#index"
   end
   get 'admin' => "admin/contents#"
   get 'manager' => "manager/contents#"
+  ActiveAdmin.routes(self)
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
