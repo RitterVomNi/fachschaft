@@ -5,28 +5,28 @@
   <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
   <div class="panel-body">
     <ul class="nav nav-pills" id="#">
-      <li class="active"><a data-toggle="pill" href="#home">Alle</a></li>
-      <li><a data-toggle="pill" href="#menu1">Erstsemestereinführung</a></li>
-      <li><a data-toggle="pill" href="#menu2">Erstifahrt</a></li>
+      <li class="active"><a data-toggle="pill" href="#home">Infos</a></li>
+      <li><a data-toggle="pill" href="#menu1">Alle</a></li>
+      <li><a data-toggle="pill" href="#menu2">Erstsemester</a></li>
       <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
-      <li><a data-toggle="pill" href="#menu4">Party</a></li>
-      <li><a data-toggle="pill" href="#menu5">Nachzügler</a></li>
+      <li><a data-toggle="pill" href="#menu4">Sponsoring</a></li>
+      <li><a data-toggle="pill" href="#menu5">Gremienarbeit</a></li>
+      <li><a data-toggle="pill" href="#menu6">Veranstaltungen</a></li>
+      <li><a data-toggle="pill" href="#menu7">Partys</a></li>
     </ul>
 
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(:team_id => [1,2,3,4,5,6]).order(:firstName).each do |about| %>
-                <%= render partial: "about", locals: { about: about} %>
-            <% end %>
+                <%= render partial: "about_info" %>
           </div>
         </div>
       </div>
       <div id="menu1" class="tab-pane fade">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(team_id: "1").order(:firstName).each do |about| %>
+            <% @users.where(team_id: ["1", "2", "3", "4", "5", "6"]).order(:firstName).each do |about| %>
                 <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
@@ -35,7 +35,7 @@
       <div id="menu2" class="tab-pane fade">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(team_id: "2").order(:firstName).each do |about| %>
+            <% @users.where(team_id: "1").order(:firstName).each do |about| %>
                 <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
@@ -44,7 +44,7 @@
       <div id="menu3" class="tab-pane fade">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(team_id: "3").order(:firstName).each do |about| %>
+            <% @users.where(team_id: "5").order(:firstName).each do |about| %>
                 <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
@@ -53,7 +53,7 @@
       <div id="menu4" class="tab-pane fade">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(team_id: "4").order(:firstName).each do |about| %>
+            <% @users.where(team_id: "3").order(:firstName).each do |about| %>
                 <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
@@ -62,7 +62,25 @@
       <div id="menu5" class="tab-pane fade">
         <div class="grid-structure">
           <div class="row">
-            <% @users.where(team_id: "5").order(:firstName).each do |about| %>
+            <% @users.where(team_id: "6").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu6" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "4").order(:firstName).each do |about| %>
+                <%= render partial: "about", locals: { about: about} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="menu7" class="tab-pane fade">
+        <div class="grid-structure">
+          <div class="row">
+            <% @users.where(team_id: "2").order(:firstName).each do |about| %>
                 <%= render partial: "about", locals: { about: about} %>
             <% end %>
           </div>
@@ -71,18 +89,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,9 +8,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def editUser
+    @user = current_user
+  end
+  # temprorary code. delete later
+  def edit
+    @user = current_user
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
+    @teams = Team.all
   end
 
   # GET /users/new
@@ -19,8 +28,6 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
 
   # POST /users
   # POST /users.json
@@ -37,7 +44,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -66,7 +72,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      if params[:id] != "sign_out"
       @user = User.find(params[:id])
+      else
+        redirect_to index_path
+        end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

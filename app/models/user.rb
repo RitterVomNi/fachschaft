@@ -1,9 +1,19 @@
 class User < ActiveRecord::Base
-  rolify
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  rolify
+
+  validates :email,
+            format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden." },
+            uniqueness: { case_sensitive: false, message: "Email ist bereits vergeben." }
+  validates :facebook,
+            format: { with: /(\A\z|(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?)/, message: "Facebook-Link nicht gültig." }
+  validates :firstName, presence: true
+  validates :lastName, presence: true
+  validates :studiengang, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
   has_many :contents
@@ -24,20 +34,33 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_valid
+
+    false
+  end
+
   #Checks if the current user is an admin
   #returns a boolean
   def is_admin
     self.has_role? Role.admin
   end
+
+  #checks if current user is a manager
+  def is_manager
+    self.has_role? Role.manager
+  end
+
+  #checks if current user is fachschaft
+  def is_fs
+    self.has_role? Role.fachschaft
+  end
+
+
+
   #Returns the name of the current role
   def current_role
     self.roles[0].to_string
   end
-
-  def self.search(search)
-    where("firstName LIKE ? OR lastName LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%" )
-  end
-
   private
 
   ##
