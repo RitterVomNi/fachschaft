@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :resumes, only: [:index, :new, :create, :destroy]
   resources :contents
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  authenticated :user, lambda {|u| u.admin } do
+    get 'admin', to: 'admin#index'
+    get 'manager', to: 'manager#index'
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 root "application#index"
@@ -21,7 +26,7 @@ root "application#index"
   end
   get 'admin' => "admin/contents#"
   get 'manager' => "manager/contents#"
-  ActiveAdmin.routes(self)
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
