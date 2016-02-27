@@ -1,25 +1,31 @@
 
-<div class="container" style="width:100%">
-  <div class="" style="border: solid 1px; margin:5px 0 10px" id="member">
+<div class="container" style="max-width:100%">
+  <div  style="margin:5px 0 10px" id="shadow">
     <div class="widget-container">
       <div class="panel panel-profile">
-        <h4>
-          <strong><p>Wir unterstützen beim Studienstart.</p></strong>
-          <strong><p>Wir beraten bei Schwierigkeiten.</p></strong>
-          <strong><p>Wir planen Events.</p></strong>
-        </h4>
-        <br>
-        <div>
-          Wir, die Fachschaft Wirtschaft, sind Dein erster Ansprechpartner bei Fragen und Problemen.
-          Nebenbei versuchen wir, Dir dein Studium mit tollen Events zu verschönern.
-          <br><br><br>
-          <p><strong>Du möchtest dich auch für deine Kommilitonen einsetzen?</strong></p>
-            <br>
-          Wir sind immer auf der Suche nach neuen, engagierten Mitgliedern. Komm einfach bei uns vorbei oder sprich uns an.
+        <div class="container" style="margin: auto;max-width:100%"><br><br>
+          <div class="well" id="shadow" style="margin: auto;max-width:80%"><h4><strong>Wir planen Events.</strong><br>
+            <strong>Wir beraten bei Schwierigkeiten.</strong><br>
+            <strong>Wir unterstützen beim Studienstart.</strong></h4>
+          </div>
           <br><br>
-          <strong>Unsere Fachschaftssitzung findet während des Semesters <%= @appointments.find_by(title: "Sitzungszeit Fachschaft").content.html_safe %> im Fachschaftsbüro A417 statt.</strong><br></div>
-            <br><br><br>
-          <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 10% 0 10% ; border: groove">
+        <div class="well well-sm" id="shadow" style="margin:auto;max-width:90%">Wir sind dein erster Ansprechpartner bei Fragen und Problemen.<br>
+          Nebenbei versuchen wir, dir dein Studium mit tollen Events zu verschönern.</div><br>
+        <div class="callout callout-info" id="shadow">
+          <h4>Du möchtest dich auch für deine Kommilitonen einsetzen?</h4>
+          <p>Wir sind immer auf der Suche nach neuen, engagierten Mitgliedern. <br>
+            Komm einfach bei uns vorbei oder sprich uns an.</p>
+          Unsere Fachschaftssitzung findet während des Semesters
+           <strong><%= @appointments.find_by(title: "Sitzungszeit Fachschaft").content.html_safe %> im Fachschaftsbüro A417</strong> statt.
+          <br><br>
+          Hier findest du Kontaktinfos <a href="contact">Klick</a>
+        </div></div>
+
+
+          <br><br>
+
+
+          <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 10% 5% 10%">
             <!-- Indicators -->
             <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0"></li>

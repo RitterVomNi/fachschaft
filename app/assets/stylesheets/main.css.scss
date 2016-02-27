@@ -5482,12 +5482,13 @@ h1, h2, h3 {
 
 ul li i {float:left;}
 
-#member, #navbutton, #shadow, #shadow_ho:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+#myCarousel, #navbutton, #shadow, #shadow_ho:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #logo {
   margin-top:50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #love:hover {
@@ -5503,6 +5504,7 @@ ul li i {float:left;}
   background-image: url("background/9.jpg");
   background-size: 100% 100%;
   color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #admintr th {
@@ -5519,4 +5521,9 @@ ul li i {float:left;}
 }
 #pdf:hover {
   color:red;
+}
+#shadow_smaller {
+  margin:auto;
+  max-width:90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
