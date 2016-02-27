@@ -34,11 +34,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_valid
-
-    false
-  end
-
   #Checks if the current user is an admin
   #returns a boolean
   def is_admin

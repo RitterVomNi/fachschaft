@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         params[:user][:role_ids] ||= []
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { render :edit , notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
