@@ -1,3 +1,8 @@
+<style type="text/css">
+  #link9 {
+    color: blue;
+  }
+</style>
 <script>$(document).ready(function(){
     var preview = $(".upload-preview img");
 
@@ -25,9 +30,7 @@
       <div class="container">
         <label class="form-container">
 
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-
               <p class="notice"><%= notice %></p>
               <%= devise_error_messages! %>
 
@@ -37,7 +40,7 @@
                     <span class="input-group-addon">
                         <span class="ti-email"></span>
                     </span>
-                  <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"E-Mail Adresse" %>
+                  <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "E-Mail Adresse" %>
                 </div>
               </div>
 
@@ -46,7 +49,7 @@
                     <span class="input-group-addon">
                         <span class="ti-lock"></span>
                     </span>
-                  <%= f.password_field :password, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort, min 8 Zeichen"  %>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "neues Passwort, min 8 Zeichen" %>
                 </div>
               </div>
 
@@ -55,7 +58,7 @@
                     <span class="input-group-addon">
                         <span class="ti-lock"></span>
                     </span>
-                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control input-lg", placeholder:"neues Passwort wiederholen"   %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", placeholder: "neues Passwort wiederholen" %>
                 </div>
               </div>
               <div class="form-group">
@@ -63,7 +66,7 @@
                     <span class="input-group-addon">
                         <span class="ti-user"></span>
                     </span>
-                  <%= f.text_field :firstName, autocomplete: "off", class:"form-control input-lg", placeholder:"Vorname"   %>
+                  <%= f.text_field :firstName, autocomplete: "off", class: "form-control input-lg", placeholder: "Vorname" %>
                 </div>
               </div>
               <div class="form-group">
@@ -71,7 +74,7 @@
                     <span class="input-group-addon">
                         <span class="ti-user"></span>
                     </span>
-                  <%= f.text_field :lastName, autocomplete: "off", class:"form-control input-lg", placeholder:"Nachname"   %>
+                  <%= f.text_field :lastName, autocomplete: "off", class: "form-control input-lg", placeholder: "Nachname" %>
                 </div>
               </div>
               <div class="form-group">
@@ -80,7 +83,7 @@
                         <span class="ti-book"></span>
                     </span>Studiengang
                     <span class="ui-select">
-                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik])%>
+                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik]) %>
                         </span>
                 </div>
               </div>
@@ -89,7 +92,7 @@
                     <span class="input-group-addon">
                         <span class="ti-facebook"></span>
                     </span>
-                  <%= f.text_field :facebook, autocomplete: "off", class:"form-control input-lg", placeholder:"URL Facebook Account"   %>
+                  <%= f.text_field :facebook, autocomplete: "off", class: "form-control input-lg", placeholder: "URL Facebook Account" %>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -123,16 +126,18 @@
 
                 </div>
 
+
                 <div class="form-group">
-                  <%= f.submit "Update", class:"btn btn-primary btn-lg btn-block text-center" %>
+                  <%= f.submit "Update", class: "btn btn-primary btn-lg btn-block text-center" %>
                 </div>
-<% end %>
-</div>
+          <% end %>
+          </div>
           <br><br><br><br><br>
           <div class="form-group"><p>Unzufrieden?
-  <%= button_to "Account löschen", registration_path(resource_name), data: { confirm: "Bist du sicher?" }, method: :delete, class:"btn btn-primary btn-lg btn-block text-center"  %></p></div>
+            <%= button_to "Account löschen", registration_path(resource_name), data: {confirm: "Bist du sicher?"}, method: :delete, class: "btn btn-primary btn-lg btn-block text-center" %></p>
+          </div>
 
-<%= link_to "Zurück", :back %>
+          <%= link_to "Zurück", :back %>
         </label>
       </div>
     </div>
