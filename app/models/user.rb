@@ -10,13 +10,11 @@ class User < ActiveRecord::Base
             format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden." },
             uniqueness: { case_sensitive: false, message: "Email ist bereits vergeben." }
   validates :facebook,
-            format: { with: /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/, message: "Facebook-Link nicht gültig." }
+            format: { with: /(\A\z|(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?)/, message: "Facebook-Link nicht gültig." }
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :studiengang, presence: true
 
-
-  #attr_accessible :picture, :picure_cache, :remove_picure
   after_initialize :set_default_role, :if => :new_record?
   has_many :contents
   has_one :team
@@ -36,11 +34,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_valid
-
-    false
-  end
-
   #Checks if the current user is an admin
   #returns a boolean
   def is_admin
@@ -54,7 +47,7 @@ class User < ActiveRecord::Base
 
   #checks if current user is fachschaft
   def is_fs
-    self.has_role? Role.fs
+    self.has_role? Role.fachschaft
   end
 
 
@@ -63,11 +56,6 @@ class User < ActiveRecord::Base
   def current_role
     self.roles[0].to_string
   end
-
-  #default profile picture
-  #has_attached_file :avatar, :styles => { :medium => "400x400>", :thumb => "400x400#" }, :default_url => "/images/:style/missing.png"
- #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  #######################
   private
 
   ##

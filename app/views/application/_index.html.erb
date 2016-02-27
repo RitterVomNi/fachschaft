@@ -1,0 +1,17 @@
+<br><br><br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <%= content.title %>
+  </div>
+  <div class="panel-body">
+    <%= content.content %>
+  </div>
+  <div class="panel-footer">
+    <p>Erstellt am:
+      <%= content.created_at.strftime('%d.%m.%Y') %>
+      von
+      <% user = content.user_id %>
+      <%= link_to (@users.find(user).firstName + ' ' + @users.find(user).lastName), user_path(user) %>
+    </p>
+  </div>
+</div>

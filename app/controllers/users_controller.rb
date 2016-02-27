@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @teams = Team.all
   end
 
   # GET /users/new
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         params[:user][:role_ids] ||= []
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { render :edit , notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
