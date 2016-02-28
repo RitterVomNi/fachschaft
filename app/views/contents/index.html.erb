@@ -1,33 +1,55 @@
 <% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) then %>
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<h1>Liste der Contents</h1>
+    <br/>
+    <%= link_to " Neuen Content erstellen ", new_content_path, class: "fa fa-plus fa-2x", style: "color:#20549f" %>
+    <br/>
+    <br/>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contents.each do |content| %>
-  <% if current_user.id == content.user_id %>
+    <table class="table table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= content.title %></td>
-        <td><%= link_to 'Anzeigen', content %> |</td>
-        <td><%= link_to 'Bearbeiten', edit_content_path(content) %> |</td>
-        <td><%= link_to 'Löschen', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th style="text-align: center">Titel</th>
+        <th><!-- Anzeigen --></th>
+        <th style="text-align: center"><!-- Bearbeiten --></th>
+        <th><!-- Löschen --></th>
+        <th style="text-align: center">Freigegeben:</th>
       </tr>
-    <% end %>
+      </thead>
+      <tbody>
+      <% @contents.each do |content| %>
+          <% if current_user.is_admin %>
+              <tr>
+                <td><%= content.title %></td>
+                <td><%= link_to 'Anzeigen', content %></td>
+                <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
+                <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                <td>
+                  <% if content.ok_admin %>
+                      <i class="fa fa-check fa-1" , style="color:green"></i>
+                  <% else %>
+                      <i class="fa fa-times fa-1" , style="color:red"></i>
+                  <% end %>
+          </td>
+          <% else %>
+          <% if (current_user.id == content.user_id) %>
+              <td><%= content.title %></td>
+              <td><%= link_to 'Anzeigen', content %></td>
+              <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
+              <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td>
+                <% if content.ok_admin %>
+                    <i class="fa fa-check fa-1" , style="color:green"></i>
+                <% else %>
+                    <i class="fa fa-times fa-1" , style="color:red"></i>
+                <% end %>
+              </td>
+          <% end %>
+          <% end %>
+          </tr>
       <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Content', new_content_path %>
+      </tbody>
+    </table>
 
 <% end %>
+

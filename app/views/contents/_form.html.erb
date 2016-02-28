@@ -1,24 +1,31 @@
 <%= form_for(@content) do |f| %>
-  <% if @content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@content.errors.count, "error") %>Dieser Content kann nicht hochgeladen werden</h2>
+    <% if @content.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@content.errors.count, "error") %>Dieser Content kann nicht hochgeladen werden</h2>
 
-      <ul>
-      <% @content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @content.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.label "Titel" %><br>
+    <%= f.text_field :title %>
+    <br/>
+    <br/>
+    <div class=class="form-control type="text">
+      <%= f.label :content %><br>
+      <%= f.text_area :content, class: "form-control", rows: "10" %>
+      <br/>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     </div>
-  <% end %>
-
-
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  <div class=class="form-control type="text">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-    </div>
+    <p>
+      <br>
+      <%= link_to 'Übersicht', contents_path %>
+    </p>
 <% end %>

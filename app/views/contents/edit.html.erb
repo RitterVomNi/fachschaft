@@ -1,6 +1,6 @@
-<h1>Editing Content</h1>
+<% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) %>
+    <h1>Content Bearbeiten</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show', @content %> |
-<%= link_to 'Back', contents_path %>
+<% end %>
