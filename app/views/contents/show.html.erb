@@ -1,24 +1,47 @@
 <!-- p id="notice"><%#= notice %></p-->
 <% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) %>
-<p>
-<strong>Title:</strong>
-<%= @content.title %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%= @content.content %>
-</p>
+    <!-- Wenn man nicht admin ist, soll nur der Content angezeigt werden, den man selber erstellt hat -->
 
-<p>
-  <strong>User:</strong>
-  <%= @content.user_id %>
-</p>
-<p>
-  <strong>Erstellt am:</strong>
-  <%= @content.created_at %>
-</p>
+    <% user = @content.user_id %>
+    <% if (current_user.id == user) || current_user.is_admin %>
+        <p>
+          <strong>Title:</strong>
+          <%= @content.title %>
+        </p>
+        <p>
+          <strong>Content:</strong>
+          <%= @content.content %>
+        </p>
+        <p>
+          <strong>User:</strong>
+          <%= @users.find(user).firstName %>
+          <%= @users.find(user).lastName %>
+        </p>
+        <!--p>
+          <strong>Team:</strong>
+          <%# team = @content.team_id %>
+          <%#= @teams.find_by(id: team).teamName %>
+        </p-->
+        <p>
+          <strong>Erstellt am:</strong>
+          <%= @content.created_at.strftime('%d.%m.%Y %H:%M') %>
+        </p>
+        <% if !(@content.created_at == @content.updated_at) %>
+            <p>
+              <strong>Aktualisiert am:</strong>
+              <%= @content.updated_at.strftime('%d.%m.%Y %H:%M') %>
+            </p>
+        <% end %>
+        <strong>Freigegeben:</strong>
+        <% if @content.ok_admin %>
+            <p> Ja <p>
+        <% else %>
+            <p> Nein </p>
+        <% end %>
+    <% end %>
 
-<%= link_to 'Bearbeiten', edit_content_path(@content) %> |
-<%= link_to 'Übersicht', contents_path %>
-
+    <p>
+      <br>
+      <%= link_to 'Übersicht', contents_path %>
+    </p>
 <% end %>
