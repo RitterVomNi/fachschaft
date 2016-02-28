@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 Team.create(teamName: "Erstsemester")
 Team.create(teamName: "Party")
 Team.create(teamName: "Sponsoring")
@@ -32,8 +33,6 @@ Resume.create(name: "Portsmouth", attachment: File.open(File.join(Rails.root, 'p
 Resume.create(name: "Santiago de Chile", attachment: File.open(File.join(Rails.root, 'santiago_de_chile.pdf')))
 Resume.create(name: "Universidad de Sevilla", attachment: File.open(File.join(Rails.root, 'universidad_de_sevilla.pdf')))
 Resume.create(name: "Universität von Sevillia", attachment: File.open(File.join(Rails.root, 'universität_von_sevilla.pdf')))
-
-
 
 
 Content.create(title: "No 1", content: "Lorem Ipsum Blablabla", user_id: "1", team_id: "1" )

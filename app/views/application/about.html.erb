@@ -1,25 +1,26 @@
 <style type="text/css">
-    #link2 {color:blue;}
+  #link2 {color:blue;}
 </style>
 <div class="panel panel-default" style="margin:0 5px 0 5px">
   <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong></div>
   <div class="panel-body">
-    <ul class="nav nav-pills" id="#">
-      <li class="active"><a data-toggle="pill" href="#home">Infos</a></li>
-      <li><a data-toggle="pill" href="#menu1">Alle</a></li>
-      <li><a data-toggle="pill" href="#menu2">Erstsemester</a></li>
-      <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
-      <li><a data-toggle="pill" href="#menu4">Sponsoring</a></li>
-      <li><a data-toggle="pill" href="#menu5">Gremienarbeit</a></li>
-      <li><a data-toggle="pill" href="#menu6">Veranstaltungen</a></li>
-      <li><a data-toggle="pill" href="#menu7">Partys</a></li>
-    </ul>
-
+    <button type="button" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle btn btn-default"><span class="glyphicon glyphicon-chevron-left" style="color:#20549f"></span></button>
+    <div id="navbar-collapse-2" class="collapse navbar-collapse">
+      <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#home">Infos</a></li>
+        <li><a data-toggle="pill" href="#menu1">Alle</a></li>
+        <li><a data-toggle="pill" href="#menu2">Erstsemester</a></li>
+        <li><a data-toggle="pill" href="#menu3">Klausuren</a></li>
+        <li><a data-toggle="pill" href="#menu4">Sponsoring</a></li>
+        <li><a data-toggle="pill" href="#menu5">Gremienarbeit</a></li>
+        <li><a data-toggle="pill" href="#menu6">Veranstaltungen</a></li>
+        <li><a data-toggle="pill" href="#menu7">Partys</a></li>
+      </ul> </div>
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
         <div class="grid-structure">
           <div class="row">
-                <%= render partial: "about_info" %>
+            <%= render partial: "about_info" %>
           </div>
         </div>
       </div>
