@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   rolify
 
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :studiengang, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
-  after_create :send_welcome_mail
+ # after_create :send_welcome_mail
   has_many :contents
   has_one :team
 
@@ -71,9 +71,9 @@ class User < ActiveRecord::Base
   #
   def set_default_role
     if User.count == 0
-      set_role Role.admin
+      self.set_role("Admin")
     else
-      set_role Role.user
+      self.set_role("User")
     end
   end
 end

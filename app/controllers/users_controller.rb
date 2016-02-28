@@ -8,9 +8,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def editUser
-    @user = current_user
-  end
   # temprorary code. delete later
   def edit
     @user = current_user

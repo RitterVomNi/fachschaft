@@ -29,7 +29,7 @@
               <div id="navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Startseite", index_path, id: "link1" %></li>
-                  <li><%= link_to "Über uns", about_path, id: "link2" %></li>
+                  <li><%= link_to "Über uns", about_path,  id: "link2" %></li>
                   <li><%= link_to "Erstsemester", late_path, id: "link8" %></li>
 
                   <% if current_user.present? %>
@@ -80,9 +80,7 @@
 
         <div class="container">
           <div id="banner" class="banner">
-            <div class="logo"> </div>
-          </div>
-
+        </div>
           <img id="logo" class="img-responsive" src="<%= asset_path('fachschaftkleiner.png') %>">
           <div class="pages" ng-app="">
 
