@@ -35,9 +35,6 @@ Resume.create(name: "Universidad de Sevilla", attachment: File.open(File.join(Ra
 Resume.create(name: "Universität von Sevillia", attachment: File.open(File.join(Rails.root, 'universität_von_sevilla.pdf')))
 
 
-
-
-
 Content.create(title: "No 1", content: "Lorem Ipsum Blablabla", user_id: "1", team_id: "1" )
 Content.create(title: "No 2", content: "Quit custodiet undsoweidda", user_id: "2" , team_id: "2")
 Content.create(title: "No 3", content: "Alea iacta est aha mhmm", user_id: "3", team_id: "3" )

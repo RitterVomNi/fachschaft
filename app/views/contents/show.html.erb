@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
-
+<!-- p id="notice"><%#= notice %></p-->
+<% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) %>
+<p>
+<strong>Title:</strong>
+<%= @content.title %>
+</p>
 <p>
   <strong>Content:</strong>
   <%= @content.content %>
 </p>
 
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<p>
+  <strong>User:</strong>
+  <%= @content.user_id %>
+</p>
+<p>
+  <strong>Erstellt am:</strong>
+  <%= @content.created_at %>
+</p>
+
+<%= link_to 'Bearbeiten', edit_content_path(@content) %> |
+<%= link_to 'Übersicht', contents_path %>
+
+<% end %>

@@ -1,11 +1,12 @@
 <style type="text/css">
-    #link2 {color:blue;}
+  #link2 {color:blue;}
 </style>
 <div id="shadow" class="panel panel-default" style="margin:0 5px 0 5px">
   <div class="panel-heading"><strong><span id="love" class="glyphicon glyphicon-heart"></span> Fachschaftsmitglieder</strong>
     <button type="button" id="navbutton" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle btn btn-default"><span class="glyphicon glyphicon-chevron-down" style="color:#20549f"></span></button>
   </div>
   <div class="panel-body">
+
     <ul class="nav nav-pills" id="navbar-collapse-2">
           <li class="active"><a data-toggle="pill" href="#home">Infos</a></li>
           <li><a data-toggle="pill" href="#menu1">Alle</a></li>
@@ -16,11 +17,12 @@
           <li><a data-toggle="pill" href="#menu6">Veranstaltungen</a></li>
           <li><a data-toggle="pill" href="#menu7">Partys</a></li>
     </ul>
+
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
         <div class="grid-structure">
           <div class="row">
-                <%= render partial: "about_info" %>
+            <%= render partial: "about_info" %>
           </div>
         </div>
       </div>
@@ -90,20 +92,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

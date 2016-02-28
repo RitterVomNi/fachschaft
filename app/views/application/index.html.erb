@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'timeline' %>
 <style type="text/css">
-    #link1 {color:blue;}
+  #link1 {
+    color: blue;
+  }
 </style>
 
 <!-- Tabs for the categories -->
@@ -12,9 +14,9 @@
   <li><a data-toggle="tab" href="#gremien">Gremienarbeit</a></li>
   <li><a data-toggle="tab" href="#veranstaltungen">Veranstaltungen</a></li>
   <li><a data-toggle="tab" href="#partys">Partys</a></li>
-  <% if current_user.present? && (current_user.is_admin or current_user.is_manager or current_user.is_fs) %>
-  <li><%= link_to "Content Erstellen", new_content_path %></li>
-      <% end %>
+  <% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) %>
+      <li><%= link_to "Content Erstellen", new_content_path %></li>
+  <% end %>
 </ul>
 
 
@@ -26,13 +28,13 @@
         <% @contents.order(created_at: :desc).limit(5).each do |content| %>
             <!-- Left side of the timeline -->
             <% if (content.id%2) == 0 %>
-              <li>
-                <%= render partial: "index_timeline", locals: { content: content} %>
-            </li>
+                <li>
+                  <%= render partial: "index_timeline", locals: {content: content} %>
+                </li>
             <% else %>
-              <!-- Right side of the Timeline -->
+                <!-- Right side of the Timeline -->
                 <li class="timeline-inverted">
-                  <%= render partial: "index_timeline", locals: { content: content} %>
+                  <%= render partial: "index_timeline", locals: {content: content} %>
                 </li>
             <% end %>
         <% end %>
@@ -41,49 +43,49 @@
   </div>
 
 
-<!-- Content for Erstsemester -->
+  <!-- Content for Erstsemester -->
   <%# @contents.order(created_at: :desc).each do |content| %>
-      <%#if (content.team_id) == 1%>
-    <div id="erstis" class="tab-pane fade">
-      <% @contents.where(team_id: "1").order(created_at: :desc).each do |content| %>
-          <%= render partial: "index", locals: { content: content} %>
-          <% end %>
-    </div>
+  <%#if (content.team_id) == 1%>
+  <div id="erstis" class="tab-pane fade">
+    <% @contents.where(team_id: "1").order(created_at: :desc).each do |content| %>
+        <%= render partial: "index", locals: {content: content} %>
+    <% end %>
+  </div>
 
   <!-- Content für Klausuren -->
   <div id="klausuren" class="tab-pane fade">
     <% @contents.where(team_id: "5").order(created_at: :desc).each do |content| %>
-        <%= render partial: "index", locals: { content: content} %>
+        <%= render partial: "index", locals: {content: content} %>
     <% end %>
   </div>
 
 
   <!-- Content for Sponsoring -->
-    <div id="sponsoring" class="tab-pane fade">
-      <% @contents.where(team_id: "3").order(created_at: :desc).each do |content| %>
-          <%= render partial: "index", locals: { content: content} %>
-      <% end %>
-    </div>
+  <div id="sponsoring" class="tab-pane fade">
+    <% @contents.where(team_id: "3").order(created_at: :desc).each do |content| %>
+        <%= render partial: "index", locals: {content: content} %>
+    <% end %>
+  </div>
 
-<!-- Content for Gremienarbeit -->
-      <div id="gremien" class="tab-pane fade">
-        <% @contents.where(team_id: "6").order(created_at: :desc).each do |content| %>
-            <%= render partial: "index", locals: { content: content} %>
-        <% end %>
-        </div>
+  <!-- Content for Gremienarbeit -->
+  <div id="gremien" class="tab-pane fade">
+    <% @contents.where(team_id: "6").order(created_at: :desc).each do |content| %>
+        <%= render partial: "index", locals: {content: content} %>
+    <% end %>
+  </div>
 
   <!-- Content for Veranstalstungen -->
-        <div id="veranstaltungen" class="tab-pane fade">
-          <% @contents.where(team_id: "4").order(created_at: :desc).each do |content| %>
-              <%= render partial: "index", locals: { content: content} %>
-          <% end %>
-          </div>
+  <div id="veranstaltungen" class="tab-pane fade">
+    <% @contents.where(team_id: "4").order(created_at: :desc).each do |content| %>
+        <%= render partial: "index", locals: {content: content} %>
+    <% end %>
+  </div>
 
-<!-- Content for Partys -->
-    <div id="partys" class="tab-pane fade">
-      <% @contents.where(team_id: "2").order(created_at: :desc).each do |content| %>
-          <%= render partial: "index", locals: { content: content} %>
-      <% end %>
-      </div>
+  <!-- Content for Partys -->
+  <div id="partys" class="tab-pane fade">
+    <% @contents.where(team_id: "2").order(created_at: :desc).each do |content| %>
+        <%= render partial: "index", locals: {content: content} %>
+    <% end %>
+  </div>
 
 </div>
