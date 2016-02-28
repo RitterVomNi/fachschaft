@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     @teams = Team.all
     @appointments = Appointment.all
   end
+
   def late
     if User.find_by(team_id: "7") != nil
     @user = User.find_by(team_id: "7")
@@ -32,14 +33,6 @@ class ApplicationController < ActionController::Base
     @appointments = Appointment.all
   end
 
-  def admin
-    if params[:search]
-      @users = User.search(params[:search]).order("firstName ASC")
-    else
-      @users = User.all.order("firstName ASC")
-    end
-    @teams = Team.all
-  end
 
   def authenticate_manager!
     if current_user.present? && (current_user.is_admin || current_user.is_manager)
@@ -61,8 +54,8 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache]
-    devise_parameter_sanitizer.for(:account_update) << [:password, :password_confirmation, :studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache, :remove_avatar]
+    devise_parameter_sanitizer.for(:sign_up) << [:studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache, :confirmed_at]
+    devise_parameter_sanitizer.for(:account_update) << [:password, :password_confirmation, :studiengang, :email, :firstName, :lastName, :facebook, :avatar, :avatar_cache, :remove_avatar, :confirmed_at]
   end
 
 

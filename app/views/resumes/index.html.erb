@@ -1,34 +1,29 @@
 <style type="text/css">
     #link3 {color:blue;}
 </style>
-<% if !flash[:notice].blank? %>
-    <div class="alert alert-info">
-      <%= flash[:notice] %>
-    </div>
-<% end %>
-
-<div class="callout callout-info" id="shadow">
-
+<div id="shadow"><br>
+<div class="callout callout-info" id="shadow" style="margin:auto;max-width:95%">
   <p>
     Erfahrungsberichte über Auslandssemester von Studenten der FH Münster. Wir freuen uns über jeden neuen Erfahrungsbericht, den wir hier vorstellen dürfen.
+    Schickt ihn einfach im pdf Format an info@fh-fachschaft.de und lasst die Anderen an euren Erfahrungen teilhaben.
   </p>
 </div>
-
-<div class="panel panel-primary" id="shadow">
+<br>
+<div class="panel panel-primary" id="shadow" style="margin:auto;max-width:70%">
   <div class="panel-heading">
     <h3 class="panel-title">Eine Liste der Partnerhochschulen der FH findest du hier :</h3>
   </div>
   <div class="panel-body">
     <a href="https://www.fh-muenster.de/internationaloffice/int_kontakte/index.php" target="_blank">FH Münster</a>
   </div>
-</div>
+</div><br>
 <% if current_user.present? && current_user.is_admin %>
 <%= link_to " neue Datei hochladen", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
 <% end %>
     <br />
 
 <br />
-<table class="table table-bordered table-striped" id="shadow">
+<table class="table table-bordered table-striped" id="shadow" style="margin:auto;max-width:95%">
   <thead>
   <tr>
     <th></th>
@@ -51,4 +46,5 @@
       </tr>
   <% end %>
   </tbody>
-</table>
+</table><br>
+</div>
