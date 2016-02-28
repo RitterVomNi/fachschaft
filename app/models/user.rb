@@ -16,9 +16,13 @@ class User < ActiveRecord::Base
   validates :studiengang, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
+  after_create :send_welcome_mail
   has_many :contents
   has_one :team
 
+  def send_welcome_mail
+    UserMailer.welcome_email(self).deliver
+  end
   #sets the Role of the user. Works only if roleName is part of Role.POSSIBLE_ROLES
   def set_role(role_name)
     #Is the role part of possible roles
@@ -32,6 +36,10 @@ class User < ActiveRecord::Base
 
       false
     end
+  end
+
+  def fullname
+    "#{self.firstName} #{self.lastName}"
   end
 
   #Checks if the current user is an admin
