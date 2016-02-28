@@ -5,6 +5,7 @@ class ContentsController < ApplicationController
   # GET /contents.json
   def index
     @contents = Content.all
+    @users = User.all
   end
 
   # GET /contents/1
@@ -24,11 +25,13 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
+    @users = User.all
     @content = Content.new(content_params)
+    @content.user_id = current_user.id
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to @content, notice: 'Content wurde erfolgreich erstellt.' }
         format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to @content, notice: 'Content wurde aktualisiert.' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class ContentsController < ApplicationController
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.html { redirect_to contents_url, notice: 'Content wurde gelöscht.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:content)
+      params.require(:content).permit(:content, :title, :user_id, :team_id)
     end
 end

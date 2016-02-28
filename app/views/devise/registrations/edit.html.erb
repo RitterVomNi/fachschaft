@@ -1,6 +1,6 @@
-<script>$(document).ready(function () {
+<script>
+    $(document).ready(function () {
     var preview = $(".upload-preview img");
-
     $(".file").change(function (event) {
         var input = $(event.currentTarget);
         var file = input[0].files[0];
@@ -11,85 +11,79 @@
         };
         reader.readAsDataURL(file);
     });
-});</script>
+});
+</script>
 <div id="sign-content">
   <div class="page-signin ng-scope">
-
     <div class="signin-header" style="margin:auto">
       <section class="logo text-center">
         <h1 style="padding-top:50px">Account bearbeiten</h1>
       </section>
     </div>
-
     <div class="signin-body">
       <div class="container">
         <label class="form-container">
-
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |f| %>
-
               <p class="notice"><%= notice %></p>
               <%= devise_error_messages! %>
-
-
               <div class="form-group">
                 <div class="input-group input-group-first">
-                    <span class="input-group-addon">
-                        <span class="ti-email"></span>
-                    </span>
+            <span class="input-group-addon">
+            <span class="ti-email"></span>
+            </span>
                   <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "E-Mail Adresse" %>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="ti-lock"></span>
-                    </span>
+            <span class="input-group-addon">
+            <span class="ti-lock"></span>
+            </span>
                   <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "neues Passwort, min 8 Zeichen" %>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="ti-lock"></span>
-                    </span>
+            <span class="input-group-addon">
+            <span class="ti-lock"></span>
+            </span>
                   <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", placeholder: "neues Passwort wiederholen" %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="ti-user"></span>
-                    </span>
+                <span class="input-group-addon">
+                <span class="ti-user"></span>
+                </span>
                   <%= f.text_field :firstName, autocomplete: "off", class: "form-control input-lg", placeholder: "Vorname" %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="ti-user"></span>
-                    </span>
+                <span class="input-group-addon">
+                <span class="ti-user"></span>
+                </span>
                   <%= f.text_field :lastName, autocomplete: "off", class: "form-control input-lg", placeholder: "Nachname" %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="ti-book"></span>
-                    </span>Studiengang
-                    <span class="ui-select">
-                    <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik]) %>
-                        </span>
+                <span class="input-group-addon">
+                <span class="ti-book"></span>
+                </span>Studiengang
+                <span class="ui-select">
+                <%= f.select :studiengang, options_for_select(%w[ BWL BA-Wirtschaftsinformatik MA-Wirtschaftsinformatik CALA EBP A&F IMS Logistik]) %>
+                </span>
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <span class="ti-facebook"></span>
+                    <span class="ti-facebook"></span>
                     </span>
                   <%= f.text_field :facebook, autocomplete: "off", class: "form-control input-lg", placeholder: "URL Facebook Account" %>
                 </div>
+
               </div>
               <div class="form-group">
                 <div class="input-group">
@@ -99,40 +93,45 @@
                   <%= f.label 'erforderlich:' %>
                   <%= f.password_field :current_password, autocomplete: "off", class: "form-control input-lg", placeholder: "aktuelles Passwort" %>
                 </div>
+              </div>
 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <%- if current_user.avatar.url.present? %>
-                        <%= image_tag(current_user.avatar.url) %>
-                    <% end %><br>
-                    <%= f.check_box(:remove_avatar, class: 'ui-checkbox') %>
-                    <span><%= f.label :Avatar_löschen, class: "ui-checkbox" %></span>
-                    <p>
-                    <div class="upload-preview">
-                      <img style="max-width:100%"/>
-                    </div>
-                    </p>
-                    <p>
-                      <%= f.file_field(:avatar) %>
-                      <%= f.hidden_field :avatar_cache %>
-                    </p>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"></span>
+                  <%- if current_user.avatar.url.present? %>
+                      <%= image_tag(current_user.avatar.url) %>
+                  <% end %><br>
+                  <%= f.check_box(:remove_avatar, class: 'ui-checkbox') %>
+                  <span><%= f.label :Avatar_löschen, class: "ui-checkbox" %></span>
+
+                  <p>
+
+                  <div class="upload-preview">
+                    <img style="max-width:100%"/>
                   </div>
+                  </p>
+                  <p>
+                    <%= f.file_field(:avatar, class:"file") %>
+                    <%= f.hidden_field :avatar_cache %>
+                  </p>
                 </div>
-                <div class="form-group">
-                  <%= f.submit "Update", class: "btn btn-primary btn-lg btn-block text-center" %>
-                </div>
-               </div>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Update", class: "btn btn-primary btn-lg btn-block text-center" %>
+              </div>
+              </label>
+              </div>
           <% end %>
-        </label>
-      </div>
-      <br><br><br><br><br>
+          </div>
 
-      <div class="form-group"><p>Unzufrieden?
-        <%= button_to "Account löschen", registration_path(resource_name), data: {confirm: "Bist du sicher?"}, method: :delete, class: "btn btn-primary btn-lg btn-block text-center" %></p>
-      </div>
-
-      <%= link_to "Zurück", :back %>
-    </div>
   </div>
+  <br><br><br><br><br>
+
+  <div class="form-group"><p>Unzufrieden?
+    <%= button_to "Account löschen", registration_path(resource_name), data: {confirm: "Bist du sicher?"}, method: :delete, class: "btn btn-primary btn-lg btn-block text-center" %></p>
+  </div>
+
+  <%= link_to "Zurück", :back %>
+</div>
+</div>
 </div>
