@@ -15,4 +15,12 @@ ActiveAdmin.register Appointment, namespace: :admin , as: "Termine" do
     column "Bezeichnung", :title
     actions
   end
+
+  form do |f|
+    f.inputs "Termindetails" do
+      f.text_field :content
+      f.actions
+    end
+  end
+
 end

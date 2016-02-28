@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def fullname
+    "#{self.firstName} #{self.lastName}"
+  end
+
   #Checks if the current user is an admin
   #returns a boolean
   def is_admin
