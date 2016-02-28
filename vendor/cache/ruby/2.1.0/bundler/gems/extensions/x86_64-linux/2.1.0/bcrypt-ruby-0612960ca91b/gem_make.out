@@ -1,0 +1,20 @@
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/bundler/gems/bcrypt-ruby-0612960ca91b/ext/mri
+/usr/bin/ruby2.1 -r ./siteconf20160228-4154-px2bmy.rb extconf.rb
+creating Makefile
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/bundler/gems/bcrypt-ruby-0612960ca91b/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/bundler/gems/bcrypt-ruby-0612960ca91b/ext/mri
+make "DESTDIR="
+compiling crypt_blowfish.c
+compiling crypt.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+compiling crypt_gensalt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/bundler/gems/bcrypt-ruby-0612960ca91b/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20160228-4154-11sz1ej
+installing default bcrypt_ext libraries
