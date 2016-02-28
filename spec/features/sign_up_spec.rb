@@ -21,6 +21,8 @@ RSpec.feature 'Sign up',
       fill_in 'user_lastName', with: "test_lastName"
       click_button 'Registrieren'
       expect(page).to have_content("Abmelden")
+      visit account_path
+      expect(page).to have_content("erfolgreich registriert")
     end
   end
 end

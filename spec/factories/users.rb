@@ -10,5 +10,5 @@ FactoryGirl.define do
 
   end
 
-  factory :admin
+
 end
