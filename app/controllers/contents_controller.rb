@@ -11,6 +11,9 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    @contents = Content.all
+    @users = User.all
+    @teams = Team.all
   end
 
   # GET /contents/new
@@ -28,6 +31,7 @@ class ContentsController < ApplicationController
     @users = User.all
     @content = Content.new(content_params)
     @content.user_id = current_user.id
+    @content.team_id = @users.find(@content.user_id).team_id
 
     respond_to do |format|
       if @content.save
