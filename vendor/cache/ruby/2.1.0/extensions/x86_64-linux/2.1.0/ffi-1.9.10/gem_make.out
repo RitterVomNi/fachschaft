@@ -1,0 +1,65 @@
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c
+/usr/bin/ruby2.1 -r ./siteconf20160227-6734-wewwdo.rb extconf.rb
+checking for ffi_call() in -lffi... yes
+checking for ffi_prep_closure()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for rb_thread_blocking_region()... yes
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for ffi_prep_cif_var()... yes
+creating extconf.h
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/extensions/x86_64-linux/2.1.0/ffi-1.9.10/mkmf.log
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c
+make "DESTDIR="
+compiling Thread.c
+compiling Type.c
+compiling LastError.c
+compiling LongDouble.c
+compiling Platform.c
+compiling AbstractMemory.c
+compiling StructLayout.c
+compiling FunctionInfo.c
+compiling Types.c
+compiling Call.c
+In file included from Call.c:62:0:
+Call.c: In function ‘do_blocking_call’:
+Thread.h:78:39: warning: implicit declaration of function ‘rb_thread_call_without_gvl’ [-Wimplicit-function-declaration]
+ # define rbffi_thread_blocking_region rb_thread_call_without_gvl
+                                       ^
+Call.c:368:5: note: in expansion of macro ‘rbffi_thread_blocking_region’
+     rbffi_thread_blocking_region(call_blocking_function, data, (void *) -1, NULL);
+     ^
+compiling Function.c
+Function.c: In function ‘async_cb_event’:
+Function.c:563:9: warning: implicit declaration of function ‘rb_thread_call_without_gvl’ [-Wimplicit-function-declaration]
+         rb_thread_call_without_gvl(async_cb_wait, &w, async_cb_stop, &w);
+         ^
+compiling Buffer.c
+compiling MethodHandle.c
+compiling Variadic.c
+compiling ArrayType.c
+compiling DataConverter.c
+compiling StructByValue.c
+compiling DynamicLibrary.c
+compiling MemoryPointer.c
+compiling ClosurePool.c
+compiling ffi.c
+compiling StructByReference.c
+compiling MappedType.c
+compiling Pointer.c
+compiling Struct.c
+linking shared-object ffi_c.so
+
+current directory: /home/sipsip/Git/fachschaft/vendor/cache/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20160227-6734-dkjby0
+installing default ffi_c libraries
