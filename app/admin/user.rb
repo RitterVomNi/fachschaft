@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User, namespace: :admin do
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
   menu priority: 2
