@@ -1,4 +1,5 @@
-<script>$(document).ready(function () {
+<script>
+    $(document).ready(function () {
     var preview = $(".upload-preview img");
     $(".file").change(function (event) {
         var input = $(event.currentTarget);
@@ -108,10 +109,9 @@
                   <div class="upload-preview">
                     <img style="max-width:100%"/>
                   </div>
-                  <input class="file" name="logo" type="file">
                   </p>
                   <p>
-                    <%= f.file_field(:avatar) %>
+                    <%= f.file_field(:avatar, class:"file") %>
                     <%= f.hidden_field :avatar_cache %>
                   </p>
                 </div>
