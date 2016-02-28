@@ -6,7 +6,7 @@
 
     <div class="signin-header" style="margin:auto">
       <section class="logo text-center">
-        <h1 style="padding-top:50px">Einloggen</h1>
+        <h2 style="padding-top:20px">Einloggen</h2>
       </section>
     </div>
 
@@ -16,8 +16,6 @@
 
           <fieldset>
             <%= form_for(resource, as: resource_name, :html => {class:"form-horizontal ng-pristine ng-valid"}, url: session_path(resource_name)) do |f| %>
-
-                <p class="alert"><%= alert %></p>
                 <div class="form-group">
                   <div class="input-group input-group-first">
                                 <span class="input-group-addon">
@@ -42,6 +40,7 @@
                     </div>
                     <br>
                     <div class="form-group">
+                      <p class="alert"><%= alert %></p>
                       <%= f.submit "Einloggen", class:"btn btn-primary btn-lg btn-block text-center" %>
                     </div>
                 <% end -%>

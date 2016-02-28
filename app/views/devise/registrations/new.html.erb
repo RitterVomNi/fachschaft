@@ -6,7 +6,7 @@
 
     <div class="signin-header" style="margin:auto">
       <section class="logo text-center">
-        <h1 style="padding-top:50px">Anmelden</h1>
+        <h2 style="padding-top:20px">Registrieren</h2>
       </section>
     </div>
 
@@ -16,15 +16,15 @@
 
           <fieldset>
             <%= form_for(resource, as: resource_name, :html => {class:"form-horizontal ng-pristine ng-valid"}, url: registration_path(resource_name)) do |f| %>
-
                 <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
+                <%= devise_error_messages! %>
+
                 <div class="form-group">
                   <div class="input-group input-group-first">
                     <span class="input-group-addon">
                         <span class="ti-email"></span>
                     </span>
-                    <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"E-Mail Adresse" %>
+                    <%= f.email_field :email, autofocus: true, class:"form-control input-lg", placeholder:"@fh-muenster Adresse" %>
                   </div>
                 </div>
 
@@ -83,7 +83,9 @@
                 </div>
                 <br><br>
                 <div class="form-group">
-                  <%= f.submit "Anmelden", class:"btn btn-primary btn-lg btn-block text-center" %>
+                  <p class="notice"><%= notice %></p>
+                  <p class="alert"><%= alert %></p>
+                  <%= f.submit "Registrieren", class:"btn btn-primary btn-lg btn-block text-center" %>
                 </div>
             <% end %>
             <br>

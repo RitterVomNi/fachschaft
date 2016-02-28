@@ -1,4 +1,4 @@
-ActiveAdmin.register Appointment, as: "Termine" do
+ActiveAdmin.register Appointment, namespace: :admin , as: "Termine" do
   actions :all, :except => [:destroy]
   permit_params :content
 
@@ -15,4 +15,14 @@ ActiveAdmin.register Appointment, as: "Termine" do
     column "Bezeichnung", :title
     actions
   end
+
+  form do |f|
+    f.inputs "Termindetails" do
+      f.text_field :content
+      f.actions
+    end
+  end
+
+  filter :title, label: "Bezeichnung"
+  filter :content, label: "Inhalt"
 end

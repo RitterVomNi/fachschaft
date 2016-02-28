@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
     @appointments = Appointment.all
   end
 
+  def politics
+    @appointments = Appointment.all
+  end
+
+  def contact
+    @appointments = Appointment.all
+  end
+
   def admin
     if params[:search]
       @users = User.search(params[:search]).order("firstName ASC")

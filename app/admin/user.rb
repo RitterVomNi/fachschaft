@@ -1,7 +1,7 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User, namespace: :admin do
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
-  menu priority: 2
+  menu priority: 1
   
 
 
@@ -52,9 +52,13 @@ ActiveAdmin.register User do
   show do
     attributes_table do
       default_attribute_table_rows.each do |field|
-        if field != :team_id
-        row field
-      end
+        if field == :team_id
+          row field do |f|
+            Team.find_by(id: f.team_id).teamName rescue "Kein Team"
+          end
+          else
+        end
+
       end
       row :roles do |r|
         r.roles.map { |role| role.name }.join(", ")

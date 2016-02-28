@@ -8,7 +8,7 @@
         });
     });
 </script>
-  <div style="text-align:center">
+  <div style="text-align:center" id="shadow">
     <h1>O-Woche verpasst und trotzdem gut ins Studium starten?</h1>
     <h1>Kein Problem: <i id="show" style="color:#20549f" class="fa fa-caret-square-o-down faa-float animated"></i>
       </h1>
@@ -21,7 +21,7 @@
         <p><strong>Dein Ansprechpartner aus der Fachschaft Wirtschaft:</strong></p>
         <p>
         <div style="max-width:400px; margin:auto">
-          <div id="member" class="widget-container">
+          <div id="shadow" class="widget-container">
             <div class="panel panel-profile">
               <div class="panel-heading bg-danger clearfix">
                 <% if @user.avatar?  %>
@@ -66,27 +66,27 @@
         </p>
     <br><br>
 
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Wichtig zum Einstieg</strong></medium>
         <p>Mach Dich mit den grundlegenden Hinweisen für Studienstarter auf dieser Webseite vertraut.
           Zusätzlich ist der Erstiguide der Fachschaft Wirtschaft ein praktischer Begleiter,
           der viele Fragen rund um das Studium beantwortet.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Vorlesungsplan</strong></medium>
         <p>Erstelle Deinen Vorlesungsplan, damit Du weißt, wann und wo du welche Vorlesungen, Übungen und Tutorien besuchen musst.
           Eine Anleitung für die Stundenplanerstellung findest du auf der Seite für Studienstarter des Fachbereichs.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Vorlesungsmaterialien</strong></medium>
         <p>Professoren und Dozenten stellen für Ihre Vorlesungen Skripte, Übungsaufgaben und andere Dokumente zur Verfügung.
           Diese solltest Du mit in die Vorlesung bringen, um besser folgen zu können (ausgedruckt oder über Laptop/Tablet).
           Die Materialien findest Du entweder im LSF oder im ILIAS unter der entsprechenden Veranstaltung.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Ausweise und Tickets</strong></medium>
         <p>An der Fachhochschule und in Münster benötigst Du einige Ausweise und Tickets, um z.B. Bücher auszuleihen, in Mensen zu essen oder
           Dich als Student auszuweisen.
@@ -97,18 +97,18 @@
           erhälst Du bereits nach Deiner Einschreibung per E-Mail.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Tutorienanmeldung</strong></medium>
         <p>Ab der ersten oder zweiten Vorlesungswoche musst Du Dich im LSF für Tutorien anmelden.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Prüfungsanmeldung</strong></medium>
         <p>Nach Vorlesungsstart hast Du fünf Wochen Zeit Dich im LSF für die Prüfungen am Ende des ersten Semesters anzumelden.
           Abmelden kannst Du dich bis eine Woche vor dem Prüfungstermin.</p>
       </blockquote>
         <br>
-      <blockquote class="blockquote-colored">
+      <blockquote class="blockquote-colored" id="shadow_smaller">
         <medium><strong>Altklausuren-Verkauf</strong></medium>
         <p>Die Fachschaft Wirtschaft verkauft während der Mittagspause im Fachschaftsbüro A417 Altklausuren, mit denen Du Dich auf deine Klausuren vorbereiten kannst.
           Es ist sinnvoll, sich die Klausuren nicht erst am Ende des Semesters zu kaufen, da sie dann teilweise ausverkauft sind.</p>
@@ -121,10 +121,10 @@
         <h1>Und diese Infos sind für euch alle Interessant</h1>
         <br>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" id="shadow_ho">
               <div class="ui-bullet">
-                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger">
-                  <i class="fa fa-calculator faa-wrench animated-hover"></i>
+                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger  faa-parent animated-hover">
+                  <i class="fa fa-calculator faa-wrench"></i>
                 </div>
                 <div class="ui-bullet-content">
                   <h3><strong>Mathe Brückenkurs</strong></h3>
@@ -136,10 +136,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="shadow_ho">
               <div class="ui-bullet">
                 <div class="btn-icon btn-icon-round btn-icon-lg bg-danger">
-                  <i class="fa fa-beer faa-pulse animated"></i>
+                  <i class="fa fa-beer faa-pulse animated faa-slow"></i>
                 </div>
                 <div class="ui-bullet-content">
                   <h3><strong>O-Woche</strong></h3>
@@ -152,10 +152,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="shadow_ho">
               <div class="ui-bullet">
-                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger">
-                  <i class="fa fa-bus faa-passing animated-hover"></i>
+                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger faa-parent animated-hover">
+                  <i class="fa fa-bus faa-passing"></i>
                 </div>
                 <div class="ui-bullet-content">
                   <h3><strong>Erstifahrt</strong></h3>
@@ -171,7 +171,7 @@
           </div>
 
         <div class="divider divider-lg"></div>
-        <div class="panel panel-default" style="max-width:450px; margin:auto">
+        <div class="panel panel-default" style="max-width:450px; margin:auto" id="shadow">
           <div class="panel-heading">
             <i class="fa fa-facebook-official fa-2x" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
             Facebook
@@ -181,8 +181,8 @@
             <a href="https://www.facebook.com/fhfachschaft/" target="_blank"><strong>Facebook Fachschaft</strong></a>
           </div>
           <div class="panel-body">
-            Wir erstellen je Studiengang und Semester immer eine eigene Gruppe. Einfach nach " FH Münster &lt;Studiengang&gt;
-            " suchen und beitreten.
+            Wir erstellen je Studiengang und Semester immer eine eigene Gruppe. Einfach nach <br>" FH Münster &lt;Studiengang&gt;
+            " <br>suchen und beitreten.
           </div>
           <div class="panel-body">
             <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
