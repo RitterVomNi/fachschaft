@@ -1,7 +1,7 @@
 ActiveAdmin.register Content, namespace: :manager  do
     permit_params :content, :ok_manager, :title
-    menu priority: 1, label: "Inhalte"
-
+    after_update  do UserMailer.new_admin_content.deliver end
+    menu priority: 1
 
     index do
         selectable_column
@@ -40,12 +40,13 @@ ActiveAdmin.register Content, namespace: :manager  do
                         User.find_by(id: f.user_id).fullname
                     end
                 end
-                if field == :team_id && :team_id != nil
+                if field == :team_id
                     row field do |f|
-                        Team.find_by(id: f.team_id).teamName
+                        Team.find_by(id: f.team_id).teamName rescue "Kein Team"
                     end
+                else
+                    row field
                 end
-                row field
             end
             active_admin_comments
         end
@@ -53,4 +54,8 @@ ActiveAdmin.register Content, namespace: :manager  do
 
 
 end
+    filter :title, label: "Titel"
+    filter :content, label: "Inhalt"
+    filter :ok_admin
+    filter :ok_manager
     end

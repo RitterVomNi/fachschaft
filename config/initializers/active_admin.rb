@@ -42,6 +42,15 @@ ActiveAdmin.setup do |config|
   #     admin.site_title = "Custom Admin Title"
   #   end
   #
+  module ActiveAdmin
+    class Content  < ActiveRecord::Base
+      after_update :new_admin_content
+      def new_admin_content
+        UserMailer.new_admin_content.deliver
+      end
+    end
+  end
+
 
   config.namespace :manager do |namespaced|
     namespaced.authentication_method = :authenticate_manager!

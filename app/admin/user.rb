@@ -52,12 +52,13 @@ ActiveAdmin.register User, namespace: :admin do
   show do
     attributes_table do
       default_attribute_table_rows.each do |field|
-        if field == :team_id && :team_id != nil
+        if field == :team_id
           row field do |f|
-            Team.find_by(id: f.team_id).teamName
+            Team.find_by(id: f.team_id).teamName rescue "Kein Team"
           end
-          else row field
+          else
         end
+
       end
       row :roles do |r|
         r.roles.map { |role| role.name }.join(", ")

@@ -23,4 +23,6 @@ ActiveAdmin.register Appointment, namespace: :admin , as: "Termine" do
     end
   end
 
+  filter :title, label: "Bezeichnung"
+  filter :content, label: "Inhalt"
 end

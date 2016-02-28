@@ -10,7 +10,7 @@
       <br>
       <hr>
       <p><% user = content.user_id %>
-        <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), user_path(user) %>
+        <%= link_to (@users.find(user).firstName + " " + @users.find(user).lastName), user_path(user) rescue "User gelöscht" %>
       </p>
     </div>
   </div>

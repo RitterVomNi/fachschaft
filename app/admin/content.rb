@@ -1,8 +1,12 @@
-ActiveAdmin.register Content, namespace: :admin  do
+ActiveAdmin.register Content, namespace: :admin do
   permit_params :content, :ok_manager, :ok_admin, :title
 
-    menu priority: 2, label: "Inhalte"
+    menu priority: 2
 
+
+  action_item only: :show do
+    link_to 'Zurück', admin_contents_path
+  end
 
   index do
       selectable_column
@@ -29,10 +33,13 @@ ActiveAdmin.register Content, namespace: :admin  do
           f.input :ok_admin
           f.inputs "Inhalt" do
           f.text_area :content
-          end
+
           f.actions
-        end
+          end
+
+      end
   end
+
 
   show do
       attributes_table do
@@ -42,15 +49,22 @@ ActiveAdmin.register Content, namespace: :admin  do
                     User.find_by(id: f.user_id).fullname
                   end
               end
-              if field == :team_id && :team_id != nil
-                  row field do |f|
-                      Team.find_by(id: f.team_id).teamName
-                  end
+              if field == :team_id
+                row field do |f|
+                  Team.find_by(id: f.team_id).teamName rescue "Kein Team"
+                end
+              else
+                row field
               end
-            row field
           end
           active_admin_comments
       end
 
   end
+
+  filter :title, label: "Titel"
+  filter :content, label: "Inhalt"
+  filter :ok_admin
+  filter :ok_manager
+
 end

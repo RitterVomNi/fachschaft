@@ -51,6 +51,9 @@ gem 'rmagick', require: false
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
 
+#Store secrets :D
+gem 'figaro'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
