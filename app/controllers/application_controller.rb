@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if User.find_by(team_id: "7") != nil
       @user = User.find_by(team_id: "7")
     else
-      @user = User.find(1)
+      @user = User.first
     end
     @appointments = Appointment.all
   end
