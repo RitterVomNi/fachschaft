@@ -5532,6 +5532,11 @@ ul li i {float:left;}
   max-width:90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+#shadow_smaller:hover {
+  margin:auto;
+  max-width:90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 1.80);
+}
 
 .tl-item.alt.trick2 {
   text-align:left;

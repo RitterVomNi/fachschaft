@@ -12,4 +12,10 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: 'Bitte neuen Content freigeben')
       end
   end
+
+  def new_manager_content(id)
+    @user = User.find(Team.find(id).user_id)
+    mail(to: @user.email, subject: 'Bitte neuen Content freigeben')
+
+  end
 end

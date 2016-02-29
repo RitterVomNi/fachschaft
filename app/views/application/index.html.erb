@@ -66,18 +66,6 @@
         </section>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- Content for Erstsemester -->
   <div id="erstis" class="tab-pane fade">
     <% @contents.where(ok_admin: true).where(team_id: "1").order(created_at: :desc).limit(5).each do |content| %>

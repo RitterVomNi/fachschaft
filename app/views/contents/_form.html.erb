@@ -34,6 +34,11 @@
     <br/>
   </div>
   <div class="field">
+    <%= f.label "Linkadresse" %><br>
+    <%= f.text_field :link, type: "text", align: "center" %>
+    <br/>
+  </div>
+  <div class="field">
     <%- if @content.image_url.present? %>
         <%= image_tag(@content.image.url) %>
     <% end %><br>
