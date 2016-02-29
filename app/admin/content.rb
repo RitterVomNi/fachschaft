@@ -1,5 +1,6 @@
-ActiveAdmin.register Content, namespace: :admin do
-  permit_params :content, :ok_manager, :ok_admin, :title
+ActiveAdmin.register Content,  namespace: :admin do
+  config.clear_action_items!
+  permit_params :content, :ok_manager, :ok_admin, :title, :user_id, :team_id
 
     menu priority: 2
 

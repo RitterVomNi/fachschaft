@@ -10,6 +10,12 @@
     });
   });
 </script>
+<script type="text/javascript">
+    function confirm_click()
+    {
+        return confirm("Account ist derzeit gesperrt, danke AStA :D");
+    }
+</script>
 <div style="text-align:center" id="shadow2"><br>
 
   <h1>O-Woche verpasst und trotzdem gut ins Studium starten?</h1>
@@ -53,7 +59,11 @@
     <% end %>
     <li class="list-group-item">
       <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-      <a href="<%= @user.facebook %>">Facebook</a>
+      <% if @user.facebook != nil %>
+          <a href="<%= @user.facebook %>" target="_blank">Link zu Facebook</a>
+      <% else %>
+          Keine Angaben
+      <% end %>
     </li>
     </ul>
 </div>
@@ -201,7 +211,7 @@ Bitte melde Dich für einen Termin per Email an.
       </div>
       <div class="panel-body">
         <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-        <a href="https://www.facebook.com/fhfachschaft/" target="_blank"><strong>Facebook Fachschaft</strong></a>
+        <a href="https://www.facebook.com/fhfachschaft/" target="_blank" onclick="return confirm_click();"><strong>Facebook Fachschaft</strong></a>
       </div>
       <div class="panel-body">
         Wir erstellen je Studiengang und Semester immer eine eigene Gruppe. Einfach nach <br>" FH Münster &lt;Studiengang&gt;

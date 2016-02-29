@@ -38,7 +38,7 @@
         <button class="btn btn-primary" id="show"><span class="glyphicon glyphicon-arrow-down"></span>Neueste</button>
         <br><br>
         <section class="ui-timeline" id="toggle">
-          <% @contents.where(ok_admin: true).order(created_at: :desc).limit(5).each do |content| %>
+          <% @show_contents.limit(5).each do |content| %>
 
               <article class="<%= cycle('tl-item', 'tl-item alt') -%>">
                 <%= render partial: "index_timeline", locals: {content: content} %>
@@ -54,9 +54,9 @@
         <button class="btn btn-primary" id="show2"><span class="glyphicon glyphicon-arrow-down"></span>Fast neu</button>
         <br><br>
         <section class="ui-timeline" id="toggle2">
-          <% helper = @contents.where(ok_admin: true).count %>
+          <% helper = @show_contents.count %>
           <% if helper >5 %>
-              <% @contents.where(ok_admin: true).order(created_at: :desc).limit(10).last(-5+helper).each do |content| %>
+              <% @show_contents.last(-5+helper).each do |content| %>
                   <article class="<%= cycle('tl-item', 'tl-item alt') -%>">
                     <%= render partial: "index_timeline", locals: {content: content} %>
                   </article>

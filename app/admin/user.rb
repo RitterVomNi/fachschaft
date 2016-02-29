@@ -1,4 +1,5 @@
 ActiveAdmin.register User, namespace: :admin do
+  config.clear_action_items!
   permit_params :firstName, :lastName, :facebook, :email, :password, :password_confirmation, :team_id, :studiengang,  role_ids: []
 
   menu priority: 1

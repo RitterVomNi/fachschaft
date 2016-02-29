@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @contents = Content.all
     @teams = Team.all
+    @show_contents = Content.where(ok_admin: true).order(created_at: :desc).limit(10)
   end
 
   def about

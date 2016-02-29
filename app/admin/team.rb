@@ -1,4 +1,5 @@
 ActiveAdmin.register Team, namespace: :admin do
+  config.clear_action_items!
   actions :all, :except => [:destroy, :create]
   permit_params :user_id
 
