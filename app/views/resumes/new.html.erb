@@ -1,7 +1,7 @@
 <style type="text/css">
     #link3 {color:blue;}
 </style>
-<% if current_user.present? && current_user.is_admin? %>
+<% if current_user.present? && current_user.is_admin %>
 <% if !@resume.errors.empty? %>
     <div class="alert alert-error">
       <ul>
