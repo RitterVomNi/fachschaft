@@ -95,6 +95,8 @@ Ferner sind rspec Tests implementiert.
 
 Was gibt es zu beachten?
 
+Man kann sich nur mit einer @fh-muenster.de Adresse anmelden und muss diese auch bestätigen.
+
 Content erstellen ist auf der Startseite nicht mit der Rolle 'User' (default) möglich. In der Administrationsoberfläche des Admin Namespace (Administration im Header wenn man als Admin eingelogt ist) kann man Nutzern Rollen und Teams zuweisen. Fachschaftsmitglieder müssen mindestens die Rolle Fachschaft haben und in einem Team sein, um erweiterte Funktionen nutzen zu können.
 
 Der erste User im Seed wird automatisch zum Admin.
