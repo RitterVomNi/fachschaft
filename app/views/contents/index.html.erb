@@ -8,12 +8,13 @@
 
     <table class="table table-bordered table-striped">
       <thead>
+      <h3>Übersicht</h3>
       <tr>
         <th style="text-align: center">Titel</th>
         <th><!-- Anzeigen --></th>
         <th style="text-align: center"><!-- Bearbeiten --></th>
         <th><!-- Löschen --></th>
-        <th style="text-align: center">Freigegeben:</th>
+        <th style="text-align: center">Freigegeben</th>
       </tr>
       </thead>
       <tbody>
@@ -23,28 +24,28 @@
                 <td><%= content.title %></td>
                 <td><%= link_to 'Anzeigen', content %></td>
                 <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
-                <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Möchtest du diesen Inhalt wirklich löschen?'} %></td>
                 <td>
                   <% if content.ok_admin %>
                       <i class="fa fa-check fa-1" , style="color:green"></i>
                   <% else %>
                       <i class="fa fa-times fa-1" , style="color:red"></i>
                   <% end %>
-          </td>
+                </td>
           <% else %>
-          <% if (current_user.id == content.user_id) %>
-              <td><%= content.title %></td>
-              <td><%= link_to 'Anzeigen', content %></td>
-              <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
-              <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-              <td>
-                <% if content.ok_admin %>
-                    <i class="fa fa-check fa-1" , style="color:green"></i>
-                <% else %>
-                    <i class="fa fa-times fa-1" , style="color:red"></i>
-                <% end %>
-              </td>
-          <% end %>
+              <% if (current_user.id == content.user_id) %>
+                  <td><%= content.title %></td>
+                  <td><%= link_to 'Anzeigen', content %></td>
+                  <td><%= link_to 'Bearbeiten', edit_content_path(content) %></td>
+                  <td><%= link_to 'Löschen', content, method: :delete, data: {confirm: 'Möchtest du diesen Inhalt wirklich löschen?'} %></td>
+                  <td>
+                    <% if content.ok_admin %>
+                        <i class="fa fa-check fa-1" , style="color:green"></i>
+                    <% else %>
+                        <i class="fa fa-times fa-1" , style="color:red"></i>
+                    <% end %>
+                  </td>
+              <% end %>
           <% end %>
           </tr>
       <% end %>

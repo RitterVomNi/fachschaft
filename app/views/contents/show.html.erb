@@ -5,30 +5,36 @@
     <% user = @content.user_id %>
     <% if (current_user.id == user) || current_user.is_admin %>
         <p>
-          <strong>Title:</strong>
+          <strong>Titel:</strong>
+          <br>
           <%= @content.title %>
         </p>
         <p>
           <strong>Content:</strong>
+          <br>
           <%= @content.content %>
         </p>
         <p>
           <strong>User:</strong>
-          <%= @users.find(user).firstName %>
-          <%= @users.find(user).lastName %>
+          <br>
+          <%= @users.find(user).firstName rescue "User gelöscht"%>
+          <%= @users.find(user).lastName rescue "User gelöscht"%>
         </p>
-        <!--p>
+        <p>
           <strong>Team:</strong>
-          <%# team = @content.team_id %>
-          <%#= @teams.find_by(id: team).teamName %>
-        </p-->
+          <br>
+          <% team = @content.team_id %>
+          <%= @teams.find(team).teamName rescue "kein Team" %>
+        </p>
         <p>
           <strong>Erstellt am:</strong>
+          <br>
           <%= @content.created_at.strftime('%d.%m.%Y %H:%M') %>
         </p>
         <% if !(@content.created_at == @content.updated_at) %>
             <p>
               <strong>Aktualisiert am:</strong>
+              <br>
               <%= @content.updated_at.strftime('%d.%m.%Y %H:%M') %>
             </p>
         <% end %>
