@@ -1,4 +1,15 @@
-<%= stylesheet_link_tag 'timeline' %>
+<script>
+    $(document).ready(function() {
+        $("#show").click(function () {
+            $("#toggle").fadeToggle("slow");
+        });
+    });
+    $(document).ready(function() {
+        $("#show2").click(function () {
+            $("#toggle2").fadeToggle("slow");
+        });
+    });
+</script>
 <style type="text/css">
   #link1 {
     color: blue;
@@ -20,27 +31,66 @@
 </ul>
 
 
-<div class="tab-content">
+
+
+  <div class="tab-content">
   <div id="news" class="tab-pane fade in active">
-    <div class="container" style="max-width:100%">
+    <div class="ui-timline-container" style="max-width:100%">
       <!-- Timeline for the newest content (all categories) -->
-      <ul class="timeline">
-        <% @contents.where(ok_admin: true).order(created_at: :desc).limit(5).each do |content| %>
+      <a href="javascript:;" class="btn btn-w-md btn-primary btn-direction btn-down" id="show">Neueste</a><br><br>
+      <section class="ui-timeline"  id="toggle">
+        <% @contents.order(created_at: :desc).limit(10).first(5).each do |content| %>
             <!-- Left side of the timeline -->
             <% if (content.id%2) == 0 %>
-                <li>
+                  <article class="tl-item">
                   <%= render partial: "index_timeline", locals: {content: content} %>
-                </li>
+                      </article>
             <% else %>
                 <!-- Right side of the Timeline -->
-                <li class="timeline-inverted">
+                  <article class="tl-item alt trick">
                   <%= render partial: "index_timeline", locals: {content: content} %>
-                </li>
+                      </article>
+
             <% end %>
         <% end %>
-      </ul>
+
+      </section>
     </div>
   </div>
+
+    <div id="news" class="tab-pane fade in active">
+      <div class="ui-timline-container" style="max-width:100%">
+        <!-- Timeline for the newest content (all categories) -->
+        <a href="javascript:;" class="btn btn-w-md btn-primary btn-direction btn-down" id="show2">Fast neu</a><br><br>
+        <section class="ui-timeline"  id="toggle2">
+          <% @contents.order(created_at: :desc).limit(10).last(5).each do |content| %>
+              <!-- Left side of the timeline -->
+              <% if (content.id%2) == 0 %>
+                  <article class="tl-item">
+                    <%= render partial: "index_timeline", locals: {content: content} %>
+                  </article>
+              <% else %>
+                  <!-- Right side of the Timeline -->
+                  <article class="tl-item alt">
+                    <%= render partial: "index_timeline", locals: {content: content} %>
+                  </article>
+
+              <% end %>
+          <% end %>
+
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- Content for Erstsemester -->

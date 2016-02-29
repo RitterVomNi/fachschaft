@@ -5482,8 +5482,13 @@ h1, h2, h3 {
 
 ul li i {float:left;}
 
-#myCarousel, #navbutton, #shadow, #shadow_ho:hover {
+#myCarousel, #navbutton, #shadow, #shadow_ho:hover, #shadow2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+#shadow2:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 1.80);
 }
 
 #logo {
@@ -5526,4 +5531,8 @@ ul li i {float:left;}
   margin:auto;
   max-width:90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tl-item.alt.trick {
+  text-align:center;
 }
