@@ -60,6 +60,7 @@ end
 
 
 Installation
+
 Nach dem pull $ bundle install ausführen. Möglicherweise ist es notwendig für die Installation von rmagick zuerst ImageMagick mit 
 $ sudo apt-get install imagemagick zu installieren.
 
