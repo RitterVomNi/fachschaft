@@ -1,25 +1,27 @@
 <% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) then %>
     <style type="text/css">
-        #link3 {color:blue;}
+      #link3 {
+        color: blue;
+      }
     </style>
 
 
-<div class="container" style="max-width:100%">
-    <h1>Neuer Content</h1>
-    <% if !@content.errors.empty? %>
-    <div class="alert alert-error">
-      <ul>
-        <% @content.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-    <div class="container">
+    <div class="container" style="max-width:100%">
+      <h1>Neuer Content</h1>
+      <% if !@content.errors.empty? %>
+          <div class="alert alert-error">
+            <ul>
+              <% @content.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="container">
         <%= render 'form' %>
-    </div>
+      </div>
 
-    <% end %>
+<% end %>
 
-    <%#= render "application/index" %>
+<%#= render "application/index" %>
 </div>
