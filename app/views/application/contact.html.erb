@@ -1,5 +1,7 @@
 <style type="text/css">
-    #link9 {color:blue;}
+  #link9 {
+    color: blue;
+  }
 </style>
 
 <div class="panel-body" id="shadow">
@@ -9,11 +11,12 @@
         <div class="widget-container">
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5846.44823681036!2d7.592373886479074!3d51.96807875932184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b9ba9f703635e3%3A0xd6f9f285f5b7f50e!2sFachhochschulzentrum%2C+Corrensstra%C3%9Fe+25%2C+48149+M%C3%BCnster!5e0!3m2!1sde!2sde!4v1456315489418" width="600" height="450" frameborder="0" style="border:0;max-width:100%" allowfullscreen></iframe>
-        </div>
           </div>
+        </div>
       </div>
     </div>
     <br>
+
     <div class="row">
       <div class="col-md-12">
         <div class="widget-container">
@@ -31,26 +34,31 @@
               Telefon: 0251 83 64 984
               <br>
               Raum: A 417
-              </p><p>
-              Du hast fragen? Schreib uns:
-              <br>
-              info@fh-fachschaft.de
-            </p></dd>
+            </p>
+
+              <p>
+                Du hast fragen? Schreib uns:
+                <br>
+                info@fh-fachschaft.de
+              </p></dd>
             <dt>Vertreten durch<br>den Vorstand:</dt>
             <dd>
-            <p><%= @appointments.find_by(title: "1. Vorstand").content %></p>
-            <p><%= @appointments.find_by(title: "2. Vorstand").content %></p></dd>
+              <p><%= @appointments.find_by(title: "1. Vorstand").content %></p>
+
+              <p><%= @appointments.find_by(title: "2. Vorstand").content %></p></dd>
             <dt>Haftungshinweis:</dt>
             <dd>Trotz sorgfältiger inhaltlicher Überprüfung übernehmen wir keine Haftung für die Inhalte externer Links.
               Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
               Zum Zeitpunkt der Einstellung waren trotz Prüfung keine Rechtsverstöße zu erkennen.
               Sollten uns Links oder Texte mit rechtswidrigen und/oder sittenwidrigen Inhalten bekannt werden,
-              werden wir sie umgehend von unserer Seite entfernen.</dd>
+              werden wir sie umgehend von unserer Seite entfernen.
+            </dd>
           </dl>
         </div>
-        </div>
+      </div>
+    </div>
 
-
-</div></div></div>
+  </div>
+</div>
 
 

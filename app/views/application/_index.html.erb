@@ -7,16 +7,16 @@
     <div class="row">
       <div class="col-md-2">
         <div class="widget-container">
-          <% if content.image?  %>
-              <%=image_tag content.image_url(:content), class:"img-responsive" , class:"img-responsive"  %>
+          <% if content.image? %>
+              <%= image_tag content.image_url(:content), class: "img-responsive", class: "img-responsive" %>
           <% else %>
-              <%=image_tag 'fachschaft_content.jpg', class:"img-responsive"   %>
+              <%= image_tag 'fachschaft_content.jpg', class: "img-responsive" %>
           <% end %>
-          </div>
         </div>
+      </div>
       <div class="col-md-10">
         <div class="widget-container">
-            <%= content.content %>
+          <%= content.content %>
         </div>
       </div>
     </div>

@@ -2,41 +2,43 @@
   <div id="shadow2" class="widget-container" style="margin:5px 0 10px">
     <div class="panel panel-profile">
       <div class="panel-heading bg-danger clearfix">
-        <% if about.avatar?  %>
-        <%=image_tag about.avatar.url(:mid) , class: "img-circle", style: "float:left" %>
-            <% else %>
-        <%=image_tag 'default.jpg' , class: "img-circle", style: "float:left"  %>
-            <% end %>
-           <div style="position:relative; left:-25px">
-             <h3 class="ng-binding"><%= about.firstName %></h3>
-             <p><%= about.lastName %></p>
-           </div>
+        <% if about.avatar? %>
+            <%= image_tag about.avatar.url(:mid), class: "img-circle", style: "float:left" %>
+        <% else %>
+            <%= image_tag 'default.jpg', class: "img-circle", style: "float:left" %>
+        <% end %>
+        <div style="position:relative; left:-25px">
+          <h3 class="ng-binding"><%= about.firstName %></h3>
+
+          <p><%= about.lastName %></p>
+        </div>
       </div>
       <ul class="list-group">
         <li class="list-group-item">
           <i class="ti-user" data-toggle="tooltip" title="Hauptaufgabe"></i>
-              <% if about.team_id != nil %>
-                  <%= @teams.find_by(id: about.team_id).teamName %>
-                <% else %>
-                    Keine Angaben
-              <% end %>
+          <% if about.team_id != nil %>
+              <%= @teams.find_by(id: about.team_id).teamName %>
+          <% else %>
+              Keine Angaben
+          <% end %>
         </li>
         <li class="list-group-item">
           <i class="ti-book" data-toggle="tooltip" title="Studiengang"></i>
           <% if about.studiengang != nil %>
-          <%= about.studiengang %>
-              <% else%>
-            Keine Angaben
+              <%= about.studiengang %>
+          <% else %>
+              Keine Angaben
           <% end %>
         </li>
         <li class="list-group-item">
           <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-          <a href="<% if about.facebook != nil %>
+          <a href="
+            <% if about.facebook != nil %>
           <%= about.facebook %>">Link zu Facebook</a>
           <% else %>
           Keine Angaben
           <% end %>
-        </li>
+          </li>
         <li class="list-group-item">
           <a id="shadow" href="#" class="btn btn-primary btn-xs" style="float:right">Nach oben</a>
         </li>

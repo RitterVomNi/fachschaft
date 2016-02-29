@@ -1,72 +1,72 @@
+<div class="tl-body">
+  <div class="tl-entry" id="shadow2">
+    <div class="tl-time">
+      <small class="text-muted">
+        <i class="glyphicon glyphicon-time"></i> &#160;Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small>
+    </div>
+    <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-info faa-parent animated-hover">
+      <i class="fa fa-calendar faa-pulse"></i></div>
+    <div class="tl-content">
 
+      <div class="timeline-panel">
+        <div class="timeline-heading">
 
+          <div class="row">
+            <div class="col-md-3">
+              <div class="widget-container">
+                <% if content.image? %>
+                    <%= image_tag content.image_url(:content), class: "img-responsive" %>
+                <% else %>
+                    <%= image_tag 'fachschaft_content.jpg', class: "img-responsive" %>
+                <% end %>
+                <br>
 
-
-  <div class="tl-body">
-    <div class="tl-entry" id="shadow2">
-      <div class="tl-time"><small class="text-muted"><i class="glyphicon glyphicon-time"></i> &#160;Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></div>
-      <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-info faa-parent animated-hover"><i class="fa fa-calendar faa-pulse"></i></div>
-      <div class="tl-content">
-
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-
-            <div class="row">
-              <div class="col-md-3">
-                <div class="widget-container">
-                  <% if content.image?  %>
-                      <%=image_tag content.image_url(:content), class:"img-responsive" %>
-                  <% else %>
-                      <%=image_tag 'fachschaft_content.jpg', class:"img-responsive"  %>
-                  <% end %>
-                  <br>
-                  <div style="margin:auto;max-width:100%"><strong>
+                <div style="margin:auto;max-width:100%"><strong>
                   <%= @teams.find(content.team_id).teamName rescue "Allgemein" %></strong>
-                    </div>
                 </div>
               </div>
-              <div class="col-md-9">
-                <div class="widget-container">
-                  <h4 class="timeline-title"><%= content.title %></h4>
-                </div>
-                <div class="timeline-body" style="text-align: center">
-                  <p><%= content.content %></p>
+            </div>
+            <div class="col-md-9">
+              <div class="widget-container">
+                <h4 class="timeline-title"><%= content.title %></h4>
+              </div>
+              <div class="timeline-body" style="text-align: center">
+                <p><%= content.content %></p>
 
-                  <div class="timeline-footer">
-                    <hr>
-                    <% if content.link? %>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="widget-container">
-                        <div style="margin:auto;max-width:100%">
-                          <a href="<%= content.link %>" class="btn btn-primary", target="_blank"><i class="fa fa-external-link"></i> Link</a>
-                          </div>
-                          </div></div>
+                <div class="timeline-footer">
+                  <hr>
+                  <% if content.link? %>
+                      <div class="row">
                         <div class="col-md-6">
                           <div class="widget-container">
-                            <p><% user = content.user_id %>
-                              <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
-                            </p>
+                            <div style="margin:auto;max-width:100%">
+                              <a href="<%= content.link %>" class="btn btn-primary" , target="_blank"><i class="fa fa-external-link"></i>
+                                Link</a>
                             </div>
                           </div>
                         </div>
-                        <% else %>
-                    <p><% user = content.user_id %>
-                      <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
-                    </p>
-                        <% end %>
-                  </div>
-                </div>
+                        <div class="col-md-6">
+                          <div class="widget-container">
+                            <p>
+                              <% user = content.user_id %>
+                              <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  <% else %>
+                      <p>
+                        <% user = content.user_id %>
+                        <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
+                      </p>
+                  <% end %>
 
+                </div>
               </div>
             </div>
-
-
-
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
+</div>
