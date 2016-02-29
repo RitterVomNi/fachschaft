@@ -1,17 +1,32 @@
 <br><br><br>
-<div class="panel panel-info" id="shadow" style="margin:auto;max-width:95%">
+<div class="panel panel-info" id="shadow2" style="margin:auto;max-width:95%">
   <div class="panel-heading">
     <%= content.title %>
   </div>
   <div class="panel-body">
-    <%= content.content %>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="widget-container">
+          <% if content.image?  %>
+              <%=image_tag content.image_url(:content), class:"img-responsive" , class:"img-responsive"  %>
+          <% else %>
+              <%=image_tag 'fachschaft_content.jpg', class:"img-responsive"   %>
+          <% end %>
+          </div>
+        </div>
+      <div class="col-md-10">
+        <div class="widget-container">
+            <%= content.content %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="panel-footer">
     <p>Erstellt am:
       <%= content.created_at.strftime('%d.%m.%Y') %>
       von
       <% user = content.user_id %>
-      <%= link_to (@users.find(user).firstName + ' ' + @users.find(user).lastName), user_path(user) rescue "User gelöscht" %>
+      <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
     </p>
   </div>
 </div>

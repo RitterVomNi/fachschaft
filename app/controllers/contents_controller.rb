@@ -35,6 +35,7 @@ class ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.save
+        UserMailer.new_manager_content(@content.team_id).deliver
         format.html { redirect_to @content, notice: 'Content wurde erfolgreich erstellt.' }
         format.json { render :show, status: :created, location: @content }
       else
@@ -76,6 +77,6 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:content, :title, :user_id, :team_id, :image, :image_cache)
+      params.require(:content).permit(:content, :title, :user_id, :team_id, :image, :image_cache, :link)
     end
 end
