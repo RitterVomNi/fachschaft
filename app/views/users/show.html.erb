@@ -6,11 +6,14 @@
 <p>
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <div id="member" class="widget-container" style="border: solid 1px; margin:5px 0 10px">
+    <div id="shadow2" class="widget-container" style="border: solid 1px; margin:5px 0 10px">
       <div class="panel panel-profile">
         <div class="panel-heading bg-danger clearfix">
-          <img src="<%= asset_path('Gruppenfoto.png') %> " class="img-circle img80_80" style="float:left">
-          <div style="text-align: center; margin-left:-500px">
+          <% if @user.avatar?  %>
+              <%=image_tag @user.avatar_url(:mid) , class: "img-circle", style: "float:left" %>
+          <% else %>
+              <%=image_tag 'default.jpg' , class: "img-circle", style: "float:left"  %>
+          <% end %>          <div style="text-align: center; margin-left:-500px">
             <h3 class="ng-binding"><%= @user.firstName %></h3>
     <p><%= @user.lastName %></p>
   </div>
@@ -46,10 +49,12 @@
     <a href="#" class="btn btn-primary btn-xs" style="float:right">Nach oben</a>
   </li>
 </ul>
+
 </div>
 </div>
 </div>
 
 </p>
 </div>
+  <%= link_to "Zurück", index_path %>
 </div>
