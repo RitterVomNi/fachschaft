@@ -69,7 +69,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
 
-  config.action_mailer.default_url_options = { host: 'myapp.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'thawing-shore-49033.herokuapp.com' }
 
   config.action_mailer.perform_deliveries = true
   #config.action_mailer.raise_delivery_errors = false
@@ -79,7 +79,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'myapp.herokuapp.com',
+      domain:               'herokuapp.com',
       user_name:            ENV['gmail_username'],
       password:             ENV['gmail_password'],
       authentication:       'plain',
