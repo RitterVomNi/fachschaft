@@ -31,7 +31,7 @@ class ContentsController < ApplicationController
     @users = User.all
     @content = Content.new(content_params)
     @content.user_id = current_user.id
-    @content.team_id = @users.find(@content.user_id).team_id
+    @content.team_id = @users.find(@content.user_id).team_id rescue "Kein Team"
 
     respond_to do |format|
       if @content.save
