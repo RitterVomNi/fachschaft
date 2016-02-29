@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def late
     if User.find_by(team_id: "7") != nil
-    @user = User.find_by(team_id: "7")
+      @user = User.find_by(team_id: "7")
     else
       @user = User.find(1)
     end
