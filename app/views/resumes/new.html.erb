@@ -19,10 +19,12 @@
       <%= f.file_field :attachment %>
       <%= f.submit "Speichern", class: "btn btn-primary" %>
   <% end %>
+  <%= link_to 'Zurück', resumes_path %>
 </div>
     <% else %>
     <div class="callout callout-danger">
       <h4>Fehler</h4>
       <p>Böses Ding, hier hast du nichts zu suchen.</p>
     </div>
+
 <% end %>
