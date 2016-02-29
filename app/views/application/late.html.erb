@@ -1,205 +1,228 @@
 <style type="text/css">
-    #link8 {color:blue;}
+  #link8 {
+    color: blue;
+  }
 </style>
 <script>
-    $(document).ready(function() {
-        $("#show").click(function () {
-            $("#toggle").fadeToggle("slow");
-        });
+  $(document).ready(function () {
+    $("#show").click(function () {
+      $("#toggle").fadeToggle("slow");
     });
+  });
 </script>
-  <div style="text-align:center" id="shadow2"><br>
-    <h1>O-Woche verpasst und trotzdem gut ins Studium starten?</h1>
-    <h1>Kein Problem: <i id="show" style="color:#20549f" class="fa fa-caret-square-o-down faa-float animated"></i>
-      </h1>
+<div style="text-align:center" id="shadow2"><br>
+
+  <h1>O-Woche verpasst und trotzdem gut ins Studium starten?</h1>
+
+  <h1>Kein Problem: <i id="show" style="color:#20549f" class="fa fa-caret-square-o-down faa-float animated"></i>
+  </h1>
+  <br>
+
+  <div id="toggle" style="display:none">
+    <p>Auch wenn Du die O-Woche für deinen Studiengang verpasst hast, kannst Du mit ein wenig Eigeninitiative trotzdem
+      erfolgreich ins Studium starten.
+      Im Folgenden findest Du unsere spezielle Checkliste für Nachzügler.
+      Bei allgemeinen Fragen kannst Du dich gerne an unsere studentische Beratung für Nachzügler wenden.</p>
     <br>
-       <div id="toggle" style="display:none">
-        <p>Auch wenn Du die O-Woche für deinen Studiengang verpasst hast, kannst Du mit ein wenig Eigeninitiative trotzdem erfolgreich ins Studium starten.
-          Im Folgenden findest Du unsere spezielle Checkliste für Nachzügler.
-          Bei allgemeinen Fragen kannst Du dich gerne an unsere studentische Beratung für Nachzügler wenden.</p>
-        <br>
-        <p><strong>Dein Ansprechpartner aus der Fachschaft Wirtschaft:</strong></p>
-        <p>
-        <div style="max-width:400px; margin:auto">
-          <div id="shadow2" class="widget-container">
-            <div class="panel panel-profile">
-              <div class="panel-heading bg-danger clearfix">
-                <% if @user.avatar?  %>
-                    <%=image_tag @user.avatar.url(:mid) , class: "img-circle", style: "float:left" %>
-                <% else %>
-                    <%=image_tag 'default.jpg' , class: "img-circle", style: "float:left"  %>
-                <% end %>
-                <div style="position:relative; left:-25px">
-                    <h3 class="ng-binding"><%= @user.firstName %></h3>
-                    <p><%= @user.lastName %></p>
-                </div>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <i class="ti-email" data-toggle="tooltip" title="E-Mail Adresse"></i>
-                     <% if current_user.present? %>
-                      <a href="mailto:info@fh-fachschaft.de?subject=Nachzüglerbetreuung">E-Mail Nachzüglerbetreuung</a>
-                </li>
-                    <% else %>
-                        <%= link_to "Einloggen um Adresse zu sehen", sign_in_path, class:"btn btn-info" %>
-                     <% end %>
-                <li class="list-group-item">
-                  <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
-                  <a href="<%= @user.facebook %>">Facebook</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        </p>
-        <p><strong>Termine</strong>
-          <br>
-            (Studienverlaufsplan, Stundenplanerstellung, Prüfungsanmeldung, Rundgang FHZ und Co.)
-          <br>
-          <br>
-            <h4><strong><%= @appointments.find_by(title: "1. Termin Nachzüglerbetreuung").content.html_safe %> </strong>
-          <br>
-          <br>
-              <strong><%= @appointments.find_by(title: "2. Termin Nachzüglerbetreuung").content.html_safe %> </strong></h4>
-            Bitte melde Dich für einen Termin per Email an.
-          <br>
-        </p>
-    <br><br>
 
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Wichtig zum Einstieg</strong></medium>
-        <p>Mach Dich mit den grundlegenden Hinweisen für Studienstarter auf dieser Webseite vertraut.
-          Zusätzlich ist der Erstiguide der Fachschaft Wirtschaft ein praktischer Begleiter,
-          der viele Fragen rund um das Studium beantwortet.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Vorlesungsplan</strong></medium>
-        <p>Erstelle Deinen Vorlesungsplan, damit Du weißt, wann und wo du welche Vorlesungen, Übungen und Tutorien besuchen musst.
-          Eine Anleitung für die Stundenplanerstellung findest du auf der Seite für Studienstarter des Fachbereichs.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Vorlesungsmaterialien</strong></medium>
-        <p>Professoren und Dozenten stellen für Ihre Vorlesungen Skripte, Übungsaufgaben und andere Dokumente zur Verfügung.
-          Diese solltest Du mit in die Vorlesung bringen, um besser folgen zu können (ausgedruckt oder über Laptop/Tablet).
-          Die Materialien findest Du entweder im LSF oder im ILIAS unter der entsprechenden Veranstaltung.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Ausweise und Tickets</strong></medium>
-        <p>An der Fachhochschule und in Münster benötigst Du einige Ausweise und Tickets, um z.B. Bücher auszuleihen, in Mensen zu essen oder
-          Dich als Student auszuweisen.
-          In der Bibliothek kannst Du einen Ausweis beantragen, um
-          Bücher für die Klausurvorbereitung auszuleihen. In der Mensa musst Du mit
-          einer Mensakarte bezahlen, um den Studentenpreis zu erhalten. Das
-          Semesterticket für den Nahverkehr wird Dir zugeschickt und Deine Studienbescheinigung
-          erhälst Du bereits nach Deiner Einschreibung per E-Mail.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Tutorienanmeldung</strong></medium>
-        <p>Ab der ersten oder zweiten Vorlesungswoche musst Du Dich im LSF für Tutorien anmelden.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Prüfungsanmeldung</strong></medium>
-        <p>Nach Vorlesungsstart hast Du fünf Wochen Zeit Dich im LSF für die Prüfungen am Ende des ersten Semesters anzumelden.
-          Abmelden kannst Du dich bis eine Woche vor dem Prüfungstermin.</p>
-      </blockquote>
-        <br>
-      <blockquote class="blockquote-colored" id="shadow_smaller">
-        <medium><strong>Altklausuren-Verkauf</strong></medium>
-        <p>Die Fachschaft Wirtschaft verkauft während der Mittagspause im Fachschaftsbüro A417 Altklausuren, mit denen Du Dich auf deine Klausuren vorbereiten kannst.
-          Es ist sinnvoll, sich die Klausuren nicht erst am Ende des Semesters zu kaufen, da sie dann teilweise ausverkauft sind.</p>
-      </blockquote>
-    </div>
+    <p><strong>Dein Ansprechpartner aus der Fachschaft Wirtschaft:</strong></p>
 
-    <div class="panel-body">
-      <div class="divider divider-lg"></div>
-      <div>
-        <h1>Und diese Infos sind für euch alle Interessant</h1>
-        <br>
-          <div class="row">
-            <div class="col-md-4" id="shadow_ho">
-              <div class="ui-bullet">
-                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger  faa-parent animated-hover">
-                  <i class="fa fa-calculator faa-wrench"></i>
-                </div>
-                <div class="ui-bullet-content">
-                  <h3><strong>Mathe Brückenkurs</strong></h3>
-                  <p>Der Mathe Brückenkurs ist freiwillig. Als Vorbereitung auf den Studienstart werden Grundlagen der Mathematik wiederholt.<br>
-                    Wo? Im FHZ, Correnstraße 25.</p>
-                  <p>
-                    <h4>Termine werden euch per Mail geschickt.</h4>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" id="shadow_ho">
-              <div class="ui-bullet">
-                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger">
-                  <i class="fa fa-beer faa-pulse animated faa-slow"></i>
-                </div>
-                <div class="ui-bullet-content">
-                  <h3><strong>O-Woche</strong></h3>
-                  <p>Deine Chance, die FH Münster, die Stadt und Deine Kommilitonen bereits vor Vorlesungsbeginn kennen zulernen. Die Teilnahme ist freiwillig.<br>
-                    Wo? FHZ, Correnstraße 25.</p>
-                  <p>
-                    <h4>Nächster Termin: <br>
-                    <%= @appointments.find_by(title: "Termin O-Woche").content %></h4>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" id="shadow_ho">
-              <div class="ui-bullet">
-                <div class="btn-icon btn-icon-round btn-icon-lg bg-danger faa-parent animated-hover">
-                  <i class="fa fa-bus faa-passing"></i>
-                </div>
-                <div class="ui-bullet-content">
-                  <h3><strong>Erstifahrt</strong></h3>
-                  <p>Traditionell fahren wir mit Euch nach Vorlesungsbeginn ein Wochenende auf Erstifahrt. Die Anmeldung für die Erstifahrt findet während der O-Woche statt.</p>
-                  <p>
-                  <h4>Nächster Termin: <br>
-                    <%= @appointments.find_by(title: "Termin Erstifahrt").content %></h4>
-                  </p>
-                </div>
+    <p>
+      <div style="max-width:400px; margin:auto">
+        <div id="shadow2" class="widget-container">
+          <div class="panel panel-profile">
+            <div class="panel-heading bg-danger clearfix">
+              <% if @user.avatar? %>
+                  <%= image_tag @user.avatar.url(:mid), class: "img-circle", style: "float:left" %>
+              <% else %>
+                  <%= image_tag 'default.jpg', class: "img-circle", style: "float:left" %>
+              <% end %>
+              <div style="position:relative; left:-25px">
+                <h3 class="ng-binding"><%= @user.firstName %></h3>
+    <p><%= @user.lastName %></p>
+  </div>
+</div>
+<ul class="list-group">
+  <li class="list-group-item">
+    <i class="ti-email" data-toggle="tooltip" title="E-Mail Adresse"></i>
+    <% if current_user.present? %>
+        <a href="mailto:info@fh-fachschaft.de?subject=Nachzüglerbetreuung">E-Mail Nachzüglerbetreuung</a>
+        </li>
+    <% else %>
+        <%= link_to "Einloggen um Adresse zu sehen", sign_in_path, class: "btn btn-info" %>
+    <% end %>
+    <li class="list-group-item">
+      <i class="ti-facebook" data-toggle="tooltip" title="Facebook"></i>
+      <a href="<%= @user.facebook %>">Facebook</a>
+    </li>
+    </ul>
+</div>
+</div>
+</div>
+</p>
+<p><strong>Termine</strong>
+  <br>
+  (Studienverlaufsplan, Stundenplanerstellung, Prüfungsanmeldung, Rundgang FHZ und Co.)
+  <br>
+  <br>
+<h4><strong><%= @appointments.find_by(title: "1. Termin Nachzüglerbetreuung").content.html_safe %> </strong>
+  <br>
+  <br>
+  <strong><%= @appointments.find_by(title: "2. Termin Nachzüglerbetreuung").content.html_safe %> </strong></h4>
+Bitte melde Dich für einen Termin per Email an.
+<br>
+</p>
+<br><br>
 
-              </div>
-            </div>
-          </div>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Wichtig zum Einstieg</strong></medium>
+  <p>Mach Dich mit den grundlegenden Hinweisen für Studienstarter auf dieser Webseite vertraut.
+    Zusätzlich ist der Erstiguide der Fachschaft Wirtschaft ein praktischer Begleiter,
+    der viele Fragen rund um das Studium beantwortet.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Vorlesungsplan</strong></medium>
+  <p>Erstelle Deinen Vorlesungsplan, damit Du weißt, wann und wo du welche Vorlesungen, Übungen und Tutorien besuchen
+    musst.
+    Eine Anleitung für die Stundenplanerstellung findest du auf der Seite für Studienstarter des Fachbereichs.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Vorlesungsmaterialien</strong></medium>
+  <p>Professoren und Dozenten stellen für Ihre Vorlesungen Skripte, Übungsaufgaben und andere Dokumente zur Verfügung.
+    Diese solltest Du mit in die Vorlesung bringen, um besser folgen zu können (ausgedruckt oder über Laptop/Tablet).
+    Die Materialien findest Du entweder im LSF oder im ILIAS unter der entsprechenden Veranstaltung.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Ausweise und Tickets</strong></medium>
+  <p>An der Fachhochschule und in Münster benötigst Du einige Ausweise und Tickets, um z.B. Bücher auszuleihen, in
+    Mensen zu essen oder
+    Dich als Student auszuweisen.
+    In der Bibliothek kannst Du einen Ausweis beantragen, um
+    Bücher für die Klausurvorbereitung auszuleihen. In der Mensa musst Du mit
+    einer Mensakarte bezahlen, um den Studentenpreis zu erhalten. Das
+    Semesterticket für den Nahverkehr wird Dir zugeschickt und Deine Studienbescheinigung
+    erhälst Du bereits nach Deiner Einschreibung per E-Mail.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Tutorienanmeldung</strong></medium>
+  <p>Ab der ersten oder zweiten Vorlesungswoche musst Du Dich im LSF für Tutorien anmelden.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Prüfungsanmeldung</strong></medium>
+  <p>Nach Vorlesungsstart hast Du fünf Wochen Zeit Dich im LSF für die Prüfungen am Ende des ersten Semesters
+    anzumelden.
+    Abmelden kannst Du dich bis eine Woche vor dem Prüfungstermin.</p>
+</blockquote>
+<br>
+<blockquote class="blockquote-colored" id="shadow_smaller">
+  <medium><strong>Altklausuren-Verkauf</strong></medium>
+  <p>Die Fachschaft Wirtschaft verkauft während der Mittagspause im Fachschaftsbüro A417 Altklausuren, mit denen Du Dich
+    auf deine Klausuren vorbereiten kannst.
+    Es ist sinnvoll, sich die Klausuren nicht erst am Ende des Semesters zu kaufen, da sie dann teilweise ausverkauft
+    sind.</p>
+</blockquote>
+</div>
 
-        <div class="divider divider-lg"></div>
-        <div class="panel panel-default" style="max-width:450px; margin:auto" id="shadow2">
-          <div class="panel-heading">
-            <i class="fa fa-facebook-official fa-2x" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-            Facebook
+<div class="panel-body">
+  <div class="divider divider-lg"></div>
+  <div>
+    <h1>Und diese Infos sind für euch alle Interessant</h1>
+    <br>
+
+    <div class="row">
+      <div class="col-md-4" id="shadow_ho">
+        <div class="ui-bullet">
+          <div class="btn-icon btn-icon-round btn-icon-lg bg-danger  faa-parent animated-hover">
+            <i class="fa fa-calculator faa-wrench"></i>
           </div>
-          <div class="panel-body">
-            <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-            <a href="https://www.facebook.com/fhfachschaft/" target="_blank"><strong>Facebook Fachschaft</strong></a>
-          </div>
-          <div class="panel-body">
-            Wir erstellen je Studiengang und Semester immer eine eigene Gruppe. Einfach nach <br>" FH Münster &lt;Studiengang&gt;
-            " <br>suchen und beitreten.
-          </div>
-          <div class="panel-body">
-            <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-            <a href="https://www.facebook.com/fhmuensterwirtschaft/" target="_blank"><strong>Facebook
-              Fachbereich</strong></a>
-          </div>
-          <div class="panel-heading">Die FH bietet zusätzlichen Infos.</div>
-          <div class="panel-body">
-            <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-            <a href="https://www.fh-muenster.de/wirtschaft/studienstarter/studienstarter.php" target="_blank"><strong>Studienstarter</strong></a>
-          </div>
-          <div class="panel-body">
-            <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
-            <a href="https://www.fh-muenster.de/wirtschaft/studierende/start/vorlesungszeiten.php" target="_blank"><strong>Vorlesungszeiten</strong></a>
+          <div class="ui-bullet-content">
+            <h3><strong>Mathe Brückenkurs</strong></h3>
+
+            <p>Der Mathe Brückenkurs ist freiwillig. Als Vorbereitung auf den Studienstart werden Grundlagen der
+              Mathematik wiederholt.<br>
+              Wo? Im FHZ, Correnstraße 25.</p>
+
+            <p>
+            <h4>Termine werden euch per Mail geschickt.</h4>
+            </p>
           </div>
         </div>
       </div>
+      <div class="col-md-4" id="shadow_ho">
+        <div class="ui-bullet">
+          <div class="btn-icon btn-icon-round btn-icon-lg bg-danger">
+            <i class="fa fa-beer faa-pulse animated faa-slow"></i>
+          </div>
+          <div class="ui-bullet-content">
+            <h3><strong>O-Woche</strong></h3>
+
+            <p>Deine Chance, die FH Münster, die Stadt und Deine Kommilitonen bereits vor Vorlesungsbeginn kennen
+              zulernen. Die Teilnahme ist freiwillig.<br>
+              Wo? FHZ, Correnstraße 25.</p>
+
+            <p>
+            <h4>Nächster Termin: <br>
+              <%= @appointments.find_by(title: "Termin O-Woche").content %></h4>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="shadow_ho">
+        <div class="ui-bullet">
+          <div class="btn-icon btn-icon-round btn-icon-lg bg-danger faa-parent animated-hover">
+            <i class="fa fa-bus faa-passing"></i>
+          </div>
+          <div class="ui-bullet-content">
+            <h3><strong>Erstifahrt</strong></h3>
+
+            <p>Traditionell fahren wir mit Euch nach Vorlesungsbeginn ein Wochenende auf Erstifahrt. Die Anmeldung für
+              die Erstifahrt findet während der O-Woche statt.</p>
+
+            <p>
+            <h4>Nächster Termin: <br>
+              <%= @appointments.find_by(title: "Termin Erstifahrt").content %></h4>
+            </p>
+          </div>
+
+        </div>
+      </div>
     </div>
+
+    <div class="divider divider-lg"></div>
+    <div class="panel panel-default" style="max-width:450px; margin:auto" id="shadow2">
+      <div class="panel-heading">
+        <i class="fa fa-facebook-official fa-2x" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
+        Facebook
+      </div>
+      <div class="panel-body">
+        <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
+        <a href="https://www.facebook.com/fhfachschaft/" target="_blank"><strong>Facebook Fachschaft</strong></a>
+      </div>
+      <div class="panel-body">
+        Wir erstellen je Studiengang und Semester immer eine eigene Gruppe. Einfach nach <br>" FH Münster &lt;Studiengang&gt;
+        " <br>suchen und beitreten.
+      </div>
+      <div class="panel-body">
+        <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
+        <a href="https://www.facebook.com/fhmuensterwirtschaft/" target="_blank"><strong>Facebook
+          Fachbereich</strong></a>
+      </div>
+      <div class="panel-heading">Die FH bietet zusätzlichen Infos.</div>
+      <div class="panel-body">
+        <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
+        <a href="https://www.fh-muenster.de/wirtschaft/studienstarter/studienstarter.php" target="_blank"><strong>Studienstarter</strong></a>
+      </div>
+      <div class="panel-body">
+        <i class="fa fa-external-link" data-toggle="tooltip" title="Link" style="float:left;color:#20549f"></i>
+        <a href="https://www.fh-muenster.de/wirtschaft/studierende/start/vorlesungszeiten.php" target="_blank"><strong>Vorlesungszeiten</strong></a>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
