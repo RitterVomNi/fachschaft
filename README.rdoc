@@ -3,3 +3,93 @@
 Readme für die Fachschaftshomepage des Teams RubyOnSnails.
 
 Ursprünglich sollten wir nur das Content Management bauen, ist dann aber doch eine komplette Homepage geworden.
+
+Zusätzlich Verwendete Gems
+Folgendes im Gemfile hinzufügen
+
+#Basis
+gem ruby '2.2.4'
+gem rails '4.2.5'
+
+#Bootstrap - Optik
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
+#Devise – User Registrierung
+gem 'devise'
+gem 'devise-bootstrap-views'
+
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt',:git => 'https://github.com/codahale/bcrypt-ruby.git'
+
+#Rolify - Rollenverwaltung
+gem 'rolify'
+
+#Upload und Manipulation von Bildern und Dateien
+gem 'carrierwave', :github => 'satoruk/carrierwave' , :ref => '43179f94d6a4e62f69e812f5082d6447c9138480'
+gem 'rmagick', require: false
+
+#Administrationsverwaltung
+gem 'activeadmin', github: 'activeadmin'
+
+
+#Zum speichern geheimer Informationen
+gem 'figaro'
+
+
+#Für den Produktiveinsatz
+group :production do
+    gem 'pg'
+    gem 'rails_12factor'
+  end
+
+#Für die Entwicklungsphase
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'  #bereits vorhanden
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "capybara"
+end
+
+
+Installation
+Nach dem pull $ bundle install ausführen. Möglicherweise ist es notwendig für die Installation von rmagick zuerst ImageMagick mit 
+$ sudo apt-get install imagemagick zu installieren.
+
+In der git Version ist die E-Mail Funktion deaktiviert. 
+Um dies zu ändern müssen folgende Dinge getan werden :
+
+- model/user.rb Zeile 19 Auskommentierung entfernen
+
+-In config/environments/development.rb die # vor Zeile 44 entfernen und Zeile 43 auskommentieren.
+
+-In production.rb muss dies ebenfalls für die Zeilen 75 und 76 getan werden.
+
+Da wir Devise mit E-Mail confirmation nutzen,ist ein erfolgreiches registrieren in der offline Version ohne Konfiguration des E-Mail Zugangs nicht möglich.
+
+In der Version auf Heroku ist ein funktionierendes E-Mail System konfiguriert und es kann in vollem Umfang genutzt werden. Welcome E-Mail, Passwort vergessen, E-Mail Bestätigung, Hinweise auf neuen Content usw
+
+User Stories befinden sich im Root in der Datei Fachschaft_user_story.pdf. 
+Ferner sind rspec Tests implementiert.
+
+
+Was gibt es zu beachten?
+Content erstellen ist auf der Startseite nicht mit der Rolle 'User' (default) möglich. In der Administrationsoberfläche des Admin Namespace (Administration im Header wenn man als Admin eingelogt ist) kann man Nutzern Rollen und Teams zuweisen. Fachschaftsmitglieder müssen mindestens die Rolle Fachschaft haben und in einem Team sein, um erweiterte Funktionen nutzen zu können.
+
+Der erste User im Seed wird automatisch zum Admin.
+
+Administration als Manager stellt nur eingeschränkte Funktionen zur Freigabe und Bearbeitung von Content zur Verfügung.
+
+Ferner können Admins in der Administration bequem Inhalte auf der Homepage (zB Termine) ändern.
+
+Wenn ein Fachschaftsmitglied Content für sein Team erstellt, wird eine Mail an den Team-Manager (Zuweisung in Admin Oberfläche) des Fahschaftsmitglieds geschickt. Wenn dieser den Content frei gibt, wird eine Mail an den Admin geschickt. Dieser erteilt dann die entgültige Freigabe für den Content und erst dann wird er auf der Startseite angezeigt.
+
+
+
