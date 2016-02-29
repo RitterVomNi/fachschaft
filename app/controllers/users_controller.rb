@@ -41,13 +41,14 @@ class UsersController < ApplicationController
       end
     end
   end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
         params[:user][:role_ids] ||= []
-        format.html { render :edit , notice: 'User was successfully updated.' }
+        format.html { render :edit, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -67,17 +68,17 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      if params[:id] != "sign_out"
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    if params[:id] != "sign_out"
       @user = User.find(params[:id])
-      else
-        redirect_to index_path
-        end
+    else
+      redirect_to index_path
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:firstName, :lastName, :facebook)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:firstName, :lastName, :facebook)
+  end
 end

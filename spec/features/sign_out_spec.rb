@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
-RSpec.feature 'Sign out' do
+RSpec.feature 'Sign out',
+                'As a "User"'do
   context 'at start page' do
     let(:user) { FactoryGirl.create(:user)}
 

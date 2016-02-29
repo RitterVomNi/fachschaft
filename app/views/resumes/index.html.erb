@@ -1,50 +1,58 @@
 <style type="text/css">
-    #link3 {color:blue;}
+  #link3 {
+    color: blue;
+  }
 </style>
 <div id="shadow2"><br>
-<div class="callout callout-info" id="shadow2" style="margin:auto;max-width:95%">
-  <p>
-    Erfahrungsberichte über Auslandssemester von Studenten der FH Münster. Wir freuen uns über jeden neuen Erfahrungsbericht, den wir hier vorstellen dürfen.
-    Schickt ihn einfach im pdf Format an info@fh-fachschaft.de und lasst die Anderen an euren Erfahrungen teilhaben.
-  </p>
-</div>
-<br>
-<div class="panel panel-primary" id="shadow2" style="margin:auto;max-width:70%">
-  <div class="panel-heading">
-    <h3 class="panel-title">Eine Liste der Partnerhochschulen der FH findest du hier :</h3>
-  </div>
-  <div class="panel-body">
-    <a href="https://www.fh-muenster.de/internationaloffice/int_kontakte/index.php" target="_blank">FH Münster</a>
-  </div>
-</div><br>
-<% if current_user.present? && current_user.is_admin %>
-<%= link_to " neue Datei hochladen", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
-<% end %>
-    <br />
 
-<br />
-<table class="table table-bordered table-striped" id="shadow2" style="margin:auto;max-width:95%">
-  <thead>
-  <tr>
-    <th></th>
-    <th style="text-align: center">Ort</th>
-    <th style="text-align: center">Download</th>
-    <% if current_user.present? && current_user.is_admin %>
-    <th style="text-align: center">Löschen</th>
-    <% end %>
-  </tr>
-  </thead>
-  <tbody>
-  <% @resumes.each do |resume1| %>
-      <tr>
-        <td><i class="fa fa-file-pdf-o fa-2x" id="pdf"></i></td>
-        <td><strong><%= resume1.name %></strong></td>
-        <td><%= link_to "",  resume1.attachment_url,  class: "fa fa-download fa-2x faa-float animated-hover", style: "color:#20549f", target:"_blank" %></td>
-        <% if current_user.present? && current_user.is_admin %>
-       <td><%= link_to "",  resume1, method: :delete, confirm: "Are you sure that you wish to delete #{resume1.name}?",  class: "fa fa-times fa-2x", style:"color:red"  %>
-          </td>   <% end %>
-      </tr>
+  <div class="callout callout-info" id="shadow2" style="margin:auto;max-width:95%">
+    <p>
+      Erfahrungsberichte über Auslandssemester von Studenten der FH Münster. Wir freuen uns über jeden neuen
+      Erfahrungsbericht, den wir hier vorstellen dürfen.
+      Schickt ihn einfach im pdf Format an info@fh-fachschaft.de und lasst die Anderen an euren Erfahrungen teilhaben.
+    </p>
+  </div>
+  <br>
+
+  <div class="panel panel-primary" id="shadow2" style="margin:auto;max-width:70%">
+    <div class="panel-heading">
+      <h3 class="panel-title">Eine Liste der Partnerhochschulen der FH findest du hier :</h3>
+    </div>
+    <div class="panel-body">
+      <a href="https://www.fh-muenster.de/internationaloffice/int_kontakte/index.php" target="_blank">FH Münster</a>
+    </div>
+  </div>
+  <br>
+  <% if current_user.present? && current_user.is_admin %>
+      <%= link_to " neue Datei hochladen", new_resume_path, class: "fa fa-upload fa-2x", style: "color:#20549f" %>
   <% end %>
-  </tbody>
-</table><br>
+  <br/>
+
+  <br/>
+  <table class="table table-bordered table-striped" id="shadow2" style="margin:auto;max-width:95%">
+    <thead>
+    <tr>
+      <th></th>
+      <th style="text-align: center">Ort</th>
+      <th style="text-align: center">Download</th>
+      <% if current_user.present? && current_user.is_admin %>
+          <th style="text-align: center">Löschen</th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @resumes.each do |resume1| %>
+        <tr>
+          <td><i class="fa fa-file-pdf-o fa-2x" id="pdf"></i></td>
+          <td><strong><%= resume1.name %></strong></td>
+          <td><%= link_to "", resume1.attachment_url, class: "fa fa-download fa-2x faa-float animated-hover", style: "color:#20549f", target: "_blank" %></td>
+          <% if current_user.present? && current_user.is_admin %>
+              <td><%= link_to "", resume1, method: :delete, data: {confirm: "Are you sure that you wish to delete #{resume1.name}?"}, class: "fa fa-times fa-2x", style: "color:red" %>
+              </td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
 </div>

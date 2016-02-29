@@ -31,7 +31,7 @@ class ContentsController < ApplicationController
     @users = User.all
     @content = Content.new(content_params)
     @content.user_id = current_user.id
-    @content.team_id = @users.find(@content.user_id).team_id
+    @content.team_id = @users.find(@content.user_id).team_id rescue "Kein T"
 
     respond_to do |format|
       if @content.save
@@ -70,13 +70,13 @@ class ContentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_content
-      @content = Content.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_content
+    @content = Content.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def content_params
-      params.require(:content).permit(:content, :title, :user_id, :team_id, :image, :image_cache, :link)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def content_params
+    params.require(:content).permit(:content, :title, :user_id, :team_id, :image, :image_cache, :link)
+  end
 end

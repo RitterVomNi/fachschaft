@@ -1,5 +1,4 @@
 <% if current_user.present? && (current_user.is_admin || current_user.is_manager || current_user.is_fs) then %>
-    <p id="notice"><%= notice %></p>
 
     <br/>
     <%= link_to " Neuen Content erstellen ", new_content_path, class: "fa fa-plus fa-2x", style: "color:#20549f" %>
@@ -51,6 +50,6 @@
       <% end %>
       </tbody>
     </table>
-    <%= link_to 'Zurück', root_path %>
+    <%= link_to 'Zurück zur Startseite', root_path %>
 <% end %>
 

@@ -20,7 +20,7 @@ class ResumesController < ApplicationController
   def destroy
     @resume = Resume.find(params[:id])
     @resume.destroy
-    redirect_to resumes_path, notice:  "The resume #{@resume.name} has been deleted."
+    redirect_to resumes_path, notice: "The resume #{@resume.name} has been deleted."
   end
 
   private

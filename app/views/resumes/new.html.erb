@@ -1,29 +1,32 @@
 <style type="text/css">
-    #link3 {color:blue;}
+  #link3 {
+    color: blue;
+  }
 </style>
 <% if current_user.present? && current_user.is_admin %>
-<% if !@resume.errors.empty? %>
-    <div class="alert alert-error">
-      <ul>
-        <% @resume.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+    <% if !@resume.errors.empty? %>
+        <div class="alert alert-error">
+          <ul>
+            <% @resume.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<div class="well">
-  <%= form_for @resume, html: { multipart: true } do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.file_field :attachment %>
-      <%= f.submit "Speichern", class: "btn btn-primary" %>
-  <% end %>
-  <%= link_to 'Zurück', resumes_path %>
-</div>
-    <% else %>
+    <div class="well">
+      <%= form_for @resume, html: {multipart: true} do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.file_field :attachment %>
+          <%= f.submit "Speichern", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to 'Zurück', resumes_path %>
+    </div>
+<% else %>
     <div class="callout callout-danger">
       <h4>Fehler</h4>
+
       <p>Böses Ding, hier hast du nichts zu suchen.</p>
     </div>
 

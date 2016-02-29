@@ -7,7 +7,8 @@ FactoryGirl.define do
     password_confirmation "12345678"
     facebook "www.facebook.com/testlink"
     studiengang "BWL"
-
+    confirmed_at Date.today
+    team_id "3"
   end
 
 
