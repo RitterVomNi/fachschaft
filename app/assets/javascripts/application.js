@@ -18,7 +18,6 @@
 //= require bootstrap.min
 //= require jquery.smooth-scroll.min
 //= require jquery.min
-//= require main
 //= require ui
 //= require_tree .
 

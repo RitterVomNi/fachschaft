@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :studiengang, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
-  # after_create :send_welcome_mail
+  after_create :send_welcome_mail
   has_many :contents
   has_one :team
 

@@ -6627,11 +6627,7 @@ var duScrollDefaultEasing = function (a) {
                                     } else b.match(/^<span/) && (b.match(/<span class=(\"Apple-converted-space\"|\'Apple-converted-space\')>.<\/span>/gi) || (b = b.replace(/<(|\/)span[^>]*?>/gi, "")));
                                     b = b.replace(/<br class="Apple-interchange-newline"[^>]*?>/gi, "").replace(/<span class="Apple-converted-space">( |&nbsp;)<\/span>/gi, "&nbsp;")
                                 }
-                            /<
-                                li(\s. *
-                            )
-                                ?
-                            >/
+                            /<li(\s.*)?>/
                                 i.test(b) && /(<ul(\s.*)?>|<ol(\s.*)?>).*<li(\s.*)?>/i.test(b) === !1 && (b = b.replace(/<li(\s.*)?>.*<\/li(\s.*)?>/i, "<ul>$&</ul>")), b = b.replace(/^[ |\u00A0]+/gm, function (a) {
                                     for (var b = "", c = 0; c < a.length; c++)b += "&nbsp;";
                                     return b
