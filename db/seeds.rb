@@ -19,7 +19,7 @@ Team.create(teamName: "Klausuren", user_id: "1")
 Team.create(teamName: "Gremienarbeit", user_id: "1")
 Team.create(teamName: "Nachzügler", user_id: "1")
 
-User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Malte", lastName: "Evers", email: "adminfachtest@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik", confirmed_at: DateTime.now )
+User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Malte", lastName: "Evers", email: "adminfachtest@fh-muenster.de", password: "12345678", team_id: "1", studiengang: "BA-Wirtschaftsinformatik", confirmed_at: DateTime.now)
 User.create(facebook: "https://www.facebook.com/profile.php?id=100005615115122", firstName: "Matthias", lastName: "Heinen", email: "dfgdsfgohdsfojdofsv234234@fh-muenster.de", password: "12345678", team_id: "2", studiengang: "BA-Wirtschaftsinformatik", confirmed_at: DateTime.now)
 user = User.new(facebook: "https://www.facebook.com/malte.la.7?fref=ts", firstName: "Malte", lastName: "Lange", email: "sddsfdsfsdf2343r8fdscuse74@fh-muenster.de" ,password: "12345678", team_id: "3", studiengang: "BA-Wirtschaftsinformatik", confirmed_at: DateTime.now)
 user.set_role("Manager")

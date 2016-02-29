@@ -1,6 +1,6 @@
 <br><br><br>
 <div class="panel panel-info" id="shadow2" style="margin:auto;max-width:95%">
-  <div class="panel-heading">
+  <div class="panel-heading" style="padding-left:20%">
     <%= content.title %>
   </div>
   <div class="panel-body">
@@ -8,7 +8,7 @@
       <div class="col-md-2">
         <div class="widget-container">
           <% if content.image? %>
-              <%= image_tag content.image_url(:content), class: "img-responsive", class: "img-responsive" %>
+              <%= image_tag content.image_url(:content), class: "img-responsive" %>
           <% else %>
               <%= image_tag 'fachschaft_content.jpg', class: "img-responsive" %>
           <% end %>
@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="panel-footer">
+  <div class="panel-footer" style="padding-left:20%">
     <p>Erstellt am:
       <%= content.created_at.strftime('%d.%m.%Y') %>
       von
