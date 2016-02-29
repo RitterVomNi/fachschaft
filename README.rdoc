@@ -109,3 +109,6 @@ Wenn ein Fachschaftsmitglied Content für sein Team erstellt, wird eine Mail an 
 
 
 
+Live preview http://thawing-shore-49033.herokuapp.com/
+
+Leider löscht Heroku hochgeladene Bilder nach einer Zeit. Also einfach selber welche hochladen, wir haben überall nur default Bilder.
