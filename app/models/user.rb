@@ -7,22 +7,23 @@ class User < ActiveRecord::Base
   rolify
 
   validates :email,
-            format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden." },
-            uniqueness: { case_sensitive: false, message: "Email ist bereits vergeben." }
+            format: {with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@fh\-muenster\.de)\z/, message: "muss mit @fh-muenster.de enden."},
+            uniqueness: {case_sensitive: false, message: "Email ist bereits vergeben."}
   validates :facebook,
-            format: { with: /(\A\z|\A(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?)/, message: "Facebook-Link nicht gültig." }
+            format: {with: /(\A\z|\A(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?)/, message: "Facebook-Link nicht gültig."}
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :studiengang, presence: true
 
   after_initialize :set_default_role, :if => :new_record?
- # after_create :send_welcome_mail
+  # after_create :send_welcome_mail
   has_many :contents
   has_one :team
 
   def send_welcome_mail
     UserMailer.welcome_email(self).deliver
   end
+
   #sets the Role of the user. Works only if roleName is part of Role.POSSIBLE_ROLES
   def set_role(role_name)
     #Is the role part of possible roles
@@ -59,11 +60,11 @@ class User < ActiveRecord::Base
   end
 
 
-
   #Returns the name of the current role
   def current_role
     self.roles[0].to_string
   end
+
   private
 
   ##
