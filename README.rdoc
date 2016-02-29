@@ -4,8 +4,9 @@ Readme für die Fachschaftshomepage des Teams RubyOnSnails.
 
 Ursprünglich sollten wir nur das Content Management bauen, ist dann aber doch eine komplette Homepage geworden.
 
-Zusätzlich Verwendete Gems
-Folgendes im Gemfile hinzufügen
+Zusätzlich Verwendete Gems.
+
+Folgendes im Gemfile hinzufügen.
 
 #Basis
 
