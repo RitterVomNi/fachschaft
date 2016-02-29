@@ -26,29 +26,29 @@
           </ul>
         </div>
     <% end %>
-
+<div class="form-group" style="margin-left:2%;max-width:90%">
+  <div class="field">
     <%= f.label "Titel" %><br>
     <%= f.text_field :title %>
     <br/>
-
-    <%- if current_user.avatar.url.present? %>
-        <%= image_tag(current_user.avatar.url) %>
+  </div>
+  <div class="field">
+    <%- if @content.image_url.present? %>
+        <%= image_tag(@content.image.url) %>
     <% end %><br>
-    <%= f.check_box(:remove_image, class: 'ui-checkbox') %>
-    <span><%= f.label :Bild_löschen, class: "ui-checkbox" %></span>
-
+  </div>
     <p>
 
     <div class="upload-preview">
-      <img style="max-width:100%"/>
+      <img style="max-width:300px"/>
     </div>
     </p>
-    <div>
+    <div class="field">
       <%= f.file_field(:image, class:"file") %>
       <%= f.hidden_field :image_cache %>
     </div>
     <br/>
-    <div class=class="form-control type="text">
+    <div class="field">
       <%= f.label :content %><br>
       <%= f.text_area :content, class: "form-control", rows: "10" %>
       <br/>
@@ -61,4 +61,5 @@
       <br>
       <%= link_to 'Übersicht', contents_path %>
     </p>
+</div>
 <% end %>

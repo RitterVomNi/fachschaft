@@ -4,39 +4,41 @@
 
   <div class="tl-body">
     <div class="tl-entry" id="shadow2">
-      <div class="tl-time"><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></div>
-      <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-info"><i class="glyphicon glyphicon-calendar"></i></div>
+      <div class="tl-time"><small class="text-muted"><i class="glyphicon glyphicon-time"></i> &#160;Erstellt: <%= content.created_at.strftime("%d.%m.%Y") %> </small></div>
+      <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-info faa-parent animated-hover"><i class="fa fa-calendar faa-pulse"></i></div>
       <div class="tl-content">
 
         <div class="timeline-panel">
           <div class="timeline-heading">
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-3">
                 <div class="widget-container">
                   <%= image_tag content.image_url(:content) if content.image? %>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="widget-container">
+              <div class="col-md-9">
+                <div class="widget-container" style="text-align: center">
                   <h4 class="timeline-title"><%= content.title %></h4>
                 </div>
+                <div class="timeline-body" style="text-align: center">
+                  <p><%= content.content %></p>
+                  <div class="timeline-footer">
+                    <br>
+                    <hr>
+                    <p><% user = content.user_id %>
+                      <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
 
 
           </div>
-          <div class="timeline-body">
-            <p><%= content.content %></p>
-            <div class="timeline-footer">
-              <br>
-              <hr>
-              <p><% user = content.user_id %>
-                <%= link_to (@users.find(user).fullname), user_path(user) rescue "User gelöscht" %>
-              </p>
-            </div>
-          </div>
+
         </div>
 
       </div>

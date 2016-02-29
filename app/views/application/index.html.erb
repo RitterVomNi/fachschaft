@@ -31,51 +31,36 @@
 </ul>
 
 
-
-
   <div class="tab-content">
-  <div id="news" class="tab-pane fade in active">
-    <div class="ui-timline-container" style="max-width:100%">
-      <!-- Timeline for the newest content (all categories) -->
-      <a href="javascript:;" class="btn btn-w-md btn-primary btn-direction btn-down" id="show">Neueste</a><br><br>
-      <section class="ui-timeline"  id="toggle">
-        <% @contents.order(created_at: :desc).limit(10).first(5).each do |content| %>
-            <!-- Left side of the timeline -->
-            <% if (content.id%2) == 0 %>
-                  <article class="tl-item">
-                  <%= render partial: "index_timeline", locals: {content: content} %>
-                      </article>
-            <% else %>
-                <!-- Right side of the Timeline -->
-                  <article class="tl-item alt trick">
-                  <%= render partial: "index_timeline", locals: {content: content} %>
-                      </article>
+    <div id="news" class="tab-pane fade in active">
+      <div class="ui-timline-container" style="max-width:100%">
+        <!-- Timeline for the newest content (all categories) -->
+        <button class="btn btn-primary" id="show"><span class="glyphicon glyphicon-arrow-down"></span>Neueste</button><br><br>
+        <section class="ui-timeline" id="toggle">
+          <% @contents.where(ok_admin: true).order(created_at: :desc).limit(5).each do |content| %>
 
-            <% end %>
-        <% end %>
+              <article class="<%= cycle('tl-item', 'tl-item alt') -%>">
+                <%= render partial: "index_timeline", locals: {content: content} %>
+              </article>
 
-      </section>
+          <% end %>
+
+        </section>
+      </div>
     </div>
-  </div>
 
     <div id="news" class="tab-pane fade in active">
       <div class="ui-timline-container" style="max-width:100%">
         <!-- Timeline for the newest content (all categories) -->
-        <a href="javascript:;" class="btn btn-w-md btn-primary btn-direction btn-down" id="show2">Fast neu</a><br><br>
+        <button class="btn btn-primary" id="show2"><span class="glyphicon glyphicon-arrow-down"></span>Fast neu</button><br><br>
         <section class="ui-timeline"  id="toggle2">
-          <% @contents.order(created_at: :desc).limit(10).last(5).each do |content| %>
-              <!-- Left side of the timeline -->
-              <% if (content.id%2) == 0 %>
-                  <article class="tl-item">
-                    <%= render partial: "index_timeline", locals: {content: content} %>
-                  </article>
-              <% else %>
-                  <!-- Right side of the Timeline -->
-                  <article class="tl-item alt">
-                    <%= render partial: "index_timeline", locals: {content: content} %>
-                  </article>
-
-              <% end %>
+            <% helper = @contents.where(ok_admin: true).count %>
+          <% if helper >5 %>
+          <% @contents.where(ok_admin: true).order(created_at: :desc).limit(10).last(-5+helper).each  do |content| %>
+              <article class="<%= cycle('tl-item', 'tl-item alt') -%>" >
+                <%= render partial: "index_timeline", locals: {content: content} %>
+              </article>
+                <% end%>
           <% end %>
 
         </section>

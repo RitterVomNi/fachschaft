@@ -2837,7 +2837,7 @@ select[multiple].input-lg,
 
 .btn-primary {
   color: white;
-  background-color: #5b90bf;
+  background-color: #20549F;
   border-color: #4984b8; }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
   color: white;
@@ -2871,7 +2871,7 @@ select[multiple].input-lg,
 
 .btn-info {
   color: white;
-  background-color: #7fabd2;
+  background-color: #20549F;
   border-color: #6c9fcb; }
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
   color: white;
@@ -5533,6 +5533,6 @@ ul li i {float:left;}
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.tl-item.alt.trick {
-  text-align:center;
+.tl-item.alt.trick2 {
+  text-align:left;
 }
