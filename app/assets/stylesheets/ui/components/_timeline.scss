@@ -83,7 +83,7 @@ $TL_content_bg:         rgba(255,255,255,.9);
 
         &.alt {
             @media (min-width: $screen-sm) {
-                text-align: right;
+                text-align: center;
                 &:before {
                     display: none;
                 }
