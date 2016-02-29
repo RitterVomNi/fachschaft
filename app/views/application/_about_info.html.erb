@@ -1,7 +1,5 @@
-
-
 <div class="container" style="max-width:100%">
-  <div  style="margin:5px 0 10px" id="shadow2">
+  <div style="margin:5px 0 10px" id="shadow2">
     <div class="widget-container">
       <div class="panel panel-profile">
         <div class="container" style="margin: auto;max-width:100%"><br><br>
@@ -10,112 +8,126 @@
             <div class="panel panel-default">
               <div class="panel-heading" id="shadow2" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                 <h4 class="panel-title">
-                    Wir planen Events.
+                  Wir planen Events.
                 </h4>
               </div>
               <div id="collapse1" class="panel-collapse collapse in">
                 <div class="panel-body faa-parent animated-hover">Ob Vorträge, Partys, Sommerfest oder Weihnachtsmakt.
-                  Wir sind ständig dabei uns neue tolle Events zu überlegen, um euch den Studienalltag zu versüßen <i class="fa fa-heart-o faa-pulse blue"></i></div>
+                  Wir sind ständig dabei uns neue tolle Events zu überlegen, um euch den Studienalltag zu versüßen
+                  <i class="fa fa-heart-o faa-pulse blue"></i></div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" id="shadow2" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                 <h4 class="panel-title">
-                    Wir beraten bei Schwierigkeiten.
+                  Wir beraten bei Schwierigkeiten.
                 </h4>
               </div>
               <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body">Mitglieder der Fachschaft Wirtschaft sind im Senat, im Studierendenparlament, im Fachbereichsrat, in der Gleichstellungskommision und allen möglichen Gremien vertreten.
-                Dort setzen wir uns für euch ein und versuchen laufend Verbesserungen zu erwirken. Wenn ihr ein Problem habt, dann <strong>meldet</strong> euch einfach bei uns.</div>
+                <div class="panel-body">Mitglieder der Fachschaft Wirtschaft sind im Senat, im Studierendenparlament, im
+                  Fachbereichsrat, in der Gleichstellungskommision und allen möglichen Gremien vertreten.
+                  Dort setzen wir uns für euch ein und versuchen laufend Verbesserungen zu erwirken. Wenn ihr ein
+                  Problem habt, dann <strong>meldet</strong> euch einfach bei uns.
+                </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" id="shadow2">
                 <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                    Wir unterstützen beim Studienstart.
+                  Wir unterstützen beim Studienstart.
                 </h4>
               </div>
               <div id="collapse3" class="panel-collapse collapse">
-                <div class="panel-body">Wir organisieren die Erstsemestereinführung und eine legendäre Erstifahrt. Wir sorgen dafür, dass eure Erstitaschen prall gefüllt sind und wir tragen ständig Infos für euch zusammen.
-                Mitglieder der Fachschaft verwalten die Facebook Gruppen für Erstsemester.</div>
-              </div>
-            </div>
-          </div>
-        <div class="callout callout-info" id="shadow2">
-          <h4>Du möchtest dich auch für deine Kommilitonen einsetzen?</h4>
-          <p>Wir sind immer auf der Suche nach neuen, engagierten Mitgliedern. <br>
-            Komm einfach bei uns vorbei oder sprich uns an.</p>
-          Unsere Fachschaftssitzung findet während des Semesters
-           <strong><%= @appointments.find_by(title: "Sitzungszeit Fachschaft").content.html_safe %> im Fachschaftsbüro A417</strong> statt.
-          <br><br>
-          Hier findest du Kontaktinfos <a href="contact">Klick</a>
-        </div></div>
-
-
-          <br><br>
-
-
-          <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 10% 5% 10%">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-              <li data-target="#myCarousel" data-slide-to="4"></li>
-              <li data-target="#myCarousel" data-slide-to="5"></li>
-              <li data-target="#myCarousel" data-slide-to="6"></li>
-              <li data-target="#myCarousel" data-slide-to="7"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <!-- Bild Breite 900 Höhe 675 -->
-                <img src="/images/fach.jpg" class="img-responsive" data-toggle="modal" data-target="#myModal">
-              </div>
-                <% 7.times do |e| %>
-              <div class="item">
-                <img src="/images/fach<%=e%>.jpg" class="img-responsive"  data-toggle="modal" data-target="#myModal<%=e%>">
-              </div>
-                  <% end %>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <img src="/images/fach.jpg" class="img-responsive">
-                  </div>
+                <div class="panel-body">Wir organisieren die Erstsemestereinführung und eine legendäre Erstifahrt. Wir
+                  sorgen dafür, dass eure Erstitaschen prall gefüllt sind und wir tragen ständig Infos für euch
+                  zusammen.
+                  Mitglieder der Fachschaft verwalten die Facebook Gruppen für Erstsemester.
                 </div>
               </div>
             </div>
-            <% 7.times do |i| %>
-                <div class="modal fade" id="myModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <img src="/images/fach<%=i%>.jpg" class="img-responsive">
-                      </div>
+          </div>
+          <div class="callout callout-info" id="shadow2">
+            <h4>Du möchtest dich auch für deine Kommilitonen einsetzen?</h4>
+
+            <p>Wir sind immer auf der Suche nach neuen, engagierten Mitgliedern. <br>
+              Komm einfach bei uns vorbei oder sprich uns an.</p>
+            Unsere Fachschaftssitzung findet während des Semesters
+            <strong><%= @appointments.find_by(title: "Sitzungszeit Fachschaft").content.html_safe %> im Fachschaftsbüro
+              A417</strong> statt.
+            <br><br>
+            Hier findest du Kontaktinfos <a href="contact">Klick</a>
+          </div>
+        </div>
+
+
+        <br><br>
+
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 10% 5% 10%">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+            <li data-target="#myCarousel" data-slide-to="7"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <!-- Bild Breite 900 Höhe 675 -->
+              <img src="/images/fach.jpg" class="img-responsive" data-toggle="modal" data-target="#myModal">
+            </div>
+            <% 7.times do |e| %>
+                <div class="item">
+                  <img src="/images/fach<%= e %>.jpg" class="img-responsive" data-toggle="modal" data-target="#myModal<%= e %>">
+                </div>
+            <% end %>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                  <img src="/images/fach.jpg" class="img-responsive">
+                </div>
+              </div>
+            </div>
+          </div>
+          <% 7.times do |i| %>
+              <div class="modal fade" id="myModal<%= i %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                      <img src="/images/fach<%= i %>.jpg" class="img-responsive">
                     </div>
                   </div>
                 </div>
-            <%end%>
-          </div>
+              </div>
+          <% end %>
+        </div>
 
-</div></div></div>
+      </div>
+    </div>
+  </div>
 
 
 </div>
