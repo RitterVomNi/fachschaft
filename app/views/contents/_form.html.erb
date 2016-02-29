@@ -1,17 +1,17 @@
 <script>
-    $(document).ready(function () {
-        var preview = $(".upload-preview img");
-        $(".file").change(function (event) {
-            var input = $(event.currentTarget);
-            var file = input[0].files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                image_base64 = e.target.result;
-                preview.attr("src", image_base64);
-            };
-            reader.readAsDataURL(file);
-        });
+  $(document).ready(function () {
+    var preview = $(".upload-preview img");
+    $(".file").change(function (event) {
+      var input = $(event.currentTarget);
+      var file = input[0].files[0];
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        image_base64 = e.target.result;
+        preview.attr("src", image_base64);
+      };
+      reader.readAsDataURL(file);
     });
+  });
 </script>
 
 <%= form_for(@content) do |f| %>
@@ -27,49 +27,50 @@
         </div>
     <% end %>
 
-<div class="form-group" style="margin-left:2%;max-width:90%">
-  <div class="field">
-    <%= f.label "Titel" %><br>
-    <%= f.text_field :title, type: "text", align: "center" %>
-    <br/>
-  </div>
-  <div class="field">
-    <%= f.label "Linkadresse" %><br>
-    <%= f.text_field :link, type: "text", align: "center" %>
-    <br/>
-  </div>
-  <div class="field">
-    <%- if @content.image_url.present? %>
-        <%= image_tag(@content.image.url) %>
-    <% end %><br>
-  </div>
-    <p>
+    <div class="form-group" style="margin-left:2%;max-width:90%">
+      <div class="field">
+        <%= f.label "Titel" %><br>
+        <%= f.text_field :title, type: "text", align: "center" %>
+        <br/>
+      </div>
+      <div class="field">
+        <%= f.label "Linkadresse" %><br>
+        <%= f.text_field :link, type: "text", align: "center" %>
+        <br/>
+      </div>
+      <div class="field">
+        <%- if @content.image_url.present? %>
+            <%= image_tag(@content.image.url) %>
+        <% end %><br>
+      </div>
+      <p>
 
-    <div class="upload-preview">
-      <img style="max-width:300px"/>
-    </div>
-    </p>
-    <div class="field">
-      <%= f.file_field(:image, class:"file") %>
-      <%= f.hidden_field :image_cache %>
-    </div>
-    <br/>
-    <div class="field">
-
-      <%= f.label :content %><br>
-      <%= f.text_area :content, class: "form-control", rows: "10" %>
+      <div class="upload-preview">
+        <img style="max-width:300px"/>
+      </div>
+      </p>
+      <div class="field">
+        <%= f.file_field(:image, class: "file") %>
+        <%= f.hidden_field :image_cache %>
+      </div>
       <br/>
 
-      <div class="actions">
-        <%= f.submit %>
+      <div class="field">
+
+        <%= f.label :content %><br>
+        <%= f.text_area :content, class: "form-control", rows: "10" %>
+        <br/>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
       </div>
-    </div>
-<div>
-    <p>
-      <br>
-      <%= link_to 'Übersicht', contents_path %>
-    </p>
-</div>
+      <div>
+        <p>
+          <br>
+          <%= link_to 'Übersicht', contents_path %>
+        </p>
+      </div>
 <% end %>
 
 </div>
